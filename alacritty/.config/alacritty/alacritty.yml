@@ -1,13 +1,3 @@
-# Window title
-title: Alacritty
-
-# Window class (Linux/BSD only):
-class:
-  # Application instance name
-  instance: Alacritty
-  # General application class
-  general: Alacritty
-
 scrolling:
   history: 20000
 
@@ -15,12 +5,18 @@ auto_scroll: false
 
 live_config_reload: true
 
+# Window dimensions (columns and lines)
+window: 
+  decorations: full
+  startup_mode: Maximized
+
 shell:
   program: /usr/bin/zsh
 
 font:
   normal:
     family: "MesloLGS NF"
+  size: 15
 
 schemes:
   # Tokyo Night theme, based on both:
@@ -58,8 +54,4 @@ colors: *tokyo-night
 
 # window opacity
 window:
-  opacity: 0.70
-
-# keybindings
-key_bindings:
-  - { key: T, mods: Shift, action: SpawnNewInstance }
+  opacity: 0.90
