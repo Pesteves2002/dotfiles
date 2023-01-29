@@ -77,7 +77,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions sudo web-search copypath copyfile dirhistory history jsontools z vscode colored-man-pages zoxide archlinux)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions sudo web-search copypath copyfile dirhistory history jsontools z vscode colored-man-pages archlinux)
 
 function command_not_found_handler {
     local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
