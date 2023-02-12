@@ -16,7 +16,7 @@ shell:
 font:
   normal:
     family: "MesloLGS NF"
-  size: 18
+  size: 13
 
 schemes:
   # Tokyo Night theme, based on both:
