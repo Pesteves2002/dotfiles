@@ -37,6 +37,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock --i3lock --nofork -i ~/Pictu
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Polybar
+exec_always --no-startup-id ~/dotfiles/polybar/launch_multimonitor.sh &
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -206,67 +209,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# special
-set $foreground foreground #C6C6C6
-set $background background #1C1C1C
-set $cursorColor cursorColor #C6C6C6
-
-# black
-set $black1 color0 #303030
-set $black2 color8 #444444
-set $trueblack #000000
-
-# red
-set $red1 color1 #d75f5f
-set $red2 color9 #d75f5f
-
-# green
-set $green1 color2 #87AF87
-set $green2 color10 #87AF87
-
-# yellow
-set $yellow1 color3 #ffd75f
-set $yellow2 color11 #ffd75f
-
-# blue
-set $blue1 color4 #87afd7
-set $blue2 color12 #87afd7
-
-# magenta
-set $cyan1 color5 #afafd7
-set $cyan2 color13 #afafd7
-
-# cyan
-set $cyan1 color6 #afd7ff
-set $cyan2 color14 #afd7ff
-
-# white
-set $white1 color7 #4E4E4E
-set $white2 color15 #ffffff
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-       status_command i3status --config ~/.config/i3/i3status/i3status.conf
-    # Disable all tray icons
-    colors {
-        background $trueblack
-        statusline $white2
-        separator $red1 
-
-        #                  border background text
-        focused_workspace  $green1 $background $black1
-        active_workspace   $background $background $white2
-        inactive_workspace $background $black2 $foreground
-        urgent_workspace   $red1 $red1 $white2
-        binding_mode       $background $red2 $white2
-    } 
-    
-}
-
-
-
 # Window color settings
 # class                 border  backgr. text    indicator
 client.focused          #aaaaaa #aaaaaa #aaaaaa #aaaaaa
@@ -323,6 +265,9 @@ exec --no-startup-id intellij-idea-ultimate-edition
 exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+
+# reload polybar
+bindsym $mod+y exec --no-startup-id ~/dotfiles/polybar/launch.sh
 
 # Borders
 
