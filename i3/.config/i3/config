@@ -133,7 +133,7 @@ set $ws10 "10"
 
 set $terminal "1: Terminal "
 set $google "2: Google "
-set $discord "3: Discord "
+set $discord "3: Discord "
 set $vscode "4: VSCode "
 set $Intellij "5: Intellij "
 
@@ -311,7 +311,7 @@ exec --no-startup-id alacritty
 exec --no-startup-id google-chrome-stable
 
 # Discord
-exec --no-startup-id Discord
+exec --no-startup-id discord
 
 # VS Code
 exec --no-startup-id code
