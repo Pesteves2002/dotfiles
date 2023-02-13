@@ -79,17 +79,21 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# change cursor
+# change workspace monitor
 bindsym $mod+Shift+h move workspace to output left
-bindsym $mod+Shift+j move workspace to output down
-bindsym $mod+Shift+k move workspace to output up
 bindsym $mod+Shift+l move workspace to output right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left  move workspace to output left
-#bindsym $mod+Shift+Down  move workspace to output down
-#bindsym $mod+Shift+Up    move workspace to output up
 bindsym $mod+Shift+Right move workspace to output right
+
+
+# move focused container
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+
+# orientation for new workspaces
+default_orientation horizontal
 
 # split in horizontal orientation
 bindsym $mod+m split h
@@ -100,9 +104,6 @@ bindsym $mod+n split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -133,8 +134,8 @@ set $ws10 "10"
 set $terminal "1: Terminal "
 set $google "2: Google "
 set $discord "3: Discord "
-set $vscode "4: VSCode "
-set $Intellij "5: Intellij "
+set $vscode "4: VSCode "
+set $Intellij "5: Intellij "
 
 assign [class="Alacritty|alacritty"] → $terminal
 assign [class="Google-chrome|google-chrome"] → $google
@@ -312,6 +313,12 @@ exec --no-startup-id google-chrome-stable
 # Discord
 exec --no-startup-id Discord
 
+# VS Code
+exec --no-startup-id code
+
+# Intellij
+exec --no-startup-id intellij-idea-ultimate-edition
+
 # stolen from gaspar files
 
 exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
@@ -335,10 +342,10 @@ default_floating_border pixel 1
 # i3 gaps
 
 for_window [class="^.*"] border pixel 2
-gaps inner 6
-gaps outer 6
+gaps inner 12
+gaps outer 12
 gaps top 3
 gaps bottom 3
-#smart_gaps on
+smart_gaps on
 smart_borders on
 
