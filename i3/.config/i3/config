@@ -38,7 +38,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock --i3lock --nofork -i ~/Pictu
 exec --no-startup-id nm-applet
 
 # Polybar
-exec_always --no-startup-id ~/dotfiles/polybar/launch_multimonitor.sh &
+exec_always --no-startup-id ~/dotfiles/polybar/launch_polybar.sh &
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -133,18 +133,17 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-set $terminal "1: Terminal "
-set $google "2: Google "
-set $discord "3: Discord "
-set $vscode "4: VSCode "
-set $Intellij "5: Intellij "
+set $terminal "1: "
+set $google "2: "
+set $discord "3: "
+set $vscode "4: "
+set $Intellij "5: "
 
 assign [class="Alacritty|alacritty"] → $terminal
 assign [class="Google-chrome|google-chrome"] → $google
 assign [class="Discord|discord"] → $discord
 assign [class="Code|code"] → $vscode
 assign [class="Intellij-idea-ultimate-edition|jetbrains-idea"] → $Intellij
-
 
 # switch to workspace
 bindsym $mod+1 workspace number $terminal
