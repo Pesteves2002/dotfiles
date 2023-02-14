@@ -141,6 +141,10 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
+
+  font: "JetBrainsMonoMedium Nerd Font 14";
+  display-run: 					" ";
+  
   timeout {
       action: "kb-cancel";
       delay:  0;
@@ -154,6 +158,8 @@ configuration {
 entry {
   placeholder: "Search...";
   cursor: pointer;
+  cursor-color: rgb(220,20,60);
+  cursor-width: 2px;
 }
 
 element {
@@ -161,4 +167,3 @@ element {
   children: [ element-text, element-icon ];
   spacing: 5px;
 }
-@theme "Arc-dark"
