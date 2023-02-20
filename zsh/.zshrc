@@ -182,6 +182,14 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 eval "$(jump shell)"
+
+# Add alias
+alias setenv-sd='export JAVA_HOME="/usr/lib/jvm/java-17-openjdk" && export PATH=$JAVA_HOME/bin:$PATH'
+alias setenv-es='export JAVA_HOME="/usr/lib/jvm/java-11-openjdk" && export PATH=$JAVA_HOME/bin:$PATH'
+
+# Fix intellij not working with java 11
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # Configure editor
 export EDITOR=nvim
 
