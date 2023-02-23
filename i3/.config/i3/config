@@ -83,6 +83,8 @@ bindsym $mod+Right focus right
 
 # change workspace monitor
 bindsym $mod+Shift+h move workspace to output left
+bindsym $mod+p move workspace to output up
+bindsym $mod+ç move workspace to output down
 bindsym $mod+Shift+l move workspace to output right
 bindsym $mod+Shift+Left  move workspace to output left
 bindsym $mod+Shift+Right move workspace to output right
