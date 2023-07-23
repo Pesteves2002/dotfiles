@@ -293,3 +293,8 @@ gaps bottom 3
 smart_gaps on
 smart_borders on
 
+# music controls
+
+bindsym Ctrl+space exec playerctl play-pause
+bindsym Ctrl+shift+Left exec playerctl previous
+bindsym Ctrl+shift+Right exec playerctl next
