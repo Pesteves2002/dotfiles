@@ -256,10 +256,10 @@ exec --no-startup-id google-chrome-stable
 exec --no-startup-id discord
 
 # VS Code
-exec --no-startup-id code
+#exec --no-startup-id code
 
 # Intellij
-exec --no-startup-id intellij-idea-ultimate-edition
+#exec --no-startup-id intellij-idea-ultimate-edition
 
 # stolen from gaspar files
 
