@@ -125,10 +125,11 @@ alacritty-theme () {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias frick="fuck"
 alias open="xdg-open"
 alias gg="google-chrome-stable"
-eval $(thefuck --alias)
+alias ar="arandr"
+alias ls="ls -a"
+
 unsetopt BEEP
 
 # Enable colors and change prompt:
