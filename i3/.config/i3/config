@@ -263,7 +263,7 @@ exec --no-startup-id discord
 
 # stolen from gaspar files
 
-exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom -b
 
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
