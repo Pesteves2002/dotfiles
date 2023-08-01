@@ -128,7 +128,6 @@ alacritty-theme () {
 alias open="xdg-open"
 alias gg="google-chrome-stable"
 alias ar="arandr"
-alias ls="ls -a"
 
 unsetopt BEEP
 
