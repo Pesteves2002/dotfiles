@@ -140,12 +140,14 @@ set $google "2: "
 set $discord "3: "
 set $vscode "4: "
 set $Intellij "5: "
+set $cider "6: "
 
 assign [class="Alacritty|alacritty"] → $terminal
 assign [class="Google-chrome|google-chrome"] → $google
 assign [class="Discord|discord"] → $discord
 assign [class="Code|code"] → $vscode
 assign [class="Intellij-idea-ultimate-edition|jetbrains-idea"] → $Intellij
+assign [class="Cider|cider"] → $cider
 
 # switch to workspace
 bindsym $mod+1 workspace number $terminal
@@ -153,7 +155,7 @@ bindsym $mod+2 workspace number $google
 bindsym $mod+3 workspace number $discord
 bindsym $mod+4 workspace number $vscode
 bindsym $mod+5 workspace number $Intellij
-bindsym $mod+6 workspace number $ws6
+bindsym $mod+6 workspace number $cider
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
@@ -165,7 +167,7 @@ bindsym $mod+Shift+2 move container to workspace number $google
 bindsym $mod+Shift+3 move container to workspace number $discord
 bindsym $mod+Shift+4 move container to workspace number $vscode
 bindsym $mod+Shift+5 move container to workspace number $Intellij
-bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+6 move container to workspace number $cider
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
