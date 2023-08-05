@@ -300,3 +300,6 @@ smart_borders on
 bindsym Ctrl+space exec playerctl play-pause
 bindsym Ctrl+shift+Left exec playerctl previous
 bindsym Ctrl+shift+Right exec playerctl next
+
+# lock screen
+bindsym $mod+X exec --no-startup-id /home/tomas/.config/i3/scripts/lockScreen.sh
