@@ -144,6 +144,7 @@ set $cider "6: "
 
 assign [class="Alacritty|alacritty"] → $terminal
 assign [class="Google-chrome|google-chrome"] → $google
+assign [class="Firefox|firefox"] → $google
 assign [class="Discord|discord"] → $discord
 assign [class="Code|code"] → $vscode
 assign [class="Intellij-idea-ultimate-edition|jetbrains-idea"] → $Intellij

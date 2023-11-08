@@ -126,7 +126,7 @@ alacritty-theme () {
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 alias open="xdg-open"
-alias gg="google-chrome-stable"
+alias gg="firefox"
 alias ar="arandr"
 
 unsetopt BEEP
