@@ -252,8 +252,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 150- # decr
 # Alacritty
 exec --no-startup-id alacritty
 
-# Google Chrome
-exec --no-startup-id google-chrome-stable
+# Firefox
+exec --no-startup-id firefox 
 
 # Discord
 exec --no-startup-id discord
