@@ -303,4 +303,4 @@ bindsym Ctrl+shift+Left exec playerctl previous
 bindsym Ctrl+shift+Right exec playerctl next
 
 # lock screen
-bindsym $mod+X exec --no-startup-id /home/tomas/.config/i3/scripts/lockScreen.sh
+bindsym $mod+X exec --no-startup-id ~/.config/i3/scripts/lockScreen.sh
