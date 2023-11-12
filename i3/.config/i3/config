@@ -252,11 +252,11 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 150- # decr
 # Alacritty
 exec --no-startup-id alacritty
 
-# Firefox
-exec --no-startup-id firefox 
-
 # Discord
 exec --no-startup-id discord
+
+# Firefox
+exec --no-startup-id "sleep 3; firefox"
 
 # VS Code
 #exec --no-startup-id code
