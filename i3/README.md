@@ -34,41 +34,31 @@ $mod + mouse
 
 $mod + d
 
+### Dmenu Power
+
+$mod + Backspace
+
 ### Dmenu Calculator
 
 $mod + c
 
-## Workspace Shortcuts
-
-### Change Workspace Monitor
-
-$mod + Shift + {h,j,k,l} or $mod + Shift + {arrows}
-
-### Change Orientation
-
-$mod + {m,n} [m for horizontal, n for vertical]
-
-### Toggle Orientation
-
-$mod + e
-
-## Container Shortcuts
+## Workspace/Container Shortcuts
 
 ### Change focus
 
 $mod + {h,j,k,l} or $mod + {arrows}
 
-### Change Window Position
+### Change Workspace Monitor
 
-Ctrl + Shift + {h,j,k,l}
+$mod + Shift + {h,j,k,l} or $mod + Shift + {arrows}
+
+### Toggle Orientation
+
+$mod + e
 
 ### Toggle Tiling/Floating
 
 $mod + Esc
-
-### Focus Parent/Child Container
-
-$mod + {a,d} [a for parent, d for child]
 
 ## Reload i3
 
@@ -80,14 +70,6 @@ $mod + Shift + c
 
 $mod + Shift + r
 
-## Restart PolyBar
-
-$mod + y
-
-## Toggle Picom
-
-Ctrl + alt + o
-
 ## Music Controls
 
 ### Play/Pause
@@ -96,11 +78,15 @@ Ctrl + Space
 
 ### Change Music
 
-Ctrl + {Left,Right} or Ctrl + Shift + {Left,Right}
+Ctrl + Shift + {Left,Right}
 
 ## Enter Resize Mode
 
 $mod + r
+
+## Enter Move Mode
+
+$mod + m
 
 # Resize Mode
 
@@ -109,5 +95,15 @@ $mod + r
 $mod + r or Esc or Enter
 
 ## Resize Container
+
+{h,j,k,l} or {arrows}
+
+# Move Mode
+
+## Exit Move Mode
+
+$mod + m or Esc or Enter
+
+## Move Container
 
 {h,j,k,l} or {arrows}
