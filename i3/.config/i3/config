@@ -296,7 +296,7 @@ exec --no-startup-id "sleep 3; firefox"
 
 # stolen from gaspar files
 
-exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
+# exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 
 # Borders
 
