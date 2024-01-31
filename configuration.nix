@@ -2,12 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Add Home manager
+      inputs.home-manager.nixosModules.home-manager
     ];
 
   # Bootloader.
@@ -137,4 +139,20 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
+  home-manager.users.tomas = { pkgs, ... }: {
+    home.packages = [ pkgs.atool pkgs.httpie ];
+    programs.bash.enable = true;
+
+    # The state version is required and should stay at the version you
+    # originally installed.
+    home.stateVersion = "23.11";
+
+    programs.zsh = {
+      enable = true;
+      shellAliases = {
+        ll = "ls -l";
+        update = "sudo nixos-rebuild switch";
+      };
+    };
+  };
 }
