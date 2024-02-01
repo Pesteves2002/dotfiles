@@ -19,7 +19,7 @@
     nixfmt
 
     # System monitor
-    htop
+    htop-vim
     procps
     gdu
     duf
