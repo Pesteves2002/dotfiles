@@ -11,19 +11,26 @@
 
   outputs = inputs@{ nixpkgs, ... }:
     let
+
+      myLib = (import ./lib { inherit lib; }).myLib;
+
       inherit (builtins) filter;
       inherit (inputs.nixpkgs) lib;
-      inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
       inherit (lib) hasSuffix;
+      inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
 
       allModules = mkModules ./modules;
 
       # Imports every nix module from a directory, recursively.
       mkModules = path: filter (hasSuffix ".nix") (listFilesRecursive path);
+
+      profiles = myLib.rakeLeaves ./profiles;
+
     in {
       nixosConfigurations = {
         nixos = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit profiles; };
           modules = allModules
             ++ [ ./hosts/novablast inputs.home.nixosModules.home-manager ];
         };
