@@ -8,7 +8,7 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware.nix
     ];
 
   # Bootloader.
@@ -151,6 +151,7 @@
 
     # zsh
     programs.zsh = {
+      enable = true;
       shellAliases = {
         ll = "ls -l";
         update = "sudo nixos-rebuild switch --flake ~/.dotfiles";
