@@ -48,9 +48,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Enable Display Manager
+  services.xserver.windowManager.i3.enable = true;
+  services.xserver.displayManager = {
+    defaultSession = "none+i3";
+    lightdm.enable = true;
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -207,5 +210,20 @@
       newSession = true;
       escapeTime = 0;
     };
+
+    # i3
+    xsession =
+      {
+        enable = true;
+        windowManager.i3 = {
+          enable = true;
+          config = {
+            modifier = "Mod4";
+
+            menu = "${pkgs.rofi}/bin/rofi -matching normal -modi drun -show drun";
+          };
+        };
+      };
+
   };
 }
