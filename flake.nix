@@ -16,25 +16,17 @@
       inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
       inherit (lib) hasSuffix;
 
-
       allModules = mkModules ./modules;
 
       # Imports every nix module from a directory, recursively.
       mkModules = path: filter (hasSuffix ".nix") (listFilesRecursive path);
-
-    in
-    {
+    in {
       nixosConfigurations = {
         nixos = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = allModules ++ [
-            ./hosts/novablast
-            inputs.home.nixosModules.home-manager
-          ];
-
-
+          modules = allModules
+            ++ [ ./hosts/novablast inputs.home.nixosModules.home-manager ];
         };
       };
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     };
 }

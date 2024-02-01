@@ -4,7 +4,6 @@
 # URL:    https://github.com/diogotcorreia/dotfiles
 #
 # global programs and packages
-
 { pkgs, ... }: {
   # Essential packages
   environment.systemPackages = with pkgs; [

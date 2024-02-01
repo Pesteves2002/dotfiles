@@ -1,15 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
-{
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware.nix
-    ];
+{ config, pkgs, inputs, ... }: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -212,18 +208,16 @@
     };
 
     # i3
-    xsession =
-      {
+    xsession = {
+      enable = true;
+      windowManager.i3 = {
         enable = true;
-        windowManager.i3 = {
-          enable = true;
-          config = {
-            modifier = "Mod4";
+        config = {
+          modifier = "Mod4";
 
-            menu = "${pkgs.rofi}/bin/rofi -matching normal -modi drun -show drun";
-          };
+          menu = "${pkgs.rofi}/bin/rofi -matching normal -modi drun -show drun";
         };
       };
-
+    };
   };
 }
