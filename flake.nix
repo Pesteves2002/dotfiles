@@ -9,16 +9,32 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, self, ... }: {
-    nixosConfigurations = {
-      nixos = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/novablast
-          inputs.home.nixosModules.home-manager
-        ];
+  outputs = inputs@{ nixpkgs, ... }:
+    let
+      inherit (builtins) filter;
+      inherit (inputs.nixpkgs) lib;
+      inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
+      inherit (lib) hasSuffix;
+
+
+      allModules = mkModules ./modules;
+
+      # Imports every nix module from a directory, recursively.
+      mkModules = path: filter (hasSuffix ".nix") (listFilesRecursive path);
+
+    in
+    {
+      nixosConfigurations = {
+        nixos = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = allModules ++ [
+            ./hosts/novablast
+            inputs.home.nixosModules.home-manager
+          ];
+
+
+        };
       };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     };
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-  };
 }
