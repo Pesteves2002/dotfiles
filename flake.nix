@@ -1,4 +1,6 @@
 {
+  description = "Nix configuration for PCs and servers.";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     home = {
@@ -11,7 +13,6 @@
     nixosConfigurations = {
       nixos = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           inputs.home.nixosModules.home-manager

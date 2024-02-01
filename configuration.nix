@@ -143,8 +143,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = { pkgs, ... }: {
-    home.packages = [ pkgs.atool pkgs.httpie ];
-    programs.bash.enable = true;
+    home.packages = with pkgs; [ zsh tmux ];
 
     # The state version is required and should stay at the version you
     # originally installed.
@@ -152,7 +151,6 @@
 
     # zsh
     programs.zsh = {
-      enable = true;
       shellAliases = {
         ll = "ls -l";
         update = "sudo nixos-rebuild switch --flake ~/.dotfiles";
@@ -191,6 +189,22 @@
           };
         }
       ];
+    };
+
+    # git
+    programs.git = {
+      enable = true;
+      userName = "Tomás Esteves";
+    };
+
+    # tmux
+    programs.tmux = {
+      enable = true;
+      clock24 = true;
+      shortcut = "a";
+      baseIndex = 1;
+      newSession = true;
+      escapeTime = 0;
     };
   };
 }
