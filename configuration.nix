@@ -6,10 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # Add Home manager
-      inputs.home-manager.nixosModules.home-manager
     ];
 
   # Bootloader.
@@ -93,7 +92,7 @@
     packages = with pkgs; [
       firefox
       discord
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
