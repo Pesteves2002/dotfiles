@@ -1,4 +1,4 @@
-# profiles/home/tmux.nix
+# profiles/shell/tmux.nix
 #
 # Author: Tomás Esteves <tomasesteves2002@gmail.com> 
 # URL:    https://github.com/Pesteves2002/dotfiles

@@ -143,11 +143,13 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = { pkgs, ... }: {
-    home.packages = with pkgs; [ zsh tmux ];
+    home.packages = with pkgs; [ zsh ];
 
     # The state version is required and should stay at the version you
     # originally installed.
     home.stateVersion = "23.11";
+
+    imports = with profiles; [ graphical.i3 ];
 
     # zsh
     programs.zsh = {
@@ -198,17 +200,5 @@
       userName = "Tomás Esteves";
     };
 
-    # i3
-    xsession = {
-      enable = true;
-      windowManager.i3 = {
-        enable = true;
-        config = {
-          modifier = "Mod4";
-
-          menu = "${pkgs.rofi}/bin/rofi -matching normal -modi drun -show drun";
-        };
-      };
-    };
   };
 }
