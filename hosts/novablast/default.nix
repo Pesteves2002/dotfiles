@@ -46,9 +46,15 @@
   services.xserver.enable = true;
 
   # Enable Display Manager
-  services.xserver.windowManager.i3.enable = true;
   services.xserver.displayManager = {
-    defaultSession = "none+i3";
+    defaultSession = "user-xsession";
+    session = [{
+      name = "user-xsession";
+      manage = "desktop";
+      start = ''
+        exec $HOME/.xsession
+      '';
+    }];
     lightdm.enable = true;
   };
 
@@ -143,7 +149,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = { pkgs, ... }: {
-    home.packages = with pkgs; [ zsh ];
+    home.packages = with pkgs; [ zsh flameshot ];
 
     # The state version is required and should stay at the version you
     # originally installed.
