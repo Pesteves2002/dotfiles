@@ -10,6 +10,8 @@ let
   i3Mod = "Mod4";
   alt = "Mod1";
 in {
+  imports = [ ./i3-bar.nix ];
+
   xsession = {
     enable = true;
     windowManager.i3 = {
@@ -142,6 +144,22 @@ in {
         };
 
         workspaceAutoBackAndForth = true;
+
+        bars = [{
+          position = "top";
+          statusCommand =
+            "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+          fonts = {
+            names = [ "DejaVu Sans Mono" ];
+            style = "Bold Semi-Condensed";
+            size = 8.0;
+          };
+          colors = {
+            separator = "#666666";
+            background = "#222222";
+            statusline = "#dddddd";
+          };
+        }];
       };
     };
   };
