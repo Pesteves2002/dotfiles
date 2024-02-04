@@ -138,7 +138,7 @@ in {
         };
 
         assigns = {
-          "1" = [{ class = "alacritty"; }];
+          "1" = [{ class = "Alacritty"; }];
           "2" = [{ class = "firefox"; }];
           "3" = [{ class = "discord"; }];
         };
