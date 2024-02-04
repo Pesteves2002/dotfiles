@@ -118,6 +118,7 @@
   users.defaultUserShell = pkgs.zsh;
 
   # Add neovim as default editor
+  programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
 
   # Some programs need SUID wrappers, can be configured further or are
