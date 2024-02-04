@@ -149,13 +149,13 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = { pkgs, ... }: {
-    home.packages = with pkgs; [ zsh flameshot ];
+    home.packages = with pkgs; [ zsh ];
 
     # The state version is required and should stay at the version you
     # originally installed.
     home.stateVersion = "23.11";
 
-    imports = with profiles; [ graphical.i3 ];
+    imports = with profiles; [ graphical.i3 flameshot ];
 
     # zsh
     programs.zsh = {
