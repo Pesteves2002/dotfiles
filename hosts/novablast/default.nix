@@ -149,56 +149,13 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = { pkgs, ... }: {
-    home.packages = with pkgs; [ zsh ];
+    home.packages = with pkgs; [ ];
 
     # The state version is required and should stay at the version you
     # originally installed.
     home.stateVersion = "23.11";
 
-    imports = with profiles; [ graphical.i3 flameshot ];
-
-    # zsh
-    programs.zsh = {
-      enable = true;
-      shellAliases = {
-        ll = "ls -l";
-        update = "sudo nixos-rebuild switch --flake ~/.dotfiles";
-      };
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" ];
-        theme = "robbyrussell";
-      };
-      plugins = [
-        {
-          name = "zsh-autosuggestions";
-          src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-autosuggestions";
-            rev = "v0.7.0";
-            sha256 = "1g3pij5qn2j7v7jjac2a63lxd97mcsgw6xq6k5p7835q9fjiid98";
-          };
-        }
-        {
-          name = "zsh-completions";
-          src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-completions";
-            rev = "0.34.0";
-            sha256 = "0jjgvzj3v31yibjmq50s80s3sqi4d91yin45pvn3fpnihcrinam9";
-          };
-        }
-        {
-          name = "zsh-syntax-highlighting";
-          src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-syntax-highlighting";
-            rev = "0.7.0";
-            sha256 = "0s1z3whzwli5452h2yzjzzj27pf1hd45g223yv0v6hgrip9f853r";
-          };
-        }
-      ];
-    };
+    imports = with profiles; [ shell.zsh graphical.i3 flameshot ];
 
     # git
     programs.git = {
