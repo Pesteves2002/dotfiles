@@ -110,7 +110,6 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    alacritty
     git
   ];
 
@@ -155,7 +154,12 @@
     # originally installed.
     home.stateVersion = "23.11";
 
-    imports = with profiles; [ shell.zsh graphical.i3 flameshot ];
+    imports = with profiles; [
+      shell.zsh
+      graphical.i3
+      flameshot
+      shell.alacritty
+    ];
 
     # git
     programs.git = {
