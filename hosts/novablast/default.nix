@@ -95,15 +95,8 @@
     isNormalUser = true;
     description = "tomas";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      discord
-      #  thunderbird
-    ];
+    packages = with pkgs; [ ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -149,7 +142,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = { pkgs, ... }: {
-    home.packages = with pkgs; [ ];
+    home.packages = with pkgs; [ discord firefox ];
 
     # The state version is required and should stay at the version you
     # originally installed.
