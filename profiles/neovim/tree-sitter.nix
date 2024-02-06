@@ -13,8 +13,6 @@ let
     tree-sitter-javascript
     tree-sitter-latex
     tree-sitter-lua
-    tree-sitter-ocaml
-    tree-sitter-ocaml-interface
     tree-sitter-rust
     tree-sitter-scheme
     tree-sitter-toml
