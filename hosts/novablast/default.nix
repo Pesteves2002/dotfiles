@@ -100,19 +100,11 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-  ];
+  environment.systemPackages = with pkgs; [ wget git ];
 
   # Add zsh as default shell
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-
-  # Add neovim as default editor
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -153,6 +145,7 @@
       graphical.i3
       flameshot
       shell.alacritty
+      neovim
     ];
 
     # git
