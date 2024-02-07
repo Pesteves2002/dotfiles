@@ -46,18 +46,7 @@
   services.xserver.enable = true;
 
   # Enable Display Manager
-  services.xserver.displayManager = {
-    defaultSession = "user-xsession";
-    session = [{
-      name = "user-xsession";
-      manage = "desktop";
-      start = ''
-        exec $HOME/.xsession
-      '';
-    }];
-    lightdm.enable = true;
-  };
-
+  services.xserver.displayManager.sddm.enable = true; # This line enables sddm
   # Configure keymap in X11
   services.xserver = {
     layout = "pt";
@@ -106,6 +95,50 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
+  # Add nvidia drivers
+  # Enable OpenGL
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+
+    # Modesetting is required.
+    modesetting.enable = true;
+    # Use the open source version of the kernel module (for driver 515.43.04+)
+    open = true;
+    # Enable the Nvidia settings menu
+    nvidiaSettings = true;
+    # Select the appropriate driver version for your specific GPU
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+  };
+
+  programs.hyprland.enable = true;
+  programs.hyprland.package =
+    inputs.hyprland.packages."${pkgs.system}".hyprland;
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+
+    NIXOS_OZONE_WL = "1";
+
+    MOZ_ENABLE_WAYLAND = "1";
+  };
+
+  # xdg portal is required for screenshare
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
+
+  services.pipewire.wireplumber.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -134,7 +167,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = { pkgs, ... }: {
-    home.packages = with pkgs; [ discord firefox ];
+    home.packages = with pkgs; [ discord firefox kitty ];
 
     # The state version is required and should stay at the version you
     # originally installed.
@@ -147,6 +180,7 @@
       flameshot
       shell.alacritty
       neovim
+      graphical.hyprland
     ];
 
     # git

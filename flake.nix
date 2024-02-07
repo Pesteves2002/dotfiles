@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs@{ ... }:
@@ -37,7 +38,7 @@
       nixosConfigurations = {
         nixos = inputs.nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-          specialArgs = { inherit profiles; };
+          specialArgs = { inherit profiles inputs; };
           modules = allModules ++ [
             ./hosts/novablast
             inputs.home.nixosModules.home-manager
