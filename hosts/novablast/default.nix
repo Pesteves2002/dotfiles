@@ -142,6 +142,7 @@
 
     imports = with profiles; [
       shell.zsh
+      shell.lf
       graphical.i3
       flameshot
       shell.alacritty
