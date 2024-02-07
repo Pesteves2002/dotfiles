@@ -1,6 +1,6 @@
 # profiles/shell/zsh.nix
 #
-# Author: Tomás Esteves <tomasesteves2002@gmail.com> 
+# Author: Tomás Esteves <tomasesteves2002@gmail.com>
 # URL:    https://github.com/Pesteves2002/dotfiles
 #
 # zsh configuration
@@ -9,7 +9,6 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      ll = "ls -l";
       update = "sudo nixos-rebuild switch --flake ~/.dotfiles";
     };
     oh-my-zsh = {
@@ -46,6 +45,28 @@
         };
       }
     ];
+  };
+
+  # eza (modern ls replacement)
+  programs.eza.enable = true;
+  programs.eza.enableAliases = true;
+
+  # starship (shell theme)
+  programs.starship.enable = true;
+
+  # zoxide (jump to directories)
+  programs.zoxide.enable = true;
+  home.sessionVariables._ZO_ECHO = "1";
+
+  programs.starship.settings = {
+    scan_timeout = 1;
+    add_newline = true;
+
+    username.format = "[$user]($style) in ";
+    hostname = {
+      ssh_only = true;
+      format = "[$hostname]($style) ";
+    };
   };
 }
 
