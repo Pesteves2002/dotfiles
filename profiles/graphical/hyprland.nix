@@ -23,11 +23,35 @@
         # Close Active Window
         "$mod, Q, killactive"
 
-        # Move focus with mainMod + arrow keys
+        # Change focus
+        "$mod, h, movefocus, l"
+        "$mod, l, movefocus, r"
+        "$mod, k, movefocus, u"
+        "$mod, j, movefocus, d"
+
+        # Change focus (arrows)
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+
+        # Move window between monitors
+        "$mod SHIFT, h, movewindow, l"
+        "$mod SHIFT, l, movewindow, r"
+        "$mod SHIFT, k, movewindow, u"
+        "$mod SHIFT, j, movewindow, d"
+
+        # Move window between monitors (arrwows)
+        "$mod SHIFT, left, movewindow, l"
+        "$mod SHIFT, right, movewindow, r"
+        "$mod SHIFT, up, movewindow, u"
+        "$mod SHIFT, down, movewindow, d"
+
+        # Swap monitors
+        "$mod, s, swapactiveworkspaces, DP-3 DP-2"
+
+        # Move window to the special workspace
+        "$mod, C, movetoworkspace, special"
 
         # Switch workspaces with mainMod + [0-9]
         "$mod, 1, workspace, 1"
@@ -53,13 +77,28 @@
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
 
-        "$mod, C, movetoworkspace, special"
+        # Toggle float state
+        "$mod, Escape, togglefloating"
+
+        # Toggle Fullscreen
+        "$mod, f, fullscreen"
+
+        # Toggle Fake Fullscreen
+        "$mod SHIFT, f, fakefullscreen"
+
+        # Pin floating window
+        "$mod, p, pin"
+
+        # Force reload
+        "$mod SHIFT, r, forcerendererreload"
       ];
 
       bindr = [
         # Start wofi opens wofi on first press, closes it on second
         "$mod, D, exec, pkill wofi || wofi --show=drun"
       ];
+
+      binds = { allow_workspace_cycles = true; };
 
       misc = { disable_hyprland_logo = true; };
 
@@ -73,9 +112,6 @@
         "2, monitor:DP-2, default:true"
         "3, monitor:DP-2, default:true"
       ];
-
-      "exec-once" =
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";
 
     };
     xwayland.enable = true;
