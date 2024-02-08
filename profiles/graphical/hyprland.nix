@@ -8,6 +8,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [ ./waybar.nix ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
@@ -35,17 +37,17 @@
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
 
-        # Move window between monitors
-        "$mod SHIFT, h, movewindow, l"
-        "$mod SHIFT, l, movewindow, r"
-        "$mod SHIFT, k, movewindow, u"
-        "$mod SHIFT, j, movewindow, d"
+        # Move workspace between monitors
+        "$mod SHIFT, h, movecurrentworkspacetomonitor, l"
+        "$mod SHIFT, l, movecurrentworkspacetomonitor, r"
+        "$mod SHIFT, k, movecurrentworkspacetomonitor, u"
+        "$mod SHIFT, j, movecurrentworkspacetomonitor, d"
 
-        # Move window between monitors (arrwows)
-        "$mod SHIFT, left, movewindow, l"
-        "$mod SHIFT, right, movewindow, r"
-        "$mod SHIFT, up, movewindow, u"
-        "$mod SHIFT, down, movewindow, d"
+        # Move workspace between monitors (arrwows)
+        "$mod SHIFT, left, movecurrentworkspacetomonitor, l"
+        "$mod SHIFT, right, movecurrentworkspacetomonitor, r"
+        "$mod SHIFT, up, movecurrentworkspacetomonitor, u"
+        "$mod SHIFT, down, movecurrentworkspacetomonitor, d"
 
         # Swap monitors
         "$mod, s, swapactiveworkspaces, DP-3 DP-2"
