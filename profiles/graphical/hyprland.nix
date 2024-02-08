@@ -93,6 +93,7 @@
 
         # Force reload
         "$mod SHIFT, r, forcerendererreload"
+        "$mod SHIFT, r, exec, pkill .waybar-wrapped; waybar"
       ];
 
       bindr = [
@@ -114,6 +115,8 @@
         "2, monitor:DP-2, default:true"
         "3, monitor:DP-2, default:true"
       ];
+
+      exec-once = "waybar";
 
     };
     xwayland.enable = true;

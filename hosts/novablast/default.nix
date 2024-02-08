@@ -198,6 +198,7 @@
     noto-fonts-extra
     noto-fonts-emoji
     noto-fonts-cjk-sans
+    font-awesome
   ];
 
 }
