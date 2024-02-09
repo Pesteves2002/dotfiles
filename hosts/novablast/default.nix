@@ -193,6 +193,8 @@
       shell.alacritty
       neovim
       graphical.hyprland
+      graphical.gtk
+      graphical.qt
     ];
 
     # git
