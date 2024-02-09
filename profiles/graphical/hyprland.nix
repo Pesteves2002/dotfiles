@@ -116,6 +116,12 @@
         "3, monitor:DP-2, default:true"
       ];
 
+      windowrule = [
+        "workspace 1,^(Alacritty)$"
+        "workspace 2,^(firefox)$"
+        "workspace 3,^(discord)$"
+      ];
+
       exec-once = "waybar";
 
     };
