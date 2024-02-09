@@ -89,6 +89,9 @@
         # Force reload
         "$mod SHIFT, r, forcerendererreload"
         "$mod SHIFT, r, exec, pkill .waybar-wrapped; waybar"
+
+        # Take Screenshot
+        ", Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
       ];
 
       bindr = [

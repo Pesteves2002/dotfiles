@@ -95,7 +95,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [wget git];
+  environment.systemPackages = with pkgs; [
+    wget
+    git
+    grim
+    slurp
+    swappy
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+  ];
 
   # Add zsh as default shell
   programs.zsh.enable = true;
@@ -171,7 +178,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = {pkgs, ...}: {
-    home.packages = with pkgs; [discord firefox kitty];
+    home.packages = with pkgs; [discord firefox];
 
     # The state version is required and should stay at the version you
     # originally installed.

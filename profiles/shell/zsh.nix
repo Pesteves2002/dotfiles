@@ -7,8 +7,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      update = "sudo nixos-rebuild switch --flake ~/.dotfiles";
-      fmt = "nix fmt ~/.dotfiles";
+      update = "nix fmt && sudo nixos-rebuild switch --flake ~/.dotfiles";
     };
     oh-my-zsh = {
       enable = true;
