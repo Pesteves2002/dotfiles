@@ -91,7 +91,7 @@
         "$mod SHIFT, r, exec, pkill .waybar-wrapped; waybar"
 
         # Take Screenshot
-        ", Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
+        ", Print, exec, grim -l 0 -g \"$(slurp)\" - | swappy -f -"
       ];
 
       bindr = [
