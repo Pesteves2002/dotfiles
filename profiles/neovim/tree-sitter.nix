@@ -1,5 +1,7 @@
-{ nvim-treesitter, lists }:
-let
+{
+  nvim-treesitter,
+  lists,
+}: let
   grammars = with nvim-treesitter.builtGrammars; [
     tree-sitter-bash
     tree-sitter-comment
@@ -21,7 +23,7 @@ let
     tree-sitter-yaml
   ];
 in {
-  plugin = (nvim-treesitter.withPlugins (plugins: grammars));
+  plugin = nvim-treesitter.withPlugins (plugins: grammars);
   type = "lua";
   config = ''
     -- enable highlighting

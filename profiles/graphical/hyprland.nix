@@ -1,24 +1,19 @@
-# # profiles/graphical/hyprland.nix
-#
-# Author: Tomás Esteves <tomasesteves2002@gmail.com>
-# URL:    https://github.com/Pesteves2002/dotfiles
-#
-# hyprland configuration
-
-{ config, lib, pkgs, ... }:
-
 {
-  imports = [ ./waybar.nix ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [./waybar.nix];
 
   wayland.windowManager.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
     settings = {
       "$mod" = "SUPER";
-      input = { "kb_layout" = "pt"; };
+      input = {"kb_layout" = "pt";};
 
       bind = [
-
         # Open terminal
         "$mod, Return, exec, alacritty"
 
@@ -101,9 +96,9 @@
         "$mod, D, exec, pkill wofi || wofi --show=drun"
       ];
 
-      binds = { allow_workspace_cycles = true; };
+      binds = {allow_workspace_cycles = true;};
 
-      misc = { disable_hyprland_logo = true; };
+      misc = {disable_hyprland_logo = true;};
 
       monitor = [
         "DP-3, 2560x1440@144, 0x0,1,bitdepth,10"
@@ -123,12 +118,9 @@
       ];
 
       exec-once = "waybar";
-
     };
     xwayland.enable = true;
   };
 
-  programs.wofi = { enable = true; };
-
+  programs.wofi = {enable = true;};
 }
-

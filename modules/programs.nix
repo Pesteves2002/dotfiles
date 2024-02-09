@@ -1,10 +1,4 @@
-# modules/programs.nix
-#
-# Author: Diogo Correia <me@diogotc.com>
-# URL:    https://github.com/diogotcorreia/dotfiles
-#
-# global programs and packages
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # Essential packages
   environment.systemPackages = with pkgs; [
     # Compressed archives
@@ -14,9 +8,6 @@
 
     # Terminal multiplexers
     tmux
-
-    # Nix formatter
-    nixfmt
 
     # System monitor
     htop-vim

@@ -1,11 +1,9 @@
-# profiles/shell/alacritty.nix
-#
-# Author: Tomás Esteves <tomasesteves2002@gmail.com>
-# URL:    https://github.com/Pesteves2002/dotfiles
-#
-# alacritty configuration
-
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.alacritty = {
     enable = true;
 
@@ -15,7 +13,7 @@
       selection.save_to_clipboard = true;
 
       cursor = {
-        style = { shape = "Block"; };
+        style = {shape = "Block";};
 
         vi_mode_style = {
           shape = "Beam";
@@ -31,11 +29,13 @@
 
       # FIX ME: Change to comment after TOML update
       # keyboard.bindings = [ ...
-      key_bindings = [{
-        key = "Return";
-        mods = "Control|Shift";
-        action = "SpawnNewInstance";
-      }];
+      key_bindings = [
+        {
+          key = "Return";
+          mods = "Control|Shift";
+          action = "SpawnNewInstance";
+        }
+      ];
     };
   };
 }

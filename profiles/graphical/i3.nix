@@ -1,16 +1,13 @@
-# # profiles/graphical/i3.nix
-#
-# Author: Tomás Esteves <tomasesteves2002@gmail.com>
-# URL:    https://github.com/Pesteves2002/dotfiles
-#
-# i3configuration
-
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   i3Mod = "Mod4";
   alt = "Mod1";
 in {
-  imports = [ ./i3-bar.nix ];
+  imports = [./i3-bar.nix];
 
   xsession = {
     enable = true;
@@ -74,7 +71,6 @@ in {
 
           # Move mode
           "${i3Mod}+m" = ''mode "move"'';
-
         };
 
         modes = {
@@ -120,12 +116,11 @@ in {
             Down = "move down";
             Up = "move up";
             Right = "move right";
-
           };
         };
 
         fonts = {
-          names = [ "JetBrains Mono Nerd Font" ];
+          names = ["JetBrains Mono Nerd Font"];
           style = "Bold Semi-Condensed";
           size = 14.0;
         };
@@ -138,30 +133,30 @@ in {
         };
 
         assigns = {
-          "1" = [{ class = "Alacritty"; }];
-          "2" = [{ class = "firefox"; }];
-          "3" = [{ class = "discord"; }];
+          "1" = [{class = "Alacritty";}];
+          "2" = [{class = "firefox";}];
+          "3" = [{class = "discord";}];
         };
 
         workspaceAutoBackAndForth = true;
 
-        bars = [{
-          position = "top";
-          statusCommand =
-            "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
-          fonts = {
-            names = [ "DejaVu Sans Mono" ];
-            style = "Bold Semi-Condensed";
-            size = 8.0;
-          };
-          colors = {
-            separator = "#666666";
-            background = "#222222";
-            statusline = "#dddddd";
-          };
-        }];
+        bars = [
+          {
+            position = "top";
+            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+            fonts = {
+              names = ["DejaVu Sans Mono"];
+              style = "Bold Semi-Condensed";
+              size = 8.0;
+            };
+            colors = {
+              separator = "#666666";
+              background = "#222222";
+              statusline = "#dddddd";
+            };
+          }
+        ];
       };
     };
   };
 }
-

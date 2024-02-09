@@ -1,11 +1,8 @@
-# profiles/shell/tmux.nix
-#
-# Author: Tomás Esteves <tomasesteves2002@gmail.com> 
-# URL:    https://github.com/Pesteves2002/dotfiles
-#
-# tmux configuration
-
-{ config, lib, ... }: {
+{
+  config,
+  lib,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     clock24 = true;

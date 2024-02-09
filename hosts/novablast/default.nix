@@ -1,7 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, inputs, profiles, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  profiles,
+  ...
+}: {
   imports = with profiles; [
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -15,7 +21,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -83,13 +89,13 @@
   users.users.tomas = {
     isNormalUser = true;
     description = "tomas";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ ];
+    extraGroups = ["networkmanager" "wheel"];
+    packages = with pkgs; [];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ wget git ];
+  environment.systemPackages = with pkgs; [wget git];
 
   # Add zsh as default shell
   programs.zsh.enable = true;
@@ -104,10 +110,9 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
-
     # Modesetting is required.
     modesetting.enable = true;
     # Use the open source version of the kernel module (for driver 515.43.04+)
@@ -116,7 +121,6 @@
     nvidiaSettings = true;
     # Select the appropriate driver version for your specific GPU
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-
   };
 
   programs.hyprland.enable = true;
@@ -166,8 +170,8 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  home-manager.users.tomas = { pkgs, ... }: {
-    home.packages = with pkgs; [ discord firefox kitty ];
+  home-manager.users.tomas = {pkgs, ...}: {
+    home.packages = with pkgs; [discord firefox kitty];
 
     # The state version is required and should stay at the version you
     # originally installed.
@@ -188,7 +192,6 @@
       enable = true;
       userName = "Tomás Esteves";
     };
-
   };
 
   fonts.packages = with pkgs; [
@@ -200,5 +203,4 @@
     noto-fonts-cjk-sans
     font-awesome
   ];
-
 }

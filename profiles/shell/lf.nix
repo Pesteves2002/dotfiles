@@ -1,17 +1,14 @@
-# profiles/shell/lf.nix
-#
-# Author: Tomás Esteves <tomasesteves2002@gmail.com>
-# URL:    https://github.com/Pesteves2002/dotfiles
-#
-# lf configuration
-
-{ config, lib, pkgs, ... }: {
-
-  home.packages = with pkgs; [ file highlight python311Packages.pdftotext ];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [file highlight python311Packages.pdftotext];
 
   programs.lf = {
     enable = true;
-    settings = { icons = true; };
+    settings = {icons = true;};
     previewer = {
       keybinding = "i";
       source = pkgs.writeShellScript "previewer.sh" ''

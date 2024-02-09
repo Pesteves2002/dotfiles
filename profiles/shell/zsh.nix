@@ -1,19 +1,18 @@
-# profiles/shell/zsh.nix
-#
-# Author: Tomás Esteves <tomasesteves2002@gmail.com>
-# URL:    https://github.com/Pesteves2002/dotfiles
-#
-# zsh configuration
-
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+      fmt = "nix fmt ~/.dotfiles";
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "web-search" ];
+      plugins = ["git" "sudo" "web-search"];
       theme = "robbyrussell";
     };
     plugins = [
@@ -69,4 +68,3 @@
     };
   };
 }
-

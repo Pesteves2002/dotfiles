@@ -10,41 +10,43 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ ... }:
-    let
+  outputs = inputs @ {...}: let
+    myLib = (import ./lib {inherit lib;}).myLib;
 
-      myLib = (import ./lib { inherit lib; }).myLib;
+    inherit (builtins) filter;
+    inherit (inputs.nixpkgs) lib;
+    inherit (lib) hasSuffix;
+    inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
 
-      inherit (builtins) filter;
-      inherit (inputs.nixpkgs) lib;
-      inherit (lib) hasSuffix;
-      inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
+    system = "x86_64-linux";
 
-      system = "x86_64-linux";
+    allModules = mkModules ./modules;
 
-      allModules = mkModules ./modules;
+    # Imports every nix module from a directory, recursively.
+    mkModules = path: filter (hasSuffix ".nix") (listFilesRecursive path);
 
-      # Imports every nix module from a directory, recursively.
-      mkModules = path: filter (hasSuffix ".nix") (listFilesRecursive path);
+    profiles = myLib.rakeLeaves ./profiles;
 
-      profiles = myLib.rakeLeaves ./profiles;
-
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-    in {
-      nixosConfigurations = {
-        nixos = inputs.nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
-          specialArgs = { inherit profiles inputs; };
-          modules = allModules ++ [
+    pkgs = import inputs.nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+  in {
+    nixosConfigurations = {
+      nixos = inputs.nixpkgs.lib.nixosSystem {
+        inherit system pkgs;
+        specialArgs = {inherit profiles inputs;};
+        modules =
+          allModules
+          ++ [
             ./hosts/novablast
             inputs.home.nixosModules.home-manager
-            { home-manager = { useGlobalPkgs = true; }; }
+            {home-manager = {useGlobalPkgs = true;};}
           ];
-        };
       };
     };
+
+    # Use Alejandra to format .nix files
+    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  };
 }

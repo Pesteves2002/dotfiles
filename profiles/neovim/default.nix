@@ -1,11 +1,10 @@
-# profiles/neovim/default.nix
-# Author: Tomás Esteves <tomasesteves2002@gmail.com>
-# URL:    https://github.com/Pesteves2002/dotfiles
-#
-# neovim configuration
-
-{ config, lib, pkgs, osConfig, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}: let
   inherit (lib) lists;
   plugins = with pkgs.vimPlugins; [
     # Handles displaying icons for file types in Neovim.
@@ -32,7 +31,7 @@ let
     }
 
     # Imports the Nix language support for Treesitter.
-    (import ./tree-sitter.nix { inherit lists nvim-treesitter; })
+    (import ./tree-sitter.nix {inherit lists nvim-treesitter;})
 
     # Adds visual markers for changes in the gutter.
     vim-signature
@@ -268,7 +267,6 @@ let
         vim.keymap.set('x', '<leader>cc', '<Plug>NERDCommenterToggle')
       '';
     }
-
   ];
 
   files = {
@@ -283,11 +281,9 @@ in {
     vimdiffAlias = true;
     extraConfig = builtins.readFile ./base.vim;
     inherit plugins;
-
   };
 
   home.file = files;
 
-  home.sessionVariables = { EDITOR = "nvim"; };
-
+  home.sessionVariables = {EDITOR = "nvim";};
 }
