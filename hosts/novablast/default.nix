@@ -151,6 +151,9 @@
 
   services.pipewire.wireplumber.enable = true;
 
+  # needed to allow unlock with swaylock
+  security.pam.services.swaylock = {};
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -195,6 +198,7 @@
       graphical.hyprland
       graphical.gtk
       graphical.qt
+      graphical.swaylock
     ];
 
     # git
