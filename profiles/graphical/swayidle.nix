@@ -11,25 +11,16 @@
         event = "before-sleep";
         command = "${lib.getExe config.programs.swaylock.package} -defF";
       }
-      {
-        # TODO: Make dynamic for window manager
-        event = "after-resume";
-        command = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms on";
-      }
-      {
-        event = "lock";
-        command = "${lib.getExe config.programs.swaylock.package} -defF";
-      }
     ];
     timeouts = [
       {
-        timeout = 900;
+        timeout = 300;
         command = "${lib.getExe config.programs.swaylock.package} -defF";
       }
       {
-        # TODO: Make dynamic for window manager
-        timeout = 1200;
+        timeout = 350;
         command = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms off";
+        resumeCommand = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms on";
       }
     ];
   };

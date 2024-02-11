@@ -1,39 +1,59 @@
-{config, ...}: {
+{pkgs, ...}: {
   programs.swaylock = {
     enable = true;
+    package = pkgs.swaylock-effects;
     settings = {
       ignore-empty-password = true;
-      font = "Fira Sans Semibold";
-      color = "0077be";
-      indicator-radius = 200;
+      disable-caps-lock-text = true;
+      font = "MonaspiceAr Nerd Font";
+      grace = 300;
+
+      clock = true;
+      timestr = "%R";
+      datestr = "%a, %e of %B";
+
+      screenshots = true;
+
+      fade-in = "0.2";
+
+      effect-blur = "10x2";
+      effect-scale = "0.1";
+
+      indicator = true;
+      indicator-radius = 240;
       indicator-thickness = 20;
       indicator-caps-lock = true;
-      key-hl-color = "00000066";
-      separator-color = "00000000";
-      inside-color = "00000033";
-      inside-clear-color = "ffffff00";
-      inside-caps-lock-color = "ffffff00";
-      inside-ver-color = "ffffff00";
-      inside-wrong-color = "ffffff00";
-      ring-color = "ffffff";
-      ring-clear-color = "ffffff";
-      ring-caps-lock-color = "ffffff";
-      ring-ver-color = "ffffff";
-      ring-wrong-color = "ffffff";
-      line-color = "00000000";
-      line-clear-color = "ffffffFF";
-      line-caps-lock-color = "ffffffFF";
-      line-ver-color = "ffffffFF";
-      line-wrong-color = "ffffffFF";
-      text-color = "ffffff";
-      text-clear-color = "ffffff";
-      text-ver-color = "ffffff";
-      text-wrong-color = "ffffff";
-      bs-hl-color = "ffffff";
-      caps-lock-key-hl-color = "ffffffFF";
-      caps-lock-bs-hl-color = "ffffffFF";
-      disable-caps-lock-text = true;
-      text-caps-lock-color = "ffffff";
+
+      key-hl-color = "#8aadf4";
+      bs-hl-color = "#ed8796";
+      caps-lock-key-hl-color = "#f5a97f";
+      caps-lock-bs-hl-color = "#ed8796";
+
+      separator-color = "#181926";
+
+      inside-color = "#24273a";
+      inside-clear-color = "#24273a";
+      inside-caps-lock-color = "#24273a";
+      inside-ver-color = "#24273a";
+      inside-wrong-color = "#24273a";
+
+      ring-color = "#1e2030";
+      ring-clear-color = "#8aadf4";
+      ring-caps-lock-color = "231f20D9";
+      ring-ver-color = "#1e2030";
+      ring-wrong-color = "#ed8796";
+
+      line-color = "#8aadf4";
+      line-clear-color = "#8aadf4";
+      line-caps-lock-color = "#f5a97f";
+      line-ver-color = "#181926";
+      line-wrong-color = "#ed8796";
+
+      text-color = "#8aadf4";
+      text-clear-color = "#24273a";
+      text-caps-lock-color = "#f5a97f";
+      text-ver-color = "#24273a";
+      text-wrong-color = "#24273a";
     };
   };
 }
