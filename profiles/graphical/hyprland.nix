@@ -122,6 +122,7 @@
 
       exec-once = [
         "waybar"
+        "swww init && swww img ~/.dotfiles/config/wallpapers/planet.png"
 
         "alacritty"
         "firefox"
@@ -132,4 +133,8 @@
   };
 
   programs.wofi = {enable = true;};
+
+  home.packages = with pkgs; [
+    swww
+  ];
 }
