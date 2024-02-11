@@ -33,7 +33,7 @@
     };
   in {
     nixosConfigurations = {
-      nixos = inputs.nixpkgs.lib.nixosSystem {
+      tomas = inputs.nixpkgs.lib.nixosSystem {
         inherit system pkgs;
         specialArgs = {inherit profiles inputs;};
         modules =
