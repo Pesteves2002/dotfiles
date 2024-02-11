@@ -199,6 +199,7 @@
       graphical.gtk
       graphical.qt
       graphical.swaylock
+      graphical.swayidle
     ];
 
     # git
