@@ -120,7 +120,13 @@
         "workspace 3,^(discord)$"
       ];
 
-      exec-once = "waybar";
+      exec-once = [
+        "waybar"
+
+        "alacritty"
+        "firefox"
+        "Discord"
+      ];
     };
     xwayland.enable = true;
   };
