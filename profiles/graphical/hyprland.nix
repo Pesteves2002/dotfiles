@@ -92,6 +92,9 @@
 
         # Take Screenshot
         ", Print, exec, grim -l 0 -g \"$(slurp)\" - | swappy -f -"
+
+        # Start xwaylandvideobridge
+        "$mod SHIFT, s, exec, pkill .xwaylandvideob; xwaylandvideobridge"
       ];
 
       bindr = [
@@ -118,6 +121,14 @@
         "workspace 1,^(Alacritty)$"
         "workspace 2,^(firefox)$"
         "workspace 3,^(discord)$"
+
+        # Remove window to allow "Discord"
+        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
+        "noanim,class:^(xwaylandvideobridge)$"
+        "noinitialfocus,class:^(xwaylandvideobridge)$"
+        "maxsize 1 1,class:^(xwaylandvideobridge)$"
+        "noblur,class:^(xwaylandvideobridge)$"
+        "workspace 10 silent,^(xwaylandvideobridge)$"
       ];
 
       exec-once = [
@@ -136,5 +147,6 @@
 
   home.packages = with pkgs; [
     swww
+    xwaylandvideobridge
   ];
 }
