@@ -95,6 +95,11 @@
 
         # Start xwaylandvideobridge
         "$mod SHIFT, s, exec, pkill .xwaylandvideob; xwaylandvideobridge"
+
+        # Music controls
+        "CTRL, SPACE, exec, playerctl play-pause"
+        "CTRL SHIFT, left, exec, playerctl previous"
+        "CTRL SHIFT, right, exec, playerctl next"
       ];
 
       bindr = [
@@ -148,5 +153,6 @@
   home.packages = with pkgs; [
     swww
     xwaylandvideobridge
+    playerctl
   ];
 }
