@@ -105,6 +105,10 @@
         "CTRL SHIFT, right, exec, playerctl next"
       ];
 
+      bindl = [
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+
       bindr = [
         # Start wofi opens wofi on first press, closes it on second
         "$mod, D, exec, pkill wofi || wofi --show=drun"
@@ -113,7 +117,11 @@
       binde = [
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
       ];
 
       binds = {allow_workspace_cycles = true;};
@@ -153,6 +161,24 @@
         "firefox"
         "Discord"
       ];
+
+      general = {
+        border_size = 3;
+        gaps_in = 10;
+        gaps_out = 10;
+        "col.active_border" = "rgb(61f4de) rgb(6e78ff) 45deg";
+        "col.inactive_border" = "rgb(f3696e) rgb(f8a902) 45deg";
+
+        # stop ping pong with windows
+        no_focus_fallback = true;
+
+        resize_on_border = true;
+      };
+
+      decoration = {
+        rounding = 20;
+        inactive_opacity = 0.9;
+      };
     };
     xwayland.enable = true;
   };
