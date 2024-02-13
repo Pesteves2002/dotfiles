@@ -6,6 +6,8 @@
       * {
          background-image: none;
          box-shadow: none;
+
+         font-size: 50px;
        }
 
        window {
