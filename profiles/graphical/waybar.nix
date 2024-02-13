@@ -57,6 +57,16 @@
           tooltip = "true";
           tooltip-format = "Memory - {used:0.1f}GB used";
         };
+
+        "hyprland/workspaces" = {
+          format = "{icon}";
+          format-icons = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "default" = "";
+          };
+        };
       };
     };
 
