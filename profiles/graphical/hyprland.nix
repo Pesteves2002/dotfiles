@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./waybar.nix];
+  imports = [./waybar.nix ./wlogout.nix];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -19,6 +19,9 @@
 
         # Close Active Window
         "$mod, Q, killactive"
+
+        # Run wlogout
+        "$mod, Backspace, exec, pkill wlogout; wlogout"
 
         # Change focus
         "$mod, h, movefocus, l"
