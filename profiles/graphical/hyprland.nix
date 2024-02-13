@@ -179,6 +179,14 @@
         rounding = 20;
         inactive_opacity = 0.9;
       };
+
+      animation = [
+        "borderangle, 1, 30, linear, loop"
+      ];
+
+      bezier = [
+        "linear, 0.0, 0.0, 1.0, 1.0"
+      ];
     };
     xwayland.enable = true;
   };
