@@ -10,7 +10,7 @@
         spacing = "10";
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["cpu" "memory"];
+        modules-right = ["pulseaudio" "cpu" "memory"];
         "custom/hello-from-waybar" = {
           format = "hello {}";
           max-length = 40;
@@ -66,6 +66,18 @@
             "3" = "";
             "default" = "";
           };
+        };
+
+        pulseaudio = {
+          format = "{volume}% {icon}";
+          format-muted = "";
+          format-icons = {
+            headphones = "";
+            default = "";
+          };
+          scroll-step = 5;
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          on-click-right = "alacritty -e pulsemixer";
         };
       };
     };
@@ -236,7 +248,7 @@
       }
 
       #pulseaudio {
-          background-color: transparent;
+          background-color: #2980b9;
           color: #FFFFFF;
       }
 
@@ -348,4 +360,9 @@
       }
     '';
   };
+
+  home.packages = with pkgs; [
+    pulseaudio
+    pulsemixer
+  ];
 }
