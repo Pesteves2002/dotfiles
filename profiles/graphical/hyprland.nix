@@ -11,7 +11,11 @@
     enableNvidiaPatches = true;
     settings = {
       "$mod" = "SUPER";
-      input = {"kb_layout" = "pt";};
+      input = {
+        kb_layout = "pt";
+        numlock_by_default = true;
+        repeat_rate = 30;
+      };
 
       bind = [
         # Open terminal

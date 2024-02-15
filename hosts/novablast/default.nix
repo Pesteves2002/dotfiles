@@ -52,7 +52,12 @@
   services.xserver.enable = true;
 
   # Enable Display Manager
-  services.xserver.displayManager.sddm.enable = true; # This line enables sddm
+  services.xserver.displayManager = {
+    setupCommands = ''
+      ${pkgs.numlockx}/bin/numlockx on
+    '';
+    sddm.enable = true; # This line enables sddm
+  };
   # Configure keymap in X11
   services.xserver = {
     layout = "pt";
