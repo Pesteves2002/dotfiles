@@ -12,6 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware.nix
     shell.tmux
+    sshd
   ];
 
   # Bootloader.
