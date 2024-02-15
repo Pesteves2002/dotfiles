@@ -196,19 +196,23 @@
     # originally installed.
     home.stateVersion = "23.11";
 
-    imports = with profiles; [
-      shell.zsh
-      shell.lf
-      graphical.i3
-      flameshot
-      shell.alacritty
-      neovim
-      graphical.hyprland
-      graphical.gtk
-      graphical.qt
-      graphical.swaylock
-      graphical.swayidle
-    ];
+    imports = with profiles;
+      [
+        shell.zsh
+        shell.lf
+        graphical.i3
+        flameshot
+        shell.alacritty
+        graphical.hyprland
+        graphical.gtk
+        graphical.qt
+        graphical.swaylock
+        graphical.swayidle
+	nixvim
+      ]
+      ++ [
+        inputs.nixvim.homeManagerModules.nixvim
+      ];
 
     # git
     programs.git = {
