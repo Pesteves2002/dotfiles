@@ -26,6 +26,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJT5mbxJGQEOqRE+OqNNJNsOTw+i04ywIR8gE3vjAHzg tomas@thinkpad-tomas"
       "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMOPNp+vhM3oHBcsCIWys8t8/pRz7q6Tlt2orblvYmPHXoQ3QhNTI9zlyLhBaF/Ol2ac6LpRJjnTGu41uq8ccso="
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPa8Z24yEquM4MZTbflPvA3LufkHgdWX62OGrjufkfzP tomas@novablast"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIILI+0LhW+MhK3mwoqnNWjxws2qFOScx0Xhrn+ZcQB1p tomas@vaporfly"
     ];
 
     system = "x86_64-linux";
