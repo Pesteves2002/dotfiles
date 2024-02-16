@@ -208,7 +208,7 @@
         graphical.qt
         graphical.swaylock
         graphical.swayidle
-	nixvim
+        nixvim
       ]
       ++ [
         inputs.nixvim.homeManagerModules.nixvim
