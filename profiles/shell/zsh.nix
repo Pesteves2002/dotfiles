@@ -8,6 +8,7 @@
     enable = true;
     shellAliases = {
       update = "nix fmt && sudo nixos-rebuild switch --flake .#$(hostname -s)";
+      ff = "firefox";
     };
     oh-my-zsh = {
       enable = true;
