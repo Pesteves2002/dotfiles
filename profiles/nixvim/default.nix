@@ -53,6 +53,12 @@
     colorschemes.one.enable = true;
 
     keymaps = [
+      {
+        mode = "n";
+        key = "<leader>pv";
+        action = ":Ex<CR>";
+      }
+
       # invert search direction
       {
         mode = "n";
@@ -79,6 +85,18 @@
         mode = "n";
         key = "<Leader>w";
         action = ":set wrap!<CR>";
+      }
+
+      {
+        mode = "n";
+        key = "<Leader>u";
+        action = ":UndotreeToggle<CR>";
+      }
+
+      {
+        mode = "n";
+        key = "<Leader>gs";
+        action = ":Git<CR>";
       }
 
       # move lines up and down
@@ -119,8 +137,25 @@
       lsp = {
         enable = true;
 
+        keymaps = {
+          silent = true;
+          diagnostic = {
+            "<C-p>" = "goto_prev";
+            "<C-n>" = "goto_next";
+          };
+
+          lspBuf = {
+            gd = "definition";
+            K = "hover";
+          };
+        };
+
         servers = {
           nil_ls = {
+            enable = true;
+          };
+
+          clangd = {
             enable = true;
           };
         };
@@ -138,10 +173,23 @@
 
       treesitter = {
         enable = true;
+        nixvimInjections = true;
       };
 
       telescope = {
         enable = true;
+
+        keymaps = {
+          "<leader>pf" = {
+            action = "find_files";
+          };
+          "<C-p>" = {
+            action = "git_files";
+          };
+          "<leader>ps" = {
+            action = "live_grep";
+          };
+        };
       };
 
       copilot-vim = {
@@ -164,6 +212,41 @@
         enable = true;
         editingText = "Martelating %s";
         workspaceText = "Breaking the code of %s";
+      };
+
+      illuminate = {
+        enable = true;
+      };
+
+      harpoon = {
+        enable = true;
+        enableTelescope = true;
+        keymaps = {
+          addFile = "<leader>a";
+          toggleQuickMenu = "<C-e>";
+          navFile = {
+            "1" = "<C-h>";
+            "2" = "<C-j>";
+            "3" = "<C-k>";
+            "4" = "<C-l>";
+          };
+        };
+      };
+
+      undotree = {
+        enable = true;
+      };
+
+      fugitive = {
+        enable = true;
+      };
+
+      cursorline = {
+        enable = true;
+      };
+
+      trouble = {
+        enable = true;
       };
     };
   };
