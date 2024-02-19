@@ -13,6 +13,7 @@
     ./hardware.nix
     shell.tmux
     sshd
+    github-runner
   ];
 
   # Bootloader.
