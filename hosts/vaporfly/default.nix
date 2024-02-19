@@ -12,6 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware.nix
     shell.tmux
+    sshd
   ];
 
   # Bootloader.
@@ -196,18 +197,21 @@
     # originally installed.
     home.stateVersion = "23.11";
 
-    imports = with profiles; [
-      shell.zsh
-      shell.lf
-      graphical.i3
-      flameshot
-      shell.alacritty
-      graphical.hyprland
-      graphical.gtk
-      graphical.qt
-      graphical.swaylock
-      graphical.swayidle
-    ];
+    imports = with profiles;
+      [
+        shell.zsh
+        shell.lf
+        graphical.i3
+        flameshot
+        shell.alacritty
+        graphical.hyprland
+        graphical.gtk
+        graphical.qt
+        graphical.swaylock
+        graphical.swayidle
+        nixvim
+      ]
+      ++ [inputs.nixvim.homeManagerModules.nixvim];
 
     # git
     programs.git = {
