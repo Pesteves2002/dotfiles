@@ -16,6 +16,10 @@
 
     globals.mapleader = " ";
 
+    extraConfigLua = ''
+      vim.cmd('cabbrev W w')
+    '';
+
     options = {
       number = true;
       relativenumber = true;
@@ -99,6 +103,13 @@
         action = ":Git<CR>";
       }
 
+      # replace word under cursor
+      {
+        mode = "n";
+        key = "<Leader>s";
+        action = ":%s/\\<<C-r><C-w>\\>/";
+      }
+
       # move lines up and down
 
       {
@@ -110,6 +121,13 @@
         mode = "v";
         key = "K";
         action = ":m '<-2<CR>gv=gv";
+      }
+
+      # replace word under cursor
+      {
+        mode = "n";
+        key = "<Leader>s";
+        action = ":%s/\\<<C-r><C-w>\\>/";
       }
 
       {
@@ -146,7 +164,9 @@
 
           lspBuf = {
             gd = "definition";
+            gr = "references";
             K = "hover";
+            rn = "rename";
           };
         };
 
@@ -161,6 +181,11 @@
         };
       };
 
+      clangd-extensions = {
+        enable = true;
+        enableOffsetEncodingWorkaround = true;
+      };
+
       nvim-cmp = {
         enable = true;
         autoEnableSources = true;
@@ -168,7 +193,29 @@
           {name = "nvim_lsp";}
           {name = "path";}
           {name = "buffer";}
+          {name = "luasnip";}
+          {name = "treesitter";}
         ];
+      };
+
+      cmp-nvim-lsp = {
+        enable = true;
+      };
+
+      cmp-path = {
+        enable = true;
+      };
+
+      cmp-buffer = {
+        enable = true;
+      };
+
+      cmp_luasnip = {
+        enable = true;
+      };
+
+      cmp-treesitter = {
+        enable = true;
       };
 
       treesitter = {
@@ -183,7 +230,7 @@
           "<leader>pf" = {
             action = "find_files";
           };
-          "<C-p>" = {
+          "<C-g>" = {
             action = "git_files";
           };
           "<leader>ps" = {
@@ -246,6 +293,31 @@
       };
 
       trouble = {
+        enable = true;
+      };
+
+      indent-blankline = {
+        enable = true;
+      };
+
+      rainbow-delimiters = {
+        enable = true;
+      };
+
+      comment-nvim = {
+        enable = true;
+      };
+
+      # TODO: enable this when it's available
+      # autoclose = {
+      #   enable = true;
+      # };
+
+      luasnip = {
+        enable = true;
+      };
+
+      gitsigns = {
         enable = true;
       };
     };
