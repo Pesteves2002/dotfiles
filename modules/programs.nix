@@ -24,6 +24,7 @@
     # Find and search files
     fzf
     ripgrep
+    fd
 
     # perl-rename (much better than the one from util-linux)
     rename

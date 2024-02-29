@@ -320,6 +320,11 @@
       gitsigns = {
         enable = true;
       };
+
+      nvim-jdtls = {
+        enable = true;
+        data = "/home/tomas/.cache/nvim/jdtls";
+      };
     };
   };
 
