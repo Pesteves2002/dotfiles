@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./waybar.nix ./wlogout.nix];
+  imports = [./waybar.nix ./wlogout.nix ./hyprpaper.nix];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -159,7 +159,7 @@
 
       exec-once = [
         "waybar"
-        "swww init && swww img ~/.dotfiles/config/wallpapers/planet.png"
+        "hyprpaper"
 
         "alacritty"
         "firefox"
@@ -198,7 +198,6 @@
   programs.wofi = {enable = true;};
 
   home.packages = with pkgs; [
-    swww
     xwaylandvideobridge
     playerctl
   ];
