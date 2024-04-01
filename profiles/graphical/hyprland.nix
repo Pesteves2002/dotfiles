@@ -167,9 +167,9 @@
       ];
 
       general = {
-        border_size = 3;
-        gaps_in = 10;
-        gaps_out = 10;
+        border_size = 2;
+        gaps_in = 5;
+        gaps_out = 5;
         "col.active_border" = "rgb(61f4de) rgb(6e78ff) 45deg";
         "col.inactive_border" = "rgb(f3696e) rgb(f8a902) 45deg";
 
@@ -185,7 +185,9 @@
       };
 
       animation = [
+        "windows, 1, 2, default, slide"
         "borderangle, 1, 30, linear, loop"
+        "workspaces, 1, 2, default, slide"
       ];
 
       bezier = [
