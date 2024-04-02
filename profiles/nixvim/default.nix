@@ -21,6 +21,8 @@
     '';
 
     options = {
+      updatetime = 100;
+
       number = true;
       relativenumber = true;
 
@@ -147,6 +149,20 @@
         key = "<C-s>";
         action = "<Esc>:w<CR>a";
       }
+
+      {
+        # Toggle NvimTree
+        mode = "n";
+        key = "<C-n>";
+        action = "<CMD>NvimTreeToggle<CR>";
+      }
+
+      {
+        # Format file
+        mode = "n";
+        key = "<space>fm";
+        action = "<CMD>lua vim.lsp.buf.format()<CR>";
+      }
     ];
 
     plugins = {
@@ -165,13 +181,19 @@
           lspBuf = {
             gd = "definition";
             gr = "references";
+            gt = "type_definition";
+            gi = "implementation";
             K = "hover";
             rn = "rename";
           };
         };
 
         servers = {
-          nil_ls = {
+          bashls = {
+            enable = true;
+          };
+
+          nixd = {
             enable = true;
           };
 
@@ -179,6 +201,12 @@
             enable = true;
           };
         };
+      };
+
+      nvim-tree = {
+        enable = true;
+        openOnSetupFile = true;
+        autoReloadOnWrite = true;
       };
 
       clangd-extensions = {
@@ -202,6 +230,10 @@
         enable = true;
       };
 
+      cmp-emoji = {
+        enable = true;
+      };
+
       cmp-path = {
         enable = true;
       };
@@ -218,9 +250,31 @@
         enable = true;
       };
 
+      which-key = {
+        enable = true;
+        showKeys = true;
+      };
+
       treesitter = {
         enable = true;
         nixvimInjections = true;
+        nixGrammars = true;
+        indent = true;
+      };
+
+      treesitter-context.enable = true;
+
+      nvim-autopairs = {
+        enable = true;
+      };
+
+      auto-save = {
+        enable = true;
+        enableAutoSave = true;
+      };
+
+      bufferline = {
+        enable = true;
       };
 
       telescope = {
@@ -239,6 +293,11 @@
         };
       };
 
+      wilder = {
+        enable = true;
+        modes = [":" "/" "?"];
+      };
+
       copilot-vim = {
         enable = true;
 
@@ -248,10 +307,6 @@
       };
 
       surround = {
-        enable = true;
-      };
-
-      gitblame = {
         enable = true;
       };
 
@@ -319,6 +374,7 @@
 
       gitsigns = {
         enable = true;
+        currentLineBlame = true;
       };
 
       nvim-jdtls = {
