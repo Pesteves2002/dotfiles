@@ -28,6 +28,8 @@
     spell = true;
     spelllang = ["en" "pt"];
 
+    foldenable = false;
+
     undofile = true;
     undodir = "/tmp//";
   };
