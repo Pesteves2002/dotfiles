@@ -210,6 +210,7 @@
         graphical.qt
         graphical.swaylock
         graphical.swayidle
+        intellij
         nixvim
       ]
       ++ [inputs.nixvim.homeManagerModules.nixvim];
