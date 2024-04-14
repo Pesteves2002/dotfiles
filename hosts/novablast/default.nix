@@ -94,9 +94,11 @@
   users.users.tomas = {
     isNormalUser = true;
     description = "tomas";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [];
   };
+
+  virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -107,6 +109,7 @@
     slurp
     swappy
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    docker-compose
   ];
 
   # Add zsh as default shell
