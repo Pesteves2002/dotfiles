@@ -10,4 +10,8 @@
       };
     })
   ];
+
+  programs.nixvim.extraConfigVim = ''
+    let g:coqtail_noimap = 1
+  '';
 }

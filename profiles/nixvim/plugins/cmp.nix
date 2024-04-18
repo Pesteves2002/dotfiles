@@ -4,10 +4,6 @@
       enable = true;
     };
 
-    cmp-emoji = {
-      enable = true;
-    };
-
     cmp-nvim-lsp = {
       enable = true;
     };
@@ -36,7 +32,6 @@
         }
         {name = "path";}
         {name = "nvim_lua";}
-        {name = "emoji";}
         {name = "copilot";}
       ];
 
