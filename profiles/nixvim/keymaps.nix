@@ -105,6 +105,19 @@
         key = "<space>fm";
         action = "<CMD>lua vim.lsp.buf.format()<CR>";
       }
+
+      # Use tab as buffer switcher in normal mode
+      {
+        mode = "n";
+        key = "<Tab>";
+        action = ":bnext<CR>";
+      }
+
+      {
+        mode = "n";
+        key = "<S-Tab>";
+        action = ":bprevious<CR>";
+      }
     ];
   };
 }
