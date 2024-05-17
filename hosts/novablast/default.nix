@@ -203,6 +203,7 @@
       [
         shell.zsh
         shell.lf
+        shell.kitty
         graphical.i3
         flameshot
         shell.alacritty
