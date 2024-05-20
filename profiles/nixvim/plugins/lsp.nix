@@ -33,6 +33,14 @@
       clangd = {
         enable = true;
       };
+
+      tsserver = {
+        enable = true;
+      };
+
+      volar = {
+        enable = true;
+      };
     };
   };
 }
