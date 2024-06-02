@@ -48,7 +48,6 @@
 
   # eza (modern ls replacement)
   programs.eza.enable = true;
-  programs.eza.enableAliases = true;
 
   # starship (shell theme)
   programs.starship.enable = true;

@@ -41,7 +41,7 @@
     };
 
     # Easy commenting
-    comment-nvim = {
+    comment = {
       enable = true;
     };
 
@@ -54,7 +54,7 @@
     # Built in git blame
     gitsigns = {
       enable = true;
-      currentLineBlame = true;
+      settings.current_line_blame = true;
     };
 
     # Help with commands

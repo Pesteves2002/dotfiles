@@ -48,20 +48,20 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # Enable Display Manager
-  services.xserver.displayManager = {
-    setupCommands = ''
-      ${pkgs.numlockx}/bin/numlockx on
-    '';
-    sddm.enable = true; # This line enables sddm
-  };
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "pt";
-    xkbVariant = "";
+  services = {
+    # Enable the X11 windowing system.
+    xserver = {
+      enable = true;
+      xkb.layout = "pt";
+      xkb.variant = "";
+      displayManager = {
+        setupCommands = ''
+          ${pkgs.numlockx}/bin/numlockx on
+        '';
+      };
+    };
+    displayManager.sddm.enable = true; # This line enables sddm
   };
 
   # Configure console keymap

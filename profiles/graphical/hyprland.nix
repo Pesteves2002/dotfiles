@@ -8,7 +8,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    enableNvidiaPatches = true;
     settings = {
       "$mod" = "SUPER";
       input = {

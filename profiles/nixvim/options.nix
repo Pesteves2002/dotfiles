@@ -1,5 +1,5 @@
 {...}: {
-  programs.nixvim.options = {
+  programs.nixvim.opts = {
     updatetime = 100;
 
     number = true;
