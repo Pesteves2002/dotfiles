@@ -31,9 +31,7 @@
         opacity = 0.92;
       };
 
-      # FIX ME: Change to comment after TOML update
-      # keyboard.bindings = [ ...
-      key_bindings = [
+      keyboard.bindings = [
         {
           key = "Return";
           mods = "Control|Shift";
