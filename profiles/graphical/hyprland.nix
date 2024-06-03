@@ -134,6 +134,7 @@
       monitor = [
         "DP-3, 2560x1440@144, 0x0,1,bitdepth,10"
         "DP-2, 1920x1080@144, 2560x200,1"
+        "Unknown-1, disable"
       ];
 
       workspace = [

@@ -163,7 +163,7 @@
   services.pipewire.wireplumber.enable = true;
 
   # needed to allow unlock with swaylock
-  security.pam.services.swaylock = {};
+  security.pam.services.hyprlock = {};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -210,8 +210,8 @@
         graphical.hyprland
         graphical.gtk
         graphical.qt
-        graphical.swaylock
-        graphical.swayidle
+        graphical.hyprlock
+        graphical.hypridle
         intellij
         nixvim
       ]
