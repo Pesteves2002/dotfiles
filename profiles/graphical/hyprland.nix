@@ -97,10 +97,11 @@
         "$mod SHIFT, r, exec, pkill .waybar-wrapped; waybar"
 
         # Take Screenshot
-        ", Print, exec, grim -l 0 -g \"$(slurp)\" - | swappy -f -"
+        ", Print, exec, XDG_CURRENT_DESKTOP=Sway flameshot gui --raw | wl-copy"
+        "$mod SHIFT, s, exec, XDG_CURRENT_DESKTOP=Sway flameshot gui"
 
         # Start xwaylandvideobridge
-        "$mod SHIFT, s, exec, pkill .xwaylandvideob; xwaylandvideobridge"
+        "$mod SHIFT, o, exec, pkill .xwaylandvideob; xwaylandvideobridge"
 
         # Music controls
         "CTRL, SPACE, exec, playerctl play-pause"
@@ -160,6 +161,7 @@
       exec-once = [
         "waybar"
         "hyprpaper"
+        "hypridle"
 
         "alacritty"
         "firefox"
