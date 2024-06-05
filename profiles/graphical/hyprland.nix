@@ -20,6 +20,9 @@
         # Open terminal
         "$mod, Return, exec, alacritty"
 
+        # Open Firefox
+        "$mod, B, exec, firefox"
+
         # Close Active Window
         "$mod, Q, killactive"
 
@@ -147,9 +150,9 @@
       windowrule = [
         "workspace 1,^(Alacritty)$"
         "workspace 2,^(firefox)$"
-        "workspace 3,^(discord)$"
+        "workspace 3,^(ArmCord)$"
 
-        # Remove window to allow "Discord"
+        # Remove window to allow "armcord"
         "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
         "noanim,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
@@ -165,7 +168,7 @@
 
         "alacritty"
         "firefox"
-        "Discord"
+        "armcord"
       ];
 
       general = {

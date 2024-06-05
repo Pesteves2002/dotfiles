@@ -11,7 +11,7 @@
 
       background = [
         {
-          path = "~/.dotfiles/config/wallpapers/planet.png";
+          path = "~/.dotfiles/config/wallpapers/escape_velocity.jpg";
           blur_passes = 3;
           blur_size = 8;
         }
