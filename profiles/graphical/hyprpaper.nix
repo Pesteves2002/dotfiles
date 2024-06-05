@@ -1,9 +1,13 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.hyprpaper];
+{...}: {
+  services.hyprpaper = {
+    enable = true;
 
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-        preload = ~/.dotfiles/config/wallpapers/escape_velocity.jpg
-    wallpaper = ,~/.dotfiles/config/wallpapers/escape_velocity.jpg
+    settings = {
+      ipc = "on";
+      splash = false;
 
-  '';
+      preload = ["/home/tomas/.dotfiles/config/wallpapers/moon.jpg"];
+      wallpaper = [",/home/tomas/.dotfiles/config/wallpapers/moon.jpg"];
+    };
+  };
 }

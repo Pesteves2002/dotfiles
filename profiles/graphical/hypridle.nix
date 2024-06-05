@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       general = {
-        lock_cmd = "pidof ${lib.getExe config.programs.swaylock.package} || ${lib.getExe config.programs.swaylock.package}"; # avoid starting multiple swaylock instances.
+        lock_cmd = "pidof ${lib.getExe config.programs.hyprlock.package} || ${lib.getExe config.programs.hyprlock.package}"; # avoid starting multiple hyprlock instances.
         before_sleep_cmd = "loginctl lock-session"; # lock before suspend.
         after_sleep_cmd = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} dispatch dpms on"; # to avoid having to press a key twice to turn on the display.
       };
