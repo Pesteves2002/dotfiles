@@ -49,7 +49,7 @@
 
         cpu = {
           format = "{usage}% ";
-          on-click = "alacritty -e htop";
+          on-click = "kitty htop";
         };
 
         memory = {
@@ -76,7 +76,7 @@
           };
           scroll-step = 5;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          on-click-right = "alacritty -e pulsemixer";
+          on-click-right = "kitty pulsemixer";
         };
       };
     };

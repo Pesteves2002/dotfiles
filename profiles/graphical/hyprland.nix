@@ -18,7 +18,7 @@
 
       bind = [
         # Open terminal
-        "$mod, Return, exec, alacritty"
+        "$mod, Return, exec, kitty"
 
         # Open Firefox
         "$mod, B, exec, firefox"
@@ -148,7 +148,7 @@
       ];
 
       windowrule = [
-        "workspace 1,^(Alacritty)$"
+        "workspace 1,^(kitty)$"
         "workspace 2,^(firefox)$"
         "workspace 3,^(ArmCord)$"
 
@@ -166,7 +166,7 @@
         "hyprpaper"
         "hypridle"
 
-        "alacritty"
+        "kitty"
         "firefox"
         "armcord"
       ];

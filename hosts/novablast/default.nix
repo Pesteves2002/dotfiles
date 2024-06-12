@@ -207,7 +207,6 @@
         shell.kitty
         graphical.i3
         flameshot
-        shell.alacritty
         graphical.hyprland
         graphical.gtk
         graphical.qt
