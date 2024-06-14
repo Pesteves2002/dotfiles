@@ -194,7 +194,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = {pkgs, ...}: {
-    home.packages = with pkgs; [armcord firefox];
+    home.packages = with pkgs; [vesktop firefox];
 
     # The state version is required and should stay at the version you
     # originally installed.

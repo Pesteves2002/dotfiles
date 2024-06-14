@@ -150,9 +150,9 @@
       windowrule = [
         "workspace 1,^(kitty)$"
         "workspace 2,^(firefox)$"
-        "workspace 3,^(ArmCord)$"
+        "workspace 3,^(vesktop)$"
 
-        # Remove window to allow "armcord"
+        # Remove window to allow "vesktop"
         "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
         "noanim,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
@@ -168,7 +168,7 @@
 
         "kitty"
         "firefox"
-        "armcord"
+        "vesktop"
       ];
 
       general = {
