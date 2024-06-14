@@ -208,6 +208,7 @@
         graphical.i3
         flameshot
         graphical.hyprland
+        graphical.wofi
         graphical.gtk
         graphical.qt
         graphical.hypridle

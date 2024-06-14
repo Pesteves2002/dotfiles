@@ -199,10 +199,9 @@
         "linear, 0.0, 0.0, 1.0, 1.0"
       ];
     };
+
     xwayland.enable = true;
   };
-
-  programs.wofi = {enable = true;};
 
   home.packages = with pkgs; [
     xwaylandvideobridge
