@@ -4,25 +4,18 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [file highlight python311Packages.pdftotext];
-
   programs.lf = {
     enable = true;
-    settings = {icons = true;};
-    previewer = {
-      keybinding = "i";
-      source = pkgs.writeShellScript "previewer.sh" ''
-        #! /usr/bin/env sh
 
-        case "$1" in
-          *.tar*) tar tf "$1";;
-          *.zip) unzip -l "$1";;
-          *.rar) unrar l "$1";;
-          *.7z) 7z l "$1";;
-          *.pdf) pdftotext "$1" -;;
-          *) highlight -O ansi "$1";;
-        esac
-      '';
+    settings = {
+      preview = true;
+      hidden = false;
+      drawbox = true;
+      icons = true;
+      ignorecase = true;
+
+      previewer = "${pkgs.ctpv}/bin/ctpv";
+      cleaner = "${pkgs.ctpv}/bin/ctpvclear";
     };
   };
 
