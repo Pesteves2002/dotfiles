@@ -13,7 +13,7 @@
       input = {
         kb_layout = "pt";
         numlock_by_default = true;
-        repeat_rate = 30;
+        repeat_rate = 40;
       };
 
       bind = [
@@ -198,6 +198,10 @@
       bezier = [
         "linear, 0.0, 0.0, 1.0, 1.0"
       ];
+
+      dwindle = {
+        "force_split" = 2;
+      };
     };
 
     xwayland.enable = true;
