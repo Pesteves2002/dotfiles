@@ -6,7 +6,6 @@
     ./harpoon.nix
     ./treesitter.nix
     ./cmp.nix
-    ./coq.nix
   ];
 
   programs.nixvim.plugins = {
