@@ -1,21 +1,26 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
+
     clock24 = true;
     baseIndex = 1;
     customPaneNavigationAndResize = true;
     escapeTime = 0;
     shortcut = "a";
     newSession = true;
+    historyLimit = 50000;
+    keyMode = "vi";
+    terminal = "tmux-256color";
+
     extraConfig = ''
       # Tell tmux the terminal supports RGB colors
       set -g terminal-overrides ",gnome*:RGB"
       set -sa terminal-overrides ',xterm-256color:RGB'
       set -sa terminal-overrides ',alacritty:RGB'
+
+      # force reload of config file
+      unbind r
+      bind r source-file /etc/tmux.conf
 
       bind c new-window -c "#{pane_current_path}"
 
@@ -47,25 +52,14 @@
       # pane borders
       set -g pane-border-style 'fg=colour1'
       set -g pane-active-border-style 'fg=colour3'
-
-      # statusbar
-      set -g status-position bottom
-      set -g status-justify left
-      set -g status-style 'fg=colour1'
-      set -g status-right '%Y-%m-%d %H:%M'
-      set -g status-right-length 50
-      set -g status-left-length 10
-
-      setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
-      setw -g window-status-current-format ' #I #W #F '
-
-      setw -g window-status-style 'fg=colour1 dim'
-      setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
-
-      setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
     '';
-    historyLimit = 50000;
-    keyMode = "vi";
-    terminal = "tmux-256color";
+
+    plugins = with pkgs.tmuxPlugins; [
+      resurrect
+      continuum
+      better-mouse-mode
+      catppuccin
+      tmux-thumbs
+    ];
   };
 }
