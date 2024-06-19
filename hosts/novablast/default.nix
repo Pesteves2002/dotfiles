@@ -217,6 +217,7 @@
         graphical.qt
         graphical.hypridle
         graphical.swaylock
+        graphical.mako
         graphical.hyprlock
         intellij
         nixvim
