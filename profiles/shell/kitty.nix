@@ -12,8 +12,8 @@
     };
 
     keybindings = {
-      "ctrl+plus" = "increase_font_size all +1.0";
-      "ctrl+minus" = "decrease_font_size all -1.0";
+      "ctrl+plus" = "change_font_size all +1.0";
+      "ctrl+minus" = "change_font_size all -1.0";
     };
 
     settings = {

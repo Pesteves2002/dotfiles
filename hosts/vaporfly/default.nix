@@ -193,7 +193,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   home-manager.users.tomas = {pkgs, ...}: {
-    home.packages = with pkgs; [discord firefox];
+    home.packages = with pkgs; [discord firefox waypipe];
 
     # The state version is required and should stay at the version you
     # originally installed.
