@@ -13,6 +13,7 @@
     shell.tmux
     sshd
     greetd
+    tlp
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
