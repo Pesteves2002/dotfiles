@@ -92,7 +92,7 @@
   users.users.tomas = {
     isNormalUser = true;
     description = "tomas";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "video"];
     packages = with pkgs; [];
   };
 
@@ -215,6 +215,8 @@
       enable = true;
       userName = "Tomás Esteves";
     };
+
+    programs.light.enable = true;
   };
 
   fonts.packages = with pkgs; [
