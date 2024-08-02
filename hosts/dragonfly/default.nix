@@ -12,6 +12,7 @@
     ./hardware.nix
     shell.tmux
     sshd
+    greetd
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -57,7 +58,7 @@
         '';
       };
     };
-    displayManager.sddm.enable = true; # This line enables sddm
+    # displayManager.sddm.enable = true; # This line enables sddm
   };
 
   # Configure console keymap

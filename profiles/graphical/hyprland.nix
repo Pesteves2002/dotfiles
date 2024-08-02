@@ -110,6 +110,9 @@
         "CTRL, SPACE, exec, playerctl play-pause"
         "CTRL SHIFT, left, exec, playerctl previous"
         "CTRL SHIFT, right, exec, playerctl next"
+
+        # Clipboard History
+        "$mod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
       ];
 
       bindl = [
@@ -159,6 +162,12 @@
         "maxsize 1 1,class:^(xwaylandvideobridge)$"
         "noblur,class:^(xwaylandvideobridge)$"
         "workspace 10 silent,^(xwaylandvideobridge)$"
+
+        # Fix flameshot not working on multiple monitors
+        "suppressevent fullscreen,flameshot"
+        "float,flameshot"
+        "monitor 1,flameshot"
+        "move 0 0,flameshot"
       ];
 
       exec-once = [
@@ -169,6 +178,9 @@
         "kitty"
         "firefox"
         "vesktop"
+
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
       ];
 
       general = {
@@ -210,5 +222,6 @@
   home.packages = with pkgs; [
     xwaylandvideobridge
     playerctl
+    cliphist
   ];
 }
