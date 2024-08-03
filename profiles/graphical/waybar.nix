@@ -10,7 +10,7 @@
         spacing = "10";
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["battery" "pulseaudio" "cpu" "memory"];
+        modules-right = ["backlight" "battery" "pulseaudio" "cpu" "memory"];
         "custom/hello-from-waybar" = {
           format = "hello {}";
           max-length = 40;
@@ -93,6 +93,13 @@
           "format-full" = "  {capacity}%";
           "format-icons" = ["" "" "" "" ""];
         };
+      };
+
+      "backlight" = {
+        "format" = "{icon} {brightness}%";
+        "on-scroll-up" = "ligth -A 5";
+        "on-scroll-down" = "light -U 5";
+        "format-icons" = ["" ""];
       };
     };
 
