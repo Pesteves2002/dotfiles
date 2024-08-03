@@ -215,9 +215,9 @@
       enable = true;
       userName = "Tomás Esteves";
     };
-
-    programs.light.enable = true;
   };
+
+  programs.light.enable = true;
 
   fonts.packages = with pkgs; [
     fira-code

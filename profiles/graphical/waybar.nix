@@ -10,7 +10,7 @@
         spacing = "10";
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["pulseaudio" "cpu" "memory"];
+        modules-right = ["battery" "pulseaudio" "cpu" "memory"];
         "custom/hello-from-waybar" = {
           format = "hello {}";
           max-length = 40;
@@ -77,6 +77,21 @@
           scroll-step = 5;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           on-click-right = "kitty pulsemixer";
+        };
+
+        "battery" = {
+          "interval" = 10;
+          "states" = {
+            "warning" = 30;
+            "critical" = 15;
+          };
+
+          "format" = "{icon} {capacity}%";
+          "format-charging" = " {capacity}%";
+          "format-plugged" = " {capacity}%";
+          "format-alt" = "{time} {icon}";
+          "format-full" = "  {capacity}%";
+          "format-icons" = ["" "" "" "" ""];
         };
       };
     };
