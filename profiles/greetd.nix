@@ -7,11 +7,12 @@
 in {
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${tuigreet} --time --remember --cmd Hyprland";
+    settings = rec {
+      intial_session = {
+        command = "${tuigreet} --time --remember --cmd  ${pkgs.hyprland}/bin/hyprland";
         user = "tomas";
       };
+      default_session = intial_session;
     };
   };
 

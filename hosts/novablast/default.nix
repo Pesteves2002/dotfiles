@@ -12,6 +12,7 @@
     ./hardware.nix
     shell.tmux
     sshd
+    greetd
   ];
 
   # Bootloader.
@@ -67,7 +68,7 @@
         '';
       };
     };
-    displayManager.sddm.enable = true; # This line enables sddm
+    # displayManager.sddm.enable = true; # This line enables sddm
   };
 
   # Configure console keymap
