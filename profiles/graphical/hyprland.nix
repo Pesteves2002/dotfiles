@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }: {
@@ -14,6 +12,8 @@
         kb_layout = "pt";
         numlock_by_default = true;
         repeat_rate = 40;
+
+	touchpad.natural_scroll = true;
       };
 
       bind = [
