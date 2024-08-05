@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    home = {
+    home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -13,66 +13,58 @@
     };
   };
 
-  outputs = inputs @ {...}: let
-    myLib = (import ./lib {inherit lib;}).myLib;
-
-    inherit (builtins) listToAttrs attrNames readDir filter;
-    inherit (inputs.nixpkgs) lib;
-    inherit (lib) hasSuffix;
-    inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
-
-    sshKeys = [
-      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMOPNp+vhM3oHBcsCIWys8t8/pRz7q6Tlt2orblvYmPHXoQ3QhNTI9zlyLhBaF/Ol2ac6LpRJjnTGu41uq8ccso="
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPa8Z24yEquM4MZTbflPvA3LufkHgdWX62OGrjufkfzP tomas@novablast"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0r4o+OjJ18Ue3L0KfNh7dyMQ+MsFLWAraBuUhH0mDM tomas@dragonfly"
-    ];
-
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    inherit lib;
 
-    allModules = mkModules ./modules;
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
 
-    # Imports every nix module from a directory, recursively.
-    mkModules = path: filter (hasSuffix ".nix") (listFilesRecursive path);
+    # overlays = import ./overlays {inherit inputs outputs;};
 
-    profiles = myLib.rakeLeaves ./profiles;
+    formatter.${system} = pkgs.alejandra;
 
-    pkgs = import inputs.nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
+    nixosConfigurations = {
+      novablast = lib.nixosSystem {
+        modules = [./hosts/novablast ./home/tomas/user.nix];
+        specialArgs = {
+          inherit inputs outputs;
+        };
+      };
+      #
+      # dragonfly = lib.nixosSystem {
+      #   modules = [./hosts/dragonfly];
+      #   specialArgs = {
+      #     inherit inputs outputs;
+      #   };
+      # };
     };
 
-    # Imports every host defined in a directory.
-    mkHosts = dir:
-      listToAttrs (map (name: {
-        inherit name;
-        value = inputs.nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
-          specialArgs = {
-            inherit
-              inputs
-              profiles
-              sshKeys
-              ;
-            hostName = name;
-          };
-          modules =
-            [
-              {networking.hostName = name;}
-              inputs.home.nixosModules.home-manager
-              {
-                home-manager = {
-                  useGlobalPkgs = true;
-                };
-              }
-            ]
-            ++ allModules
-            ++ (mkModules "${dir}/${name}");
+    homeConfigurations = {
+      "tomas@novablast" = lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./home/tomas/novablast];
+        extraSpecialArgs = {
+          inherit inputs outputs;
         };
-      }) (attrNames (readDir dir)));
-  in {
-    nixosConfigurations = mkHosts ./hosts;
+      };
 
-    # Use Alejandra to format .nix files
-    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+      # "tomas@dragonfly" = lib.homeManagerConfiguration {
+      #   inherit pkgs;
+      #   modules = [./home/tomas/dragonfly.nix];
+      #   extraSpecialArgs = {
+      #     inherit inputs outputs;
+      #   };
+      # };
+    };
   };
 }

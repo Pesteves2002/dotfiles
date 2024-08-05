@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./waybar.nix ./wlogout.nix ./hyprpaper.nix];
 
   wayland.windowManager.hyprland = {
@@ -13,7 +10,7 @@
         numlock_by_default = true;
         repeat_rate = 40;
 
-	touchpad.natural_scroll = true;
+        touchpad.natural_scroll = true;
       };
 
       bind = [

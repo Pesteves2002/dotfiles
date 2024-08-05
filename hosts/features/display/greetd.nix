@@ -5,14 +5,22 @@
 }: let
   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
 in {
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      intial_session = {
-        command = "${tuigreet} --time --remember --cmd  ${pkgs.hyprland}/bin/hyprland";
-        user = "tomas";
+  services = {
+    xserver = {
+      enable = true;
+      displayManager.setupCommands = ''
+        ${pkgs.numlockx}/bin/numlockx on
+      '';
+    };
+
+    greetd = {
+      enable = true;
+      settings = rec {
+        intial_session = {
+          command = "${tuigreet} --time --remember --cmd  ${pkgs.hyprland}/bin/hyprland";
+        };
+        default_session = intial_session;
       };
-      default_session = intial_session;
     };
   };
 
