@@ -6,7 +6,7 @@
   imports =
     [
       ./features/shell
-      ./features/nixvim
+      ./features/tools
     ]
     ++ [inputs.nixvim.homeManagerModules.nixvim]
     ++ (builtins.attrValues outputs.homeManagerModules);

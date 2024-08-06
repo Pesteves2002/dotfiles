@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  imports = [./waybar.nix ./wlogout.nix ./hyprpaper.nix];
-
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -215,10 +213,4 @@
 
     xwayland.enable = true;
   };
-
-  home.packages = with pkgs; [
-    xwaylandvideobridge
-    playerctl
-    cliphist
-  ];
 }

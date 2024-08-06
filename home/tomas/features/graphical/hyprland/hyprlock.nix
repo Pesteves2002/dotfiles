@@ -11,7 +11,7 @@
 
       background = [
         {
-          path = "~/.dotfiles/config/wallpapers/escape_velocity.jpg";
+          path = toString ../../config/wallpapers/escape_velocity.jpg;
           blur_passes = 1;
           blur_size = 4;
         }

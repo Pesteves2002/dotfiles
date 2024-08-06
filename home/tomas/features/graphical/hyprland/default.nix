@@ -7,6 +7,10 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    ../mako.nix
+    ./packages.nix
+
+    ../common.nix
+
+    ../flameshot.nix
   ];
 }

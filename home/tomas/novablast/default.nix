@@ -2,11 +2,8 @@
   imports = [
     ../common.nix
     ../features/graphical/hyprland
-  ];
 
-  home.packages = with pkgs; [
-    firefox
-    vesktop
+    ../features/graphical/nvidia.nix
   ];
 
   home.stateVersion = "23.11";
