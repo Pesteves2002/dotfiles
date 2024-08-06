@@ -1,8 +1,21 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    atool
     zip
     unzip
-    htop
+
+    tmux
+
+    htop-vim
+
+    man-pages
+
+    neofetch
+
+    fzf
+    ripgrep
+    fd
+
     curl
     wget
   ];

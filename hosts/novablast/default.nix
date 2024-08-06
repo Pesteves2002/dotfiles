@@ -8,6 +8,8 @@
 
     ../features/audio
 
+    ../features/networking
+
     ../features/drivers/nvidia.nix
 
     ../features/boot/systemd-boot.nix
