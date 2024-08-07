@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -133,11 +133,13 @@
 
       misc = {disable_hyprland_logo = true;};
 
-      monitor = [
-        "DP-3, 2560x1440@144, 0x0,1,bitdepth,10"
-        "DP-2, 1920x1080@144, 2560x200,1"
-        "Unknown-1, disable"
-      ];
+      monitor = map (
+        m: "${m.name},${
+          if m.enabled
+          then "${toString m.width}x${toString m.height}@${toString m.refreshRate},${toString m.x}x${toString m.y},1"
+          else "disable"
+        }"
+      ) (config.monitors);
 
       workspace = [
         "1, monitor:DP-3, default:true"
