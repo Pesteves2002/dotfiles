@@ -2,7 +2,6 @@
   imports =
     [
       ./features/cli
-      ./features/display
       ./features/locale/pt-pt.nix
       ./features/system
     ]

@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{
   imports = [
     ./hardware.nix
 
     ../common.nix
 
+    ../features/display/sddm.nix
     ../features/display/hyprland.nix
 
     ../features/audio
