@@ -35,18 +35,18 @@
 
     nixosConfigurations = {
       novablast = lib.nixosSystem {
-        modules = [./hosts/novablast ./home/tomas/user.nix];
+        modules = [./hosts/novablast ./home/tomas/tomas.nix];
         specialArgs = {
           inherit inputs outputs;
         };
       };
-      #
-      # dragonfly = lib.nixosSystem {
-      #   modules = [./hosts/dragonfly];
-      #   specialArgs = {
-      #     inherit inputs outputs;
-      #   };
-      # };
+
+      dragonfly = lib.nixosSystem {
+        modules = [./hosts/dragonfly ./home/tomas/tomas.nix];
+        specialArgs = {
+          inherit inputs outputs;
+        };
+      };
     };
 
     homeConfigurations = {
@@ -58,13 +58,13 @@
         };
       };
 
-      # "tomas@dragonfly" = lib.homeManagerConfiguration {
-      #   inherit pkgs;
-      #   modules = [./home/tomas/dragonfly.nix];
-      #   extraSpecialArgs = {
-      #     inherit inputs outputs;
-      #   };
-      # };
+      "tomas@dragonfly" = lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./home/tomas/dragonfly];
+        extraSpecialArgs = {
+          inherit inputs outputs;
+        };
+      };
     };
   };
 }
