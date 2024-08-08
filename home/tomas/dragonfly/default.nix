@@ -3,6 +3,7 @@
     ../common.nix
 
     ../features/graphical/hyprland
+    ../features/graphical/hyprland/laptop.nix
 
     ../features/graphical/amd.nix
   ];
