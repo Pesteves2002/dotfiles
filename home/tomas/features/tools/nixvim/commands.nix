@@ -1,15 +1,25 @@
-{...}: {
-  programs.nixvim = {
-    autoCmd = [
-      # save position in file (cursed thingies)
-      {
-        event = "BufReadPost";
-        pattern = "*";
-        callback = {__raw = "function() vim.api.nvim_exec('silent! normal! g`\"zv', false) end";};
-      }
-    ];
-    extraConfigLua = ''
-      vim.cmd('cabbrev W w')
-    '';
+{
+  programs.nixvim.userCommands = {
+    # Command aliases for common typos
+    "W" = {
+      command = "w";
+      bang = true;
+    };
+    "Wq" = {
+      command = "wq";
+      bang = true;
+    };
+    "WQ" = {
+      command = "wq";
+      bang = true;
+    };
+    "Q" = {
+      command = "q";
+      bang = true;
+    };
+    "Qa" = {
+      command = "qa";
+      bang = true;
+    };
   };
 }

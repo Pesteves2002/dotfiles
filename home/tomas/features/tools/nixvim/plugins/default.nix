@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./lsp.nix
     ./copilot.nix
@@ -6,6 +6,8 @@
     ./harpoon.nix
     ./treesitter.nix
     ./cmp.nix
+    ./lint.nix
+    ./tree.nix
   ];
 
   programs.nixvim.plugins = {

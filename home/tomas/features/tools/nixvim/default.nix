@@ -23,12 +23,16 @@
       indent-blankline = {
         enable = true;
       };
-
-      nvim-jdtls = {
-        enable = true;
-        data = "/home/tomas/.cache/jdtls/worksapce";
-      };
     };
+
+    autoCmd = [
+      # save position in file (cursed thingies)
+      {
+        event = "BufReadPost";
+        pattern = "*";
+        callback = {__raw = "function() vim.api.nvim_exec('silent! normal! g`\"zv', false) end";};
+      }
+    ];
   };
 
   home.sessionVariables = {

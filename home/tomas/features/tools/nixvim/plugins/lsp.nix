@@ -5,11 +5,11 @@
     keymaps = {
       silent = true;
 
-      # diagnostic = {
-      #   "<C-p>" = "goto_prev";
-      #   "<C-n>" = "goto_next";
-      #   "<leader>e" = "open_float";
-      # };
+      diagnostic = {
+        "<C-p>" = "goto_prev";
+        "<C-ç>" = "goto_next";
+        "<leader>e" = "open_float";
+      };
 
       lspBuf = {
         gd = "definition";
@@ -31,14 +31,6 @@
       };
 
       clangd = {
-        enable = true;
-      };
-
-      tsserver = {
-        enable = true;
-      };
-
-      volar = {
         enable = true;
       };
     };

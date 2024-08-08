@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.nixvim.plugins.telescope = {
     enable = true;
 
@@ -12,6 +12,10 @@
       "<leader>ps" = {
         action = "live_grep";
       };
+    };
+
+    extensions = {
+      ui-select.enable = true;
     };
   };
 }
