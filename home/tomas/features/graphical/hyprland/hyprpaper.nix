@@ -1,4 +1,6 @@
-{...}: {
+let
+  wallpaper = toString ../../config/wallpapers/moon.jpg;
+in {
   services.hyprpaper = {
     enable = true;
 
@@ -6,8 +8,8 @@
       ipc = "on";
       splash = false;
 
-      preload = ["/home/tomas/.dotfiles/config/wallpapers/moon.jpg"];
-      wallpaper = [",/home/tomas/.dotfiles/config/wallpapers/moon.jpg"];
+      preload = [wallpaper];
+      wallpaper = [",${wallpaper}"];
     };
   };
 }
