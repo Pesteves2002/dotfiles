@@ -11,6 +11,7 @@
 
     ../features/networking
     ../features/networking/networkmanager.nix
+    ../features/networking/bluetooth.nix
 
     ../features/drivers/amd.nix
 
