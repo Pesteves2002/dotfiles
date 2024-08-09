@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -200,7 +204,7 @@
         inactive_opacity = 0.9;
       };
 
-      animation = [
+      animation = lib.mkDefault [
         "windows, 1, 2, default, slide"
         "borderangle, 1, 30, linear, loop"
         "workspaces, 1, 2, default, slide"
