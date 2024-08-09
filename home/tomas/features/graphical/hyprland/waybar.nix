@@ -86,20 +86,20 @@
             "critical" = 15;
           };
 
-          "format" = "{icon} {capacity}%";
+          "format" = "{capacity}% {icon}";
           "format-charging" = " {capacity}%";
           "format-plugged" = " {capacity}%";
           "format-alt" = "{time} {icon}";
           "format-full" = "  {capacity}%";
           "format-icons" = ["" "" "" "" ""];
         };
-      };
 
-      "backlight" = {
-        "format" = "{icon} {brightness}%";
-        "on-scroll-up" = "ligth -A 5";
-        "on-scroll-down" = "light -U 5";
-        "format-icons" = ["" ""];
+        backlight = {
+          "format" = "{percent}% {icon}";
+          "on-scroll-up" = "brightnessctl set 1%-";
+          "on-scroll-down" = "brightnessctl set 1%+";
+          "format-icons" = ["" ""];
+        };
       };
     };
 
