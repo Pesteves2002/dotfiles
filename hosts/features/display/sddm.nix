@@ -1,18 +1,21 @@
 {pkgs, ...}: {
   services = {
-    xserver = {
-      enable = true;
-      displayManager.setupCommands = ''
-        ${pkgs.numlockx}/bin/numlockx on
-      '';
-    };
+    xserver.enable = true;
 
-    displayManager = {
-      sddm = {
-        enable = true;
-        theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
-        extraPackages = with pkgs; [libsForQt5.qt5.qtquickcontrols2 libsForQt5.qt5.qtgraphicaleffects];
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+
+      theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
+
+      settings = {
+        Autologin = {
+          Session = "Hyprland";
+          User = "tomas";
+        };
       };
+
+      extraPackages = with pkgs; [libsForQt5.qt5.qtquickcontrols2 libsForQt5.qt5.qtgraphicaleffects];
     };
   };
 }
