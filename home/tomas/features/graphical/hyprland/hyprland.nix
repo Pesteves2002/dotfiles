@@ -135,7 +135,10 @@
         "$mod, mouse:273, resizewindow"
       ];
 
-      binds = {allow_workspace_cycles = true;};
+      binds = {
+        allow_workspace_cycles = true;
+        workspace_back_and_forth = true;
+      };
 
       misc = {disable_hyprland_logo = true;};
 
