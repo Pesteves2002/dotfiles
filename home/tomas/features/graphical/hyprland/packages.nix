@@ -6,8 +6,6 @@
 
     waypipe # wayland remote desktop
 
-    firefox
-
     vesktop # discord client
 
     grim

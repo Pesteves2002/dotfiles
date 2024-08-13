@@ -4,5 +4,6 @@
     ./gtk.nix
     ./mako.nix
     ./fonts.nix
+    ./firefox.nix
   ];
 }
