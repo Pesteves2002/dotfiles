@@ -10,6 +10,7 @@
     ../features/audio
 
     ../features/networking
+    ../features/networking/minecraft.nix
 
     ../features/drivers/nvidia.nix
 
