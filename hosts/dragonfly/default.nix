@@ -17,6 +17,8 @@
 
     ../features/laptop
 
+    ../features/devices/ios.nix
+
     ../features/boot/grub.nix
   ];
 
