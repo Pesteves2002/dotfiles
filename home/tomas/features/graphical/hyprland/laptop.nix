@@ -12,6 +12,10 @@
         "workspaces, 1, 2, default, slide"
       ];
 
+      gestures = {
+        workspace_swipe = true;
+      };
+
       misc.vfr = true;
     };
   };
