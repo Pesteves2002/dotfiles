@@ -5,7 +5,7 @@ in {
     enable = true;
 
     settings = {
-      ipc = "on";
+      ipc = "off";
       splash = false;
 
       preload = [wallpaper];
