@@ -10,6 +10,9 @@
     ../features/audio
 
     ../features/networking
+    ../features/networking/icmp.nix
+    ../features/networking/sshd.nix
+    ../features/networking/fail2ban.nix
     ../features/networking/minecraft.nix
 
     ../features/drivers/nvidia.nix
