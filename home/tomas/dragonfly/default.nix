@@ -6,6 +6,8 @@
     ../features/graphical/hyprland/laptop.nix
 
     ../features/graphical/amd.nix
+
+    ../features/games/geforce-now.nix
   ];
 
   monitors = [
