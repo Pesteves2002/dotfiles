@@ -19,4 +19,6 @@
       misc.vfr = true;
     };
   };
+
+  services.hypridle.enableSuspend = true;
 }
