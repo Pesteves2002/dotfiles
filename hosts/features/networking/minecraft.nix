@@ -6,15 +6,14 @@
     declarative = true;
 
     serverProperties = {
-      gamemode = "creative";
-      difficulty = "easy";
+      gamemode = "survival";
+      difficulty = "medium";
       simulation-distance = 10;
-      level-seed = "4";
+      level-seed = "0";
+      force-gamemode = true;
+      motd = "Hello!!!";
     };
-  };
 
-  networking.firewall = {
-    allowedTCPPorts = [25565];
-    allowedUDPPorts = [25565];
+    openFirewall = true;
   };
 }
