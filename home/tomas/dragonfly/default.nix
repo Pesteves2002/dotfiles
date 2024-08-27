@@ -8,6 +8,7 @@
     ../features/graphical/amd.nix
 
     ../features/games/geforce-now.nix
+    ../features/games/minecraft.nix
   ];
 
   monitors = [
