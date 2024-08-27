@@ -183,7 +183,7 @@
 
         "kitty"
         "firefox"
-        "vesktop"
+        "vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
