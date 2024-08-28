@@ -33,6 +33,14 @@
       clangd = {
         enable = true;
       };
+
+      typst-lsp = {
+        enable = true;
+        settings = {
+          # Avoid conflicts
+          exportPdf = "never";
+        };
+      };
     };
   };
 }

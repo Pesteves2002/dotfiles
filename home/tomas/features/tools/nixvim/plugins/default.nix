@@ -7,6 +7,7 @@
     ./treesitter.nix
     ./cmp.nix
     ./lint.nix
+    ./typst.nix
   ];
 
   programs.nixvim.plugins = {

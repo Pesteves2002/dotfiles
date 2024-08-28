@@ -18,5 +18,7 @@
 
     curl
     wget
+
+    neovim
   ];
 }
