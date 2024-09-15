@@ -4,10 +4,10 @@
   fetchFromGitHub,
   makeWrapper,
   gitUpdater,
-  electron_29,
+  electron_30,
   imagemagick,
 }: let
-  electron = electron_29;
+  electron = electron_30;
 in
   buildNpmPackage rec {
     pname = "gfn-electron";
