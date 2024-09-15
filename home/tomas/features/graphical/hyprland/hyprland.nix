@@ -160,6 +160,7 @@
         "workspace 1,^(kitty)$"
         "workspace 2,^(firefox)$"
         "workspace 3,^(vesktop)$"
+        "workspace 4,^.*zathura$"
 
         # Remove window to allow "vesktop"
         "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
