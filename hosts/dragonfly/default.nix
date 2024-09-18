@@ -20,6 +20,8 @@
     ../features/devices/ios.nix
 
     ../features/boot/grub.nix
+
+    ../features/virtualisation/virtual-machines.nix
   ];
 
   time.timeZone = "Europe/Stockholm";

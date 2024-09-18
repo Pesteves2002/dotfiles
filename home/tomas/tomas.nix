@@ -25,6 +25,7 @@ in {
         "git"
         "dialout"
         "plugdev"
+        "libvirtd"
       ];
 
     openssh.authorizedKeys.keys = [
