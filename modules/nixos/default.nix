@@ -1,1 +1,5 @@
-{}
+{
+  networking =
+    import
+    ./networking.nix;
+}
