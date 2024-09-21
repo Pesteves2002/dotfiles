@@ -47,10 +47,10 @@
     };
 
     # Auto save
-    # auto-save = {
-    #   enable = true;
-    #   enableAutoSave = true;
-    # };
+    auto-save = {
+      enable = true;
+      enableAutoSave = true;
+    };
 
     # Built in git blame
     gitsigns = {

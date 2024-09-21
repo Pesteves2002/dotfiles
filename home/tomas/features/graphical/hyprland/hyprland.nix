@@ -58,6 +58,8 @@
         # Move window to the special workspace
         "$mod, C, movetoworkspace, special"
 
+        "$mod, X, togglespecialworkspace"
+
         # Switch workspaces with mainMod + [0-9]
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"

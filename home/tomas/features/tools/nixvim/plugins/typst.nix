@@ -6,5 +6,9 @@
       silent = true;
       watch = "<leader>t";
     };
+
+    settings = {
+      auto_open_quickfix = false;
+    };
   };
 }
