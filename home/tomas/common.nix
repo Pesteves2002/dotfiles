@@ -14,6 +14,9 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-29.4.6"
+      ];
     };
   };
 
