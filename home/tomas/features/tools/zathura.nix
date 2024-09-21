@@ -4,8 +4,6 @@
 
     options = {
       scroll-page-aware = "true";
-      smooth-scroll = "true";
-      show-scrollbars = "true";
 
       window-title-page = "true";
 
