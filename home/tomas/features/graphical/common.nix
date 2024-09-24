@@ -5,5 +5,6 @@
     ./mako.nix
     ./fonts.nix
     ./firefox.nix
+    ./rnote.nix
   ];
 }

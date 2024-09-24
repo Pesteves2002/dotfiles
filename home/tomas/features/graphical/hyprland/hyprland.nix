@@ -55,10 +55,8 @@
         # Swap monitors
         "$mod, s, swapactiveworkspaces, DP-3 DP-2"
 
-        # Move window to the special workspace
-        "$mod, C, movetoworkspace, special"
-
-        "$mod, X, togglespecialworkspace"
+        # go to special workspace
+        "$mod, x, togglespecialworkspace"
 
         # Switch workspaces with mainMod + [0-9]
         "$mod, 1, workspace, 1"
@@ -190,6 +188,8 @@
 
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+
+        "[workspace special silent; fullscreen] rnote"
       ];
 
       general = {
