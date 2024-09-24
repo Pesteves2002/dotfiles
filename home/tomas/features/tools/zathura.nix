@@ -15,4 +15,12 @@
       recolor-keephue = "true";
     };
   };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      # Use Zathura as default PDF viewer
+      "application/pdf" = ["org.pwmt.zathura.desktop"];
+    };
+  };
 }
