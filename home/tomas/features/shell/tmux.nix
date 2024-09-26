@@ -18,6 +18,11 @@
       set -sa terminal-overrides ',xterm-256color:RGB'
       set -sa terminal-overrides ',alacritty:RGB'
 
+      # enable yazi's image preview
+      set -gq allow-passthrough all
+      set -ga update-environment TERM
+      set -ga update-environment TERM_PROGRAM
+
       # force reload of config file
       unbind r
       bind r source-file /etc/tmux.conf

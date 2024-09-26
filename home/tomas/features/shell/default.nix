@@ -1,6 +1,6 @@
 {
   imports = [
-    ./lf.nix
+    ./yazi.nix
     ./zsh.nix
     ./tmux.nix
     ./kitty.nix
