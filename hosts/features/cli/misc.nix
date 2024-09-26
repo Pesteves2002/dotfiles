@@ -9,6 +9,7 @@
     htop-vim
 
     man-pages
+    tldr
 
     neofetch
 
@@ -20,5 +21,7 @@
     wget
 
     neovim
+
+    bat
   ];
 }
