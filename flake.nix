@@ -11,12 +11,15 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -35,14 +38,14 @@
 
     nixosConfigurations = {
       novablast = lib.nixosSystem {
-        modules = [./hosts/novablast ./home/tomas/tomas.nix];
+        modules = [./hosts/novablast ./home/tomas/tomas.nix agenix.nixosModules.default];
         specialArgs = {
           inherit inputs outputs;
         };
       };
 
       dragonfly = lib.nixosSystem {
-        modules = [./hosts/dragonfly ./home/tomas/tomas.nix];
+        modules = [./hosts/dragonfly ./home/tomas/tomas.nix agenix.nixosModules.default];
         specialArgs = {
           inherit inputs outputs;
         };
