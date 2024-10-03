@@ -4,7 +4,7 @@
 
     settings = {
       general = {
-        disable_loading_bar = true;
+        # disable_loading_bar = true;
         hide_cursor = true;
         ignore_empty_input = true;
       };
@@ -29,6 +29,17 @@
           outer_color = "rgb(24, 25, 38)";
           outline_thickness = 5;
           shadow_passes = 2;
+        }
+      ];
+
+      label = [
+        {
+          text = "$TIME";
+          font_size = 96;
+          text_align = "center";
+          halign = "center";
+          valign = "center";
+          position = "-560, 240";
         }
       ];
     };

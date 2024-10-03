@@ -193,7 +193,7 @@
       ];
 
       general = {
-        border_size = 2;
+        border_size = 1;
         gaps_in = 5;
         gaps_out = 5;
         "col.active_border" = "rgb(61f4de) rgb(6e78ff) 45deg";
