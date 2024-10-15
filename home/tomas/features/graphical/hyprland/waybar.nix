@@ -10,7 +10,7 @@
         spacing = "10";
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["backlight" "battery" "pulseaudio" "cpu" "memory"];
+        modules-right = ["network" "backlight" "battery" "pulseaudio" "cpu" "memory"];
         "custom/hello-from-waybar" = {
           format = "hello {}";
           max-length = 40;
@@ -99,6 +99,11 @@
           "on-scroll-up" = "brightnessctl set 1%-";
           "on-scroll-down" = "brightnessctl set 1%+";
           "format-icons" = ["" ""];
+        };
+
+        network = {
+          "format-wifi" = "{essid} ({signalStrength}%) ";
+          "format-disconnected" = "";
         };
       };
     };

@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.yazi = {
     enable = true;
 
@@ -27,4 +27,10 @@
 
     bindkey -s '^o' 'y\n'
   '';
+
+  home.packages = with pkgs; [
+    ffmpegthumbnailer
+    imagemagick
+    poppler
+  ];
 }
