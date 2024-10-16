@@ -13,6 +13,7 @@
     };
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {

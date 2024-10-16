@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   programs.kitty = {
     enable = true;
 
@@ -6,7 +6,7 @@
 
     theme = "GitHub Dark";
 
-    font = {
+    font = lib.mkDefault {
       name = "Fira Code";
       size = 11;
     };

@@ -1,13 +1,17 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   gtk = {
     enable = true;
 
-    theme = {
+    theme = lib.mkDefault {
       package = pkgs.nordic;
       name = "Nordic-darker";
     };
 
-    iconTheme = {
+    iconTheme = lib.mkDefault {
       package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
     };

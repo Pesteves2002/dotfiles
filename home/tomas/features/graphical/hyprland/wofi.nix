@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   programs.wofi = {
     enable = true;
     settings = {
@@ -8,7 +8,7 @@
       gtk_dark = true;
     };
 
-    style = ''
+    style = lib.mkDefault ''
       window {
       margin: 0px;
       background-color: #2e3440;

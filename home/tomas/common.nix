@@ -7,8 +7,10 @@
     [
       ./features/shell
       ./features/tools
+      ./stylix.nix
     ]
     ++ [inputs.nixvim.homeManagerModules.nixvim]
+    ++ [inputs.stylix.homeManagerModules.stylix]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {

@@ -1,4 +1,6 @@
-{...}: {
+let
+  wallpaper = toString ../../config/wallpapers/fractal.png;
+in {
   programs.hyprlock = {
     enable = true;
 
@@ -11,7 +13,7 @@
 
       background = [
         {
-          path = toString ../../config/wallpapers/escape_velocity.jpg;
+          path = wallpaper;
           blur_passes = 1;
           blur_size = 4;
         }

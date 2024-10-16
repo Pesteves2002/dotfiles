@@ -193,7 +193,7 @@
         "[workspace special silent; fullscreen] rnote"
       ];
 
-      general = {
+      general = lib.mkDefault {
         border_size = 1;
         gaps_in = 5;
         gaps_out = 5;
