@@ -42,6 +42,8 @@
       hyprland.enable = false;
       nixvim.enable = false;
       waybar.enable = false;
+      zathura.enable = false;
+
       wofi.enable = true;
     };
   };

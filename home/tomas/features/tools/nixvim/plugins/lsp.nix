@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.nixvim.plugins.lsp = {
     enable = true;
 
@@ -28,10 +28,19 @@
 
       nixd = {
         enable = true;
+
+        settings = {
+          formatting.command = ["alejandra"];
+          nixpkgs.expr = "import <nixpkgs> { }";
+        };
       };
 
       clangd = {
         enable = true;
+        cmd = [
+          "clangd"
+          "--offset-encoding=utf-16"
+        ];
       };
 
       typst-lsp = {
@@ -39,8 +48,13 @@
         settings = {
           # Avoid conflicts
           exportPdf = "never";
+          experimentalFormatterMode = "on";
         };
       };
     };
   };
+
+  home.packages = with pkgs; [
+    alejandra
+  ];
 }
