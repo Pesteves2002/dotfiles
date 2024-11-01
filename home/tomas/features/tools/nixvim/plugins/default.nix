@@ -76,5 +76,9 @@
       editingText = "Martelating %s";
       workspaceText = "Breaking the code of %s";
     };
+
+    texpresso = {
+      enable = true;
+    };
   };
 }
