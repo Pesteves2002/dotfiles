@@ -6,11 +6,12 @@
       mainBar = {
         layer = "top";
         position = "top";
+        margin = "10 10 10 10";
         # height = 24;
-        spacing = "10";
         modules-left = ["hyprland/workspaces"];
         modules-center = ["clock"];
         modules-right = ["network" "backlight" "battery" "pulseaudio" "cpu" "memory"];
+
         "custom/hello-from-waybar" = {
           format = "hello {}";
           max-length = 40;
@@ -55,16 +56,7 @@
         memory = {
           format = "{}% ";
           tooltip = "true";
-          tooltip-format = "Memory - {used:0.1f}GB used";
-        };
-
-        "hyprland/workspaces" = {
-          format = "{icon}";
-          format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-          };
+          tooltip-format = "Memory {used:0.1f}GB used";
         };
 
         pulseaudio = {
@@ -108,48 +100,7 @@
       };
     };
 
-    style = ''
-        * {
-         border: none;
-         font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-         font-size: 16px;
-       }
-
-       window#waybar {
-         background: transparent;
-       }
-
-       #workspaces {
-         border-radius: 10px;
-         margin-right: 15px;
-        margin-left:0;
-         padding-left:0;
-         padding-top: 1px;
-         padding-right: 10px;
-       }
-
-      #workspaces button.active {
-         background: #ffffff;
-        color: #000000;
-       }
-
-       #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #cpu, #memory{
-         border-radius: 10px;
-         padding-left: 10px;
-         padding-right: 10px;
-         margin-right: 15px;
-       }
-
-       #pulseaudio, #network {
-         border-top-left-radius: 0;
-         border-bottom-left-radius: 0;
-         padding-left: 5px;
-       }
-
-       #clock {
-         margin-right: 0;
-       }
-    '';
+    style = builtins.readFile ./style.css;
   };
 
   home.packages = with pkgs; [

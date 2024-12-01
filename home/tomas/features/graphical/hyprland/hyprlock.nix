@@ -1,4 +1,4 @@
-let
+{lib, ...}: let
   wallpaper = toString ../../config/wallpapers/fractal.png;
 in {
   programs.hyprlock = {
@@ -11,7 +11,7 @@ in {
         ignore_empty_input = true;
       };
 
-      background = [
+      background = lib.mkForce [
         {
           path = wallpaper;
           blur_passes = 1;
@@ -19,7 +19,7 @@ in {
         }
       ];
 
-      input-field = [
+      input-field = lib.mkForce [
         {
           size = "200, 50";
           position = "0, -80";
@@ -34,7 +34,7 @@ in {
         }
       ];
 
-      label = [
+      label = lib.mkForce [
         {
           text = "$TIME";
           font_size = 96;
