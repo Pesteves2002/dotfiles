@@ -91,7 +91,7 @@
         "$mod, f, fullscreen"
 
         # Toggle Fake Fullscreen
-        "$mod SHIFT, f, fakefullscreen"
+        # "$mod SHIFT, f, fakefullscreen"
 
         # Pin floating window
         "$mod, p, pin"
@@ -166,14 +166,6 @@
         "workspace 2,^(firefox)$"
         "workspace 3,^(vesktop)$"
         "workspace 4,^.*zathura$"
-
-        # Remove window to allow "vesktop"
-        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-        "noanim,class:^(xwaylandvideobridge)$"
-        "noinitialfocus,class:^(xwaylandvideobridge)$"
-        "maxsize 1 1,class:^(xwaylandvideobridge)$"
-        "noblur,class:^(xwaylandvideobridge)$"
-        "workspace 10 silent,^(xwaylandvideobridge)$"
 
         # Fix flameshot not working on multiple monitors
         "suppressevent fullscreen,flameshot"

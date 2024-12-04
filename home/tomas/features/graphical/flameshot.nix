@@ -9,6 +9,7 @@
       buildInputs = oldAttrs.buildInputs ++ [pkgs.libsForQt5.kguiaddons];
       cmakeFlags = [
         "-DUSE_WAYLAND_CLIPBOARD=true"
+        "-DUSE_WAYLAND_GRIM=true"
       ];
     });
 

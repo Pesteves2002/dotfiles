@@ -3,7 +3,6 @@
     settings = {
       decoration = {
         blur.enabled = false;
-        drop_shadow = false;
       };
 
       animation = [

@@ -7,6 +7,7 @@
     settings = {
       manager = {
         ratio = [1 2 3];
+        show_symlink = true;
       };
 
       preview = {

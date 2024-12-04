@@ -13,7 +13,7 @@ in {
       enable = true;
       settings = rec {
         intial_session = {
-          command = "${tuigreet} --time --remember --cmd  ${pkgs.hyprland}/bin/hyprland";
+          command = "${tuigreet} --time --remember --cmd  Hyprland";
         };
         default_session = intial_session;
       };
