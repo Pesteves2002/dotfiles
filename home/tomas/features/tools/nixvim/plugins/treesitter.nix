@@ -4,7 +4,9 @@
       enable = true;
       nixGrammars = true;
       nixvimInjections = true;
-      indent = true;
+      settings = {
+        indent.enable = true;
+      };
       folding = true;
     };
 

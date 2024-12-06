@@ -49,7 +49,9 @@
     # Auto save
     auto-save = {
       enable = true;
-      enableAutoSave = true;
+      settings = {
+        enable = true;
+      };
     };
 
     # Built in git blame
@@ -67,7 +69,9 @@
     # Help with commands completion
     which-key = {
       enable = true;
-      showKeys = true;
+      settings = {
+        show_keys = true;
+      };
     };
 
     # RPC presence
@@ -80,5 +84,7 @@
     texpresso = {
       enable = true;
     };
+
+    web-devicons.enable = true;
   };
 }

@@ -43,7 +43,7 @@
         ];
       };
 
-      typst-lsp = {
+      typst_lsp = {
         enable = true;
         settings = {
           # Avoid conflicts

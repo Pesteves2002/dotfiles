@@ -4,7 +4,7 @@
 
     shellIntegration.enableZshIntegration = true;
 
-    theme = "GitHub Dark";
+    # themeFile = "GitHub Dark";
 
     font = lib.mkDefault {
       name = "Fira Code";
