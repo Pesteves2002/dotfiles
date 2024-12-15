@@ -51,6 +51,10 @@
           experimentalFormatterMode = "on";
         };
       };
+
+      digestif = {
+        enable = true;
+      };
     };
   };
 

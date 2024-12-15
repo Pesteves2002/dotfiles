@@ -1,7 +1,10 @@
-{config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     driSupport32Bit = true;
   };
 
@@ -17,5 +20,10 @@
     nvidiaSettings = true;
     # Select the appropriate driver version for your specific GPU
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  systemd.services.nvidia-control-devices = {
+    wantedBy = ["multi-user.target"];
+    serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
   };
 }
