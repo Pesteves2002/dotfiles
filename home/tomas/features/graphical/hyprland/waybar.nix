@@ -8,7 +8,7 @@
         position = "top";
         margin = "10 10 10 10";
         # height = 24;
-        modules-left = ["hyprland/workspaces"];
+        modules-left = ["hyprland/workspaces" "mpris"];
         modules-center = ["clock"];
         modules-right = ["network" "backlight" "battery" "pulseaudio" "cpu" "memory"];
 
@@ -96,6 +96,13 @@
         network = {
           "format-wifi" = "{essid} ({signalStrength}%) ";
           "format-disconnected" = "";
+        };
+
+        mpris = {
+          format = "{title} - {artist} - {album}";
+
+          # Uncomment to ignore specific players
+          ignored-players = ["firefox"];
         };
       };
     };

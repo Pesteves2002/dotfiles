@@ -19,6 +19,8 @@
     ../features/drivers/nvidia.nix
 
     ../features/boot/systemd-boot.nix
+
+    ../features/virtualisation/docker.nix
   ];
 
   networking = {

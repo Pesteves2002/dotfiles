@@ -26,6 +26,12 @@ window#waybar {
   color: @yellow;
 }
 
+#mpris {
+  padding: 0px 8px;
+  background-color: @bg;
+  margin-left: 8px;
+}
+
 #clock {
   padding: 0px 16px;
   background-color: @bg;
