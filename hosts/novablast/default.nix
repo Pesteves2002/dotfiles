@@ -14,7 +14,7 @@
     ../features/networking/sshd.nix
     ../features/networking/fail2ban.nix
     ../features/networking/minecraft.nix
-    ../features/networking/wakeonlan.nix
+    # ../features/networking/wakeonlan.nix
 
     ../features/drivers/nvidia.nix
 
