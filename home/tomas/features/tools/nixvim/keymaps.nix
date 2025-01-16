@@ -1,11 +1,5 @@
 {
   programs.nixvim.keymaps = [
-    {
-      mode = "n";
-      key = "<leader>pv";
-      action = ":Ex<CR>";
-    }
-
     # invert search direction
     {
       mode = "n";
@@ -64,13 +58,6 @@
       mode = "v";
       key = "K";
       action = ":m '<-2<CR>gv=gv";
-    }
-
-    # replace word under cursor
-    {
-      mode = "n";
-      key = "<Leader>s";
-      action = ":%s/\\<<C-r><C-w>\\>/";
     }
 
     {

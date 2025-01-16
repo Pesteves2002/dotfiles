@@ -166,6 +166,7 @@
         "workspace 2,^(firefox)$"
         "workspace 3,^(vesktop)$"
         "workspace 4,^.*zathura$"
+        "workspace 5,^(cider)$"
 
         # Fix flameshot not working on multiple monitors
         "suppressevent fullscreen,flameshot"
