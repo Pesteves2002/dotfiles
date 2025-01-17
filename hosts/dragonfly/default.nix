@@ -29,5 +29,5 @@
   networking.hostName = "dragonfly"; # Define your hostname.
   networking.hostId = "53c8f223"; # Created with head -c 8 /etc/machine-id
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11";
 }
