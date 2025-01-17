@@ -79,13 +79,6 @@
     }
 
     {
-      # Toggle NvimTree
-      mode = "n";
-      key = "<C-n>";
-      action = "<CMD>NvimTreeToggle<CR>";
-    }
-
-    {
       # Format file
       mode = "n";
       key = "<space>fm";
