@@ -9,6 +9,7 @@
     ./lint.nix
     ./typst.nix
     ./tree.nix
+    ./which-key.nix
   ];
 
   programs.nixvim.plugins = {
@@ -16,7 +17,12 @@
     lualine.enable = true;
 
     # Add automatic pairs
-    nvim-autopairs.enable = true;
+    nvim-autopairs = {
+      enable = true;
+      settings = {
+        check_ts = true;
+      };
+    };
 
     # Add open files at the top
     bufferline.enable = true;
@@ -67,14 +73,6 @@
       modes = [":" "/" "?"];
     };
 
-    # Help with commands completion
-    which-key = {
-      enable = true;
-      settings = {
-        show_keys = true;
-      };
-    };
-
     # RPC presence
     presence-nvim = {
       enable = true;
@@ -85,8 +83,6 @@
     texpresso = {
       enable = true;
     };
-
-    web-devicons.enable = true;
 
     indent-blankline = {
       enable = true;
