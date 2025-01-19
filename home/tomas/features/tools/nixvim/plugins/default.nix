@@ -10,6 +10,7 @@
     ./typst.nix
     ./tree.nix
     ./which-key.nix
+    ./indent.nix
   ];
 
   programs.nixvim.plugins = {
@@ -35,12 +36,9 @@
     # Cursor line
     cursorline = {
       enable = true;
-      cursorline.number = true;
-    };
-
-    # Show errors on line
-    trouble = {
-      enable = true;
+      cursorline = {
+        number = true;
+      };
     };
 
     # Rainbow delimiters
@@ -49,16 +47,11 @@
     };
 
     # Easy commenting
-    comment = {
-      enable = true;
-    };
+    commentary.enable = true;
 
     # Auto save
     auto-save = {
       enable = true;
-      settings = {
-        enable = true;
-      };
     };
 
     # Built in git blame
@@ -70,7 +63,6 @@
     # Help with commands
     wilder = {
       enable = true;
-      modes = [":" "/" "?"];
     };
 
     # RPC presence
@@ -78,14 +70,8 @@
       enable = true;
       editingText = "Martelating %s";
       workspaceText = "Breaking the code of %s";
-    };
-
-    texpresso = {
-      enable = true;
-    };
-
-    indent-blankline = {
-      enable = true;
+      mainImage = "file";
+      neovimImageText = "Powered by Nixvim";
     };
 
     lastplace.enable = true;

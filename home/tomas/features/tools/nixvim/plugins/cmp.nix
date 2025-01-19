@@ -1,30 +1,10 @@
 {...}: {
   programs.nixvim.plugins = {
-    cmp-buffer = {
-      enable = true;
-    };
-
-    cmp_luasnip = {
-      enable = true;
-    };
-
     luasnip.enable = true;
-
-    cmp-nvim-lsp = {
-      enable = true;
-    };
-
-    cmp-path = {
-      enable = true;
-    };
-
-    copilot-cmp = {
-      enable = true;
-    };
 
     cmp = {
       enable = true;
-      autoEnableSources = true;
+
       settings = {
         snippet.expand = ''
           function(args)
@@ -34,14 +14,14 @@
 
         sources = [
           {name = "nvim_lsp";}
+          {name = "luasnip";}
+          {name = "path";}
+          {name = "copilot";}
           {
             name = "buffer";
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+            keyword_length = 3;
           }
-          {name = "luasnip";}
-          {name = "path";}
-          {name = "nvim_lua";}
-          {name = "copilot";}
         ];
 
         mapping = {

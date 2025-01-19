@@ -25,7 +25,6 @@
     nixpkgs,
     home-manager,
     agenix,
-    ghostty,
     ...
   } @ inputs: let
     inherit (self) outputs;
