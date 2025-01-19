@@ -15,7 +15,7 @@
 
     settings = {
       General = {
-        savePath = "${config.home.homeDirectory}/Pictures/Screenshots";
+        savePath = "${config.home.homeDirectory}/Pictures";
 
         savePathFixed = true;
 
@@ -25,7 +25,7 @@
 
         showDesktopNotification = false;
 
-        filenamePattern = "%y-%m-%d_%H-%M-%S";
+        filenamePattern = "screenshot_%y-%m-%d_%H-%M-%S";
 
         disabledTrayIcon = true;
 

@@ -18,16 +18,9 @@
       height = 1080;
       refreshRate = 60;
       x = 0;
+      y = 1080;
       primary = true;
       workspace = "1";
-    }
-    {
-      name = "HDMI-A-1";
-      width = 1920;
-      height = 1080;
-      refreshRate = 60;
-      y = -1080;
-      workspace = "2";
     }
   ];
 
