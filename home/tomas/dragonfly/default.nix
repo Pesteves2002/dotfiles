@@ -5,6 +5,8 @@
     ../features/graphical/hyprland
     ../features/graphical/hyprland/laptop.nix
 
+    ../features/graphical/i3
+
     ../features/graphical/amd.nix
 
     ../features/games/geforce-now.nix

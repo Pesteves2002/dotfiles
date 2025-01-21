@@ -122,7 +122,7 @@ in {
         fonts = {
           names = ["JetBrains Mono Nerd Font"];
           style = "Bold Semi-Condensed";
-          size = 14.0;
+          size = lib.mkForce 14.0;
         };
 
         menu = "${pkgs.rofi}/bin/rofi -matching normal -modi drun -show drun";
