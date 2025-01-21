@@ -1,6 +1,7 @@
 {
   inputs,
   outputs,
+  self,
   ...
 }: {
   imports =

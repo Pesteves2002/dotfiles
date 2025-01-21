@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.nixvim.plugins.lsp = {
     enable = true;
 
@@ -29,9 +33,21 @@
       nixd = {
         enable = true;
 
-        settings = {
+        settings = let
+          user = config.credentials.user;
+          flake = ''(builtins.getFlake "/home/${user}/.dotfiles")'';
+          hostname = config.credentials.hostname;
+        in {
           formatting.command = ["alejandra"];
-          nixpkgs.expr = "import <nixpkgs> { }";
+          nixpkgs.expr = "import ${flake}.inputs.nixpkgs {}";
+          options = {
+            nixos.expr = "${flake}.nixosConfigurations.${hostname}.options";
+            home-manager.expr = "${flake}.homeConfigurations.\"${user}@${hostname}\".options";
+            nixvim.expr = "${flake}.homeConfigurations.\"${user}@${hostname}\".options.programs.nixvim.type.getSubOptions []";
+          };
+        };
+        extraOptions = {
+          offset_encoding = "utf-8";
         };
       };
 
@@ -43,13 +59,19 @@
         ];
       };
 
-      typst_lsp = {
+      tinymist = {
         enable = true;
-        settings = {
-          # Avoid conflicts
-          exportPdf = "never";
-          experimentalFormatterMode = "on";
+        extraOptions = {
+          offset_encoding = "utf-8";
+          # exportPdf = "onType";
+          # formatterMode = "typstyle";
         };
+        # settings = {
+
+        #   # Avoid conflicts
+        #   exportPdf = "never";
+        #   experimentalFormatterMode = "on";
+        # };
       };
 
       digestif = {

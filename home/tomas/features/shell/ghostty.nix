@@ -1,9 +1,8 @@
 {
-  inputs,
-  pkgs,
-  ...
-}: {
-  home.packages = [
-    inputs.ghostty.packages."${pkgs.system}".default
-  ];
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+    installVimSyntax = true;
+    installBatSyntax = true;
+  };
 }

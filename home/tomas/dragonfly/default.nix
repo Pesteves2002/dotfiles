@@ -24,5 +24,10 @@
     }
   ];
 
-  home.stateVersion = "23.11";
+  credentials = {
+    hostname = "dragonfly";
+    user = "tomas";
+  };
+
+  home.stateVersion = "24.11";
 }

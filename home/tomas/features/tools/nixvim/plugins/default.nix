@@ -7,7 +7,7 @@
     ./treesitter.nix
     ./cmp.nix
     ./lint.nix
-    ./typst.nix
+    # ./typst.nix
     ./tree.nix
     ./which-key.nix
     ./indent.nix
@@ -63,6 +63,7 @@
     # Help with commands
     wilder = {
       enable = true;
+      modes = [":" "/" "?"];
     };
 
     # RPC presence

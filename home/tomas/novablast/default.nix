@@ -31,5 +31,10 @@
     }
   ];
 
-  home.stateVersion = "23.11";
+  credentials = {
+    hostname = "novablast";
+    user = "tomas";
+  };
+
+  home.stateVersion = "24.11";
 }

@@ -5,6 +5,7 @@
       nixGrammars = true;
       nixvimInjections = true;
       settings = {
+        auto_install = true;
         indent.enable = true;
       };
       folding = true;
