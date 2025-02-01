@@ -156,6 +156,7 @@
         "1, monitor:DP-3, default:true"
         "2, monitor:DP-2, default:true"
         "3, monitor:DP-2, default:true"
+        "5, monitor:DP-2, default:true"
 
         "w[tv1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
@@ -166,7 +167,7 @@
         "workspace 2,^(firefox)$"
         "workspace 3,^(vesktop)$"
         "workspace 4,^.*zathura$"
-        "workspace 5,^(cider)$"
+        "workspace 5,^(Cider)$"
 
         # Fix flameshot not working on multiple monitors
         "suppressevent fullscreen,flameshot"
@@ -191,6 +192,8 @@
 
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+
+        "Cider"
 
         "[workspace special silent; fullscreen] rnote"
       ];
