@@ -10,22 +10,29 @@
     ../features/audio
 
     ../features/networking
+    ../features/networking/static.nix
     ../features/networking/icmp.nix
     ../features/networking/sshd.nix
     ../features/networking/fail2ban.nix
-    ../features/networking/minecraft.nix
-    # ../features/networking/wakeonlan.nix
+    # ../features/networking/minecraft.nix
 
     ../features/drivers/nvidia.nix
 
     ../features/boot/systemd-boot.nix
 
-    ../features/virtualisation/docker.nix
+    # ../features/virtualisation/docker.nix
   ];
 
   networking = {
     hostName = "novablast";
-    wiredInterface = "enp750";
+
+    wiredInterface = "enp7s0";
+    ipv4Address = "192.168.1.2";
+    ipv4SubnetMask = 24;
+    ipv4Gateway = "192.168.1.1";
+    dnsServers = ["1.1.1.1" "1.0.0.1"];
+
+    wakeOnLan = true;
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?
