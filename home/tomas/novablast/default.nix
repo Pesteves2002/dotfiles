@@ -2,6 +2,7 @@
   imports = [
     ../common.nix
     ../features/graphical/hyprland
+    ../features/graphical/i3
 
     ../features/graphical/nvidia.nix
   ];

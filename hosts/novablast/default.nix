@@ -6,6 +6,7 @@
 
     ../features/display/sddm.nix
     ../features/display/hyprland.nix
+    ../features/display/i3.nix
 
     ../features/audio
 
