@@ -27,5 +27,9 @@
       confirm_os_window_close 2
     '';
   };
+
   home.sessionVariables.TERMINAL = "kitty";
+
+  # Fix ssh on kitty
+  home.sessionVariables.TERM = "xterm-256color";
 }
