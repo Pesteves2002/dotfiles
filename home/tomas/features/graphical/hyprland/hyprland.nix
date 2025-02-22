@@ -217,9 +217,9 @@
       };
 
       animation = lib.mkDefault [
-        "windows, 1, 2, default, slide"
+        "windows, 1, 1.5, default, slide"
         "borderangle, 1, 30, linear, loop"
-        "workspaces, 1, 2, default, slide"
+        "workspaces, 1, 1.5, default, slide"
       ];
 
       bezier = [
