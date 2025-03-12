@@ -17,6 +17,8 @@
     ../features/networking/fail2ban.nix
     # ../features/networking/minecraft.nix
 
+    ../features/devices/ios.nix
+
     ../features/drivers/nvidia.nix
 
     ../features/boot/systemd-boot.nix
