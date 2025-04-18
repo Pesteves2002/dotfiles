@@ -60,6 +60,8 @@
       settings.current_line_blame = true;
     };
 
+    fugitive.enable = true;
+
     # Help with commands
     wilder = {
       enable = true;

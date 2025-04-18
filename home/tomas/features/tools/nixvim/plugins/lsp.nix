@@ -3,6 +3,10 @@
   config,
   ...
 }: {
+  imports = [
+    ./matlab.nix
+  ];
+
   programs.nixvim.plugins.lsp = {
     enable = true;
 
