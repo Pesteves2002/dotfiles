@@ -114,6 +114,8 @@
 
         # Clipboard History
         "$mod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+
+        "$mod, m, exec, pkill -SIGUSR1 waybar"
       ];
 
       bindl = [
