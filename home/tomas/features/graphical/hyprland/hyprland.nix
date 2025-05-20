@@ -165,22 +165,22 @@
       ];
 
       windowrule = [
-        "workspace 1,^(kitty)$"
-        "workspace 2,^(firefox)$"
-        "workspace 3,^(vesktop)$"
-        "workspace 4,^.*zathura$"
-        "workspace 5,^((C|c)ider)$"
+        "workspace 1,class:^(kitty)$"
+        "workspace 2,class:^(firefox)$"
+        "workspace 3,class:^(vesktop)$"
+        "workspace 4,class:^.*zathura$"
+        "workspace 5,class:^((C|c)ider)$"
 
         # Fix flameshot not working on multiple monitors
-        "suppressevent fullscreen,flameshot"
-        "float,flameshot"
-        "monitor 1,flameshot"
-        "move 0 0,flameshot"
+        "suppressevent fullscreen, class:flameshot"
+        "float, class:flameshot"
+        "monitor 1, class:flameshot"
+        "move 0 0, class:flameshot"
 
-        "bordersize 0, floating:0, onworkspace:w[tv1]"
-        "rounding 0, floating:0, onworkspace:w[tv1]"
-        "bordersize 0, floating:0, onworkspace:f[1]"
-        "rounding 0, floating:0, onworkspace:f[1]"
+        # "bordersize 0, floating:0, onworkspace:w[tv1]"
+        # "rounding 0, floating:0, onworkspace:w[tv1]"
+        # "bordersize 0, floating:0, onworkspace:f[1]"
+        # "rounding 0, floating:0, onworkspace:f[1]"
       ];
 
       exec-once = [

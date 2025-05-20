@@ -43,6 +43,7 @@
       nixvim.enable = false;
       waybar.enable = false;
       zathura.enable = false;
+      mako.enable = false;
 
       wofi.enable = true;
     };

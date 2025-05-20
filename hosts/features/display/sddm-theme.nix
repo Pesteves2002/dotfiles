@@ -1,5 +1,5 @@
 {pkgs}: let
-  imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/planet.png";
+  imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/beach.webp";
 
   image = pkgs.fetchurl {
     url = imgLink;
@@ -10,10 +10,11 @@ in
     name = "sddm-theme";
     src = pkgs.fetchFromGitHub {
       owner = "MarianArlt";
-      repo = "sddm-sugar-dark";
-      rev = "ceb2c455663429be03ba62d9f898c571650ef7fe";
-      sha256 = "0153z1kylbhc9d12nxy9vpn0spxgrhgy36wy37pk6ysq7akaqlvy";
+      repo = "sddm-astronaut-theme";
+      rev = "bf4d01732084be29cedefe9815731700da865956";
+      sha256 = "";
     };
+
     installPhase = ''
       mkdir -p $out
       cp -R ./* $out/

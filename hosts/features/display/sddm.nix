@@ -1,4 +1,17 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/beach.webp";
+
+  image = pkgs.fetchurl {
+    url = imgLink;
+    hash = "sha256-oJhnAg9gGc8BPl57NHfdGSwTx9h57RSpX9CVj1Hc15o=";
+  };
+
+  sddm-astronaut = pkgs.sddm-astronaut.override {
+    themeConfig = {
+      Background = "${image}";
+    };
+  };
+in {
   services = {
     xserver.enable = true;
 
@@ -6,9 +19,16 @@
       enable = true;
       autoNumlock = true;
 
-      theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
+      theme = "sddm-astronaut-theme";
 
-      extraPackages = with pkgs; [libsForQt5.qt5.qtquickcontrols2 libsForQt5.qt5.qtgraphicaleffects];
+      extraPackages = [sddm-astronaut];
+      package = pkgs.kdePackages.sddm; # qt6 sddm version
+
+      wayland.enable = true;
     };
   };
+
+  environment.systemPackages = [
+    sddm-astronaut
+  ];
 }

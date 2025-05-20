@@ -1,5 +1,5 @@
 {lib, ...}: let
-  wallpaper = toString ../../config/wallpapers/fractal.png;
+  wallpaper = toString ../../config/wallpapers/beach.webp;
 in {
   programs.hyprlock = {
     enable = true;
