@@ -1,5 +1,14 @@
-{lib, ...}: let
-  wallpaper = toString ../../config/wallpapers/beach.webp;
+{
+  lib,
+  pkgs,
+  ...
+}: let
+  imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/beach.png";
+
+  image = pkgs.fetchurl {
+    url = imgLink;
+    hash = "sha256-fHOdO+8KmnjLiyBsPfiW3QRS1PsVfTJOyrifYD0Gr20=";
+  };
 in {
   programs.hyprlock = {
     enable = true;
@@ -13,7 +22,7 @@ in {
 
       background = lib.mkForce [
         {
-          path = wallpaper;
+          path = "${image}";
           blur_passes = 1;
           blur_size = 4;
         }

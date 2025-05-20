@@ -1,5 +1,5 @@
 {pkgs}: let
-  imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/beach.webp";
+  imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/beach.png";
 
   image = pkgs.fetchurl {
     url = imgLink;

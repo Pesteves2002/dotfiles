@@ -1,9 +1,9 @@
 {pkgs, ...}: let
-  imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/beach.webp";
+  imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/beach.png";
 
   image = pkgs.fetchurl {
     url = imgLink;
-    hash = "sha256-oJhnAg9gGc8BPl57NHfdGSwTx9h57RSpX9CVj1Hc15o=";
+    hash = "sha256-fHOdO+8KmnjLiyBsPfiW3QRS1PsVfTJOyrifYD0Gr20=";
   };
 
   sddm-astronaut = pkgs.sddm-astronaut.override {
@@ -30,5 +30,6 @@ in {
 
   environment.systemPackages = [
     sddm-astronaut
+    pkgs.pipewire
   ];
 }
