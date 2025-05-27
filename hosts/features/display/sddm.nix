@@ -24,7 +24,7 @@ in {
       extraPackages = [sddm-astronaut];
       package = pkgs.kdePackages.sddm; # qt6 sddm version
 
-      wayland.enable = true;
+      #wayland.enable = true;
     };
   };
 

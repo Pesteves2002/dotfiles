@@ -165,11 +165,11 @@
       ];
 
       windowrule = [
-        "workspace 1,class:^(kitty)$"
-        "workspace 2,class:^(firefox)$"
-        "workspace 3,class:^(vesktop)$"
-        "workspace 4,class:^.*zathura$"
-        "workspace 5,class:^((C|c)ider)$"
+        "workspace 1       , class:^(kitty)$"
+        "workspace 2       , class:^(firefox)$"
+        "workspace 3 silent, class:^(vesktop)$"
+        "workspace 4       , class:^.*zathura$"
+        "workspace 5 silent, class:^((C|c)ider)$"
 
         # Fix flameshot not working on multiple monitors
         "suppressevent fullscreen, class:flameshot"

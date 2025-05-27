@@ -7,7 +7,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      update = "nix fmt && sudo nixos-rebuild switch --flake .#$(hostname -s)";
+      update = "nix fmt * && sudo nixos-rebuild switch --flake .#$(hostname -s)";
       ff = "firefox";
       idea = "idea-ultimate > /dev/null 2>&1 &";
     };
