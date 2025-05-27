@@ -23,7 +23,7 @@
   # current directory in LF on exit
   programs.zsh.shellAliases.lf = "lfcd";
 
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     lfcd() {
           tmp="$(mktemp)"
           command lf -last-dir-path="$tmp" "$@"

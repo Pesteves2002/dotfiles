@@ -11,7 +11,7 @@
       ./stylix.nix
     ]
     ++ [inputs.nixvim.homeManagerModules.nixvim]
-    ++ [inputs.stylix.homeManagerModules.stylix]
+    ++ [inputs.stylix.homeModules.stylix]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {

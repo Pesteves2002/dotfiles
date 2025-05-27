@@ -14,7 +14,7 @@
     };
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:nix-community/stylix/release-25.05";
   };
 
   outputs = {

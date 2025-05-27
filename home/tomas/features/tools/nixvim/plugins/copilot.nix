@@ -1,16 +1,19 @@
 {
   programs.nixvim.plugins.copilot-lua = {
     enable = true;
-    filetypes = {
-      "*" = true;
-    };
 
-    panel = {
-      enabled = false;
-    };
+    settings = {
+      filetypes = {
+        "*" = true;
+      };
 
-    suggestion = {
-      enabled = false;
+      panel = {
+        enabled = false;
+      };
+
+      suggestion = {
+        enabled = false;
+      };
     };
   };
 }

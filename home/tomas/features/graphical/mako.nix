@@ -2,15 +2,17 @@
   services.mako = {
     enable = true;
 
-    anchor = "top-right";
+    settings = {
+      anchor = "top-right";
 
-    backgroundColor = lib.mkDefault "#000000";
-    borderColor = lib.mkDefault "#22A7F0";
-    borderRadius = 5;
-    borderSize = 2;
+      backgroundColor = lib.mkDefault "#000000";
+      borderColor = lib.mkDefault "#22A7F0";
+      borderRadius = 5;
+      borderSize = 2;
 
-    defaultTimeout = 5000; # 5 seconds
+      defaultTimeout = 5000; # 5 seconds
 
-    font = lib.mkDefault "Fira Code";
+      font = lib.mkDefault "Fira Code";
+    };
   };
 }

@@ -36,8 +36,10 @@
     # Cursor line
     cursorline = {
       enable = true;
-      cursorline = {
-        number = true;
+      settings = {
+        cursorline = {
+          number = true;
+        };
       };
     };
 

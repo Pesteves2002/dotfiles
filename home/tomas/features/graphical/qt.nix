@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{lib, ...}: {
   qt = {
     enable = true;
 
-    platformTheme.name = "gtk";
+    platformTheme.name = lib.mkDefault "gtk";
 
-    style.name = "adwaita-dark";
+    style.name = lib.mkDefault "adwaita-dark";
   };
 }
