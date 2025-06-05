@@ -26,7 +26,7 @@
     };
 
     # Add open files at the top
-    bufferline.enable = true;
+    # bufferline.enable = true;
 
     # Undo tree
     undotree = {

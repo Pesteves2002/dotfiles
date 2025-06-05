@@ -5,12 +5,12 @@
     settings = {
       anchor = "top-right";
 
-      backgroundColor = lib.mkDefault "#000000";
-      borderColor = lib.mkDefault "#22A7F0";
-      borderRadius = 5;
-      borderSize = 2;
+      background-color = lib.mkDefault "#000000";
+      border-color = lib.mkDefault "#22A7F0";
+      border-radius = 5;
+      border-size = 2;
 
-      defaultTimeout = 5000; # 5 seconds
+      default-timeout = 5000; # 5 seconds
 
       font = lib.mkDefault "Fira Code";
     };
