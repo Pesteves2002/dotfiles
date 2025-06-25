@@ -5,7 +5,7 @@
     enableZshIntegration = true;
 
     settings = {
-      manager = {
+      mgr = {
         ratio = [1 2 3];
         show_symlink = true;
       };

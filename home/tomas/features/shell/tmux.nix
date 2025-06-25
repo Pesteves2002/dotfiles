@@ -2,14 +2,17 @@
   programs.tmux = {
     enable = true;
 
-    clock24 = true;
+    aggressiveResize = true;
     baseIndex = 1;
+    clock24 = true;
     customPaneNavigationAndResize = true;
     escapeTime = 0;
-    shortcut = "a";
-    newSession = true;
+    focusEvents = true;
     historyLimit = 50000;
     keyMode = "vi";
+    mouse = true;
+    newSession = true;
+    shortcut = "a";
     terminal = "tmux-256color";
 
     extraConfig = ''
@@ -25,8 +28,12 @@
 
       # force reload of config file
       unbind r
-      bind r source-file /etc/tmux.conf
+      bind r source-file '~/.config/tmux/tmux.conf' \; display "Config reloaded"
 
+      # Renumber on delete
+      set -g renumber-windows on
+
+      # keep the current working directory when creating new windows or splitting panes
       bind c new-window -c "#{pane_current_path}"
 
       # remap splitting commands to vi representation
@@ -47,22 +54,20 @@
       bind -n M-k select-pane -U
       bind -n M-j select-pane -D
 
-      # Enable mouse
-      set -g mouse on
-      set -g focus-event on
-
       # Enable osc-52
       set -g set-clipboard on
 
       # pane borders
       set -g pane-border-style 'fg=colour1'
       set -g pane-active-border-style 'fg=colour3'
+
+      # restore session on startup
+      set -g @continuum-restore 'on'
     '';
 
     plugins = with pkgs.tmuxPlugins; [
       resurrect
       continuum
-      better-mouse-mode
       catppuccin
       tmux-thumbs
     ];

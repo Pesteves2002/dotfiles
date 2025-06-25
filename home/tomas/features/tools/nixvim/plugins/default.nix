@@ -5,6 +5,7 @@
     ./telescope.nix
     ./harpoon.nix
     ./treesitter.nix
+    ./ufo.nix
     ./cmp.nix
     ./lint.nix
     # ./typst.nix

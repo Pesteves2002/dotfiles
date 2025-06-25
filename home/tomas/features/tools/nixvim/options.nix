@@ -25,10 +25,8 @@
     ignorecase = true;
     smartcase = true;
 
-    spell = true;
-    spelllang = ["en" "pt"];
-
-    foldenable = false;
+    # spell = true;
+    # spelllang = ["en" "pt"];
 
     undofile = true;
     undodir = "/tmp//";
