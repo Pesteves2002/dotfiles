@@ -32,6 +32,9 @@
     # Undo tree
     undotree = {
       enable = true;
+      settings = {
+        splitWidth = 45;
+      };
     };
 
     # Cursor line
