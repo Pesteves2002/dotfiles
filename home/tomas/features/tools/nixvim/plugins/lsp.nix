@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./matlab.nix
+    ./latex.nix
   ];
 
   programs.nixvim.plugins.lsp = {
@@ -75,10 +76,6 @@
         #   exportPdf = "never";
         #   experimentalFormatterMode = "on";
         # };
-      };
-
-      digestif = {
-        enable = true;
       };
 
       rust_analyzer = {
