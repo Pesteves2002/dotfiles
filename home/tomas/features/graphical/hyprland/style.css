@@ -2,6 +2,7 @@
 @define-color fg #ffffff;
 @define-color yellow #ffcb6b;
 @define-color blue #0000ff;
+@define-color black #000000;
 
 * {
   font-size: 14px;
@@ -16,14 +17,17 @@ window#waybar {
   background-color: transparent;
 }
 
+#workspaces button.active {
+  background: @yellow;
+}
+
+#workspaces button.active label {
+  color: @black;
+}
+
 #workspaces {
   padding: 0px 8px;
   background-color: @bg;
-}
-
-
-#workspaces button.active {
-  color: @yellow;
 }
 
 #mpris {
