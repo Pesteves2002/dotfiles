@@ -5,5 +5,6 @@
     ./zathura.nix
     ./thunderbird.nix
     ./droidcam.nix
+    ./signal.nix
   ];
 }
