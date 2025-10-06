@@ -12,6 +12,7 @@
 
     ../features/networking
     ../features/networking/static.nix
+    ../features/networking/dns.nix
     ../features/networking/icmp.nix
     ../features/networking/sshd.nix
     ../features/networking/fail2ban.nix

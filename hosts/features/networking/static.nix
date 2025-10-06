@@ -22,7 +22,5 @@ in {
       address = c.ipv4Gateway;
       interface = c.wiredInterface;
     };
-
-    nameservers = c.dnsServers;
   };
 }

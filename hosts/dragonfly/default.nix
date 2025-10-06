@@ -10,6 +10,7 @@
     ../features/audio
 
     ../features/networking
+    ../features/networking/dns.nix
     ../features/networking/networkmanager.nix
     ../features/networking/bluetooth.nix
 
@@ -24,8 +25,12 @@
     ../features/virtualisation/virtual-machines.nix
   ];
 
-  networking.hostName = "dragonfly"; # Define your hostname.
-  networking.hostId = "53c8f223"; # Created with head -c 8 /etc/machine-id
+  newtworking = {
+    hostName = "dragonfly"; # Define your hostname.
+    hostId = "53c8f223"; # Created with head -c 8 /etc/machine-id
+
+    dnsServers = ["1.1.1.1" "1.0.0.1" "9.9.9.9"];
+  };
 
   system.stateVersion = "24.11";
 }
