@@ -195,7 +195,7 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
 
-        "Cider"
+        "cider-2"
 
         "[workspace special silent; fullscreen] rnote"
       ];
