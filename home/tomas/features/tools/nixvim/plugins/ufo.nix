@@ -53,6 +53,9 @@
             };
           };
         };
+
+        # Fix folding not working in stable
+        package = pkgs.unstable.vimPlugins.nvim-ufo;
       };
     };
 
