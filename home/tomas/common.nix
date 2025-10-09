@@ -1,7 +1,6 @@
 {
   inputs,
   outputs,
-  self,
   ...
 }: {
   imports =
@@ -13,15 +12,6 @@
     ++ [inputs.nixvim.homeManagerModules.nixvim]
     ++ [inputs.stylix.homeModules.stylix]
     ++ (builtins.attrValues outputs.homeManagerModules);
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [
-        "electron-29.4.6"
-      ];
-    };
-  };
 
   home = {
     username = "tomas";

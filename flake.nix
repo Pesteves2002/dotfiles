@@ -26,8 +26,21 @@
   } @ inputs: let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
+
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    argsPkgs = {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    pkgs = import nixpkgs (
+      {
+        overlays = [
+          (self: super: {unstable = import inputs.unstable argsPkgs;})
+        ];
+      }
+      // argsPkgs
+    );
   in {
     inherit lib;
 
@@ -40,6 +53,7 @@
 
     nixosConfigurations = {
       novablast = lib.nixosSystem {
+        inherit pkgs;
         modules = [./hosts/novablast ./home/tomas/tomas.nix agenix.nixosModules.default];
         specialArgs = {
           inherit inputs outputs;
@@ -47,6 +61,7 @@
       };
 
       dragonfly = lib.nixosSystem {
+        inherit pkgs;
         modules = [./hosts/dragonfly ./home/tomas/tomas.nix agenix.nixosModules.default];
         specialArgs = {
           inherit inputs outputs;
@@ -56,19 +71,11 @@
 
     homeConfigurations = {
       "tomas@novablast" = lib.homeManagerConfiguration {
-        inherit pkgs;
         modules = [./home/tomas/novablast];
-        extraSpecialArgs = {
-          inherit inputs outputs;
-        };
       };
 
       "tomas@dragonfly" = lib.homeManagerConfiguration {
-        inherit pkgs;
         modules = [./home/tomas/dragonfly];
-        extraSpecialArgs = {
-          inherit inputs outputs;
-        };
       };
     };
   };

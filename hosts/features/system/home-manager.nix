@@ -7,9 +7,11 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  home-manager.backupFileExtension = "backup";
-
-  home-manager.extraSpecialArgs = {
-    inherit inputs outputs;
+  home-manager = {
+    useGlobalPkgs = true;
+    backupFileExtension = "backup";
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
   };
 }

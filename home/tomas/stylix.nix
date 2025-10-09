@@ -48,4 +48,7 @@
       wofi.enable = true;
     };
   };
+
+  # https://www.reddit.com/r/NixOS/comments/1ivo70f/comment/mebnssf/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+  stylix.targets.gnome-text-editor.enable = false;
 }

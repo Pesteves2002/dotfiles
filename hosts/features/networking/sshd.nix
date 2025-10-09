@@ -10,6 +10,7 @@ in {
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
       LoginGraceTime = 0;
     };
     authorizedKeysFiles = lib.mkForce ["/etc/ssh/authorized_keys.d/%u"];
