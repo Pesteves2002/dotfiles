@@ -31,7 +31,12 @@
 
     overlays = [
       (
-        final: prev: {unstable = inputs.unstable.legacyPackages.${prev.system};}
+        final: prev: {
+          unstable = import inputs.unstable {
+            system = prev.system;
+            config.allowUnfree = true;
+          };
+        }
       )
     ];
 
