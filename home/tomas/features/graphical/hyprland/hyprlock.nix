@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   imgLink = "https://raw.githubusercontent.com/Pesteves2002/dotfiles/nixos/home/tomas/features/config/wallpapers/beach.png";
@@ -9,6 +10,9 @@
     url = imgLink;
     hash = "sha256-fHOdO+8KmnjLiyBsPfiW3QRS1PsVfTJOyrifYD0Gr20=";
   };
+
+  isLaptop = config.laptop.isLaptop;
+  mainMonitor = (lib.findFirst (m: m.primary) null config.monitors).name or "";
 in {
   programs.hyprlock = {
     enable = true;
@@ -24,40 +28,71 @@ in {
       background = lib.mkForce [
         {
           path = "${image}";
-          blur_passes = 1;
+          blur_passes = 2;
           blur_size = 4;
         }
       ];
 
       input-field = lib.mkForce [
         {
+          monitor = mainMonitor;
           size = "200, 50";
-          position = "0, -80";
-          monitor = "";
-          dots_center = true;
-          fade_on_empty = false;
-          font_color = "rgb(202, 211, 245)";
-          inner_color = "rgb(91, 96, 120)";
-          outer_color = "rgb(24, 25, 38)";
           outline_thickness = 5;
+
+          dots_center = true;
+
+          outer_color = "rgb(24, 25, 38)";
+          inner_color = "rgb(91, 96, 120)";
+          font_color = "rgb(202, 211, 245)";
+          fade_on_empty = false;
+
+          position = "0, 0";
+
           shadow_passes = 2;
         }
       ];
 
-      label = lib.mkForce [
-        {
-          text = "$TIME";
-          font_size = 96;
-          text_align = "center";
-          halign = "center";
-          valign = "center";
-          position = "-560, 240";
-        }
+      label =
+        [
+          {
+            monitor = mainMonitor;
+            text = "$TIME";
 
+            font_size = 128;
+
+            position = "-25%, 25%";
+          }
+        ]
+        ++ lib.optionals (!isLaptop) [
+          {
+            monitor = mainMonitor;
+            text = "Restart";
+
+            color = "rgb(202, 211, 245)";
+
+            font_size = 14;
+
+            position = "0, -25%";
+            zindex = 1; # ensure it's above the shape
+
+            onclick = "reboot";
+          }
+        ];
+
+      shape = lib.optionals (!isLaptop) [
         {
-          text = "Restart";
-          size = "50, 50";
-          onclick = "reboot";
+          monitor = mainMonitor;
+          size = "205, 50";
+
+          color = "rgb(91, 96, 120)";
+          rounding = -1; # smooth rounded corners
+
+          border_size = 5;
+          border_color = "rgb(24, 25, 38)";
+
+          position = "0, -25%";
+
+          shadow_passes = 2;
         }
       ];
     };
