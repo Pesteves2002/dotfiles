@@ -1,6 +1,7 @@
 {
   inputs,
   outputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -14,4 +15,8 @@
       inherit inputs outputs;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    home-manager
+  ];
 }

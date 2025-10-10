@@ -28,19 +28,19 @@
     lib = nixpkgs.lib // home-manager.lib;
 
     system = "x86_64-linux";
-    argsPkgs = {
-      inherit system;
-      config.allowUnfree = true;
-    };
 
-    pkgs = import nixpkgs (
+    overlays = [
+      (
+        final: prev: {unstable = inputs.unstable.legacyPackages.${prev.system};}
+      )
+    ];
+
+    pkgs =
+      import inputs.nixpkgs
       {
-        overlays = [
-          (self: super: {unstable = import inputs.unstable argsPkgs;})
-        ];
-      }
-      // argsPkgs
-    );
+        inherit system overlays;
+        config.allowUnfree = true;
+      };
   in {
     inherit lib;
 
@@ -54,7 +54,7 @@
     nixosConfigurations = {
       novablast = lib.nixosSystem {
         inherit pkgs;
-        modules = [./hosts/novablast ./home/tomas/tomas.nix agenix.nixosModules.default];
+        modules = [./hosts/novablast agenix.nixosModules.default];
         specialArgs = {
           inherit inputs outputs;
         };
@@ -62,7 +62,7 @@
 
       dragonfly = lib.nixosSystem {
         inherit pkgs;
-        modules = [./hosts/dragonfly ./home/tomas/tomas.nix agenix.nixosModules.default];
+        modules = [./hosts/dragonfly agenix.nixosModules.default];
         specialArgs = {
           inherit inputs outputs;
         };
@@ -70,12 +70,17 @@
     };
 
     homeConfigurations = {
+      inherit pkgs;
       "tomas@novablast" = lib.homeManagerConfiguration {
+        inherit pkgs;
         modules = [./home/tomas/novablast];
+        extraSpecialArgs = {inherit inputs outputs overlays;};
       };
 
       "tomas@dragonfly" = lib.homeManagerConfiguration {
+        inherit pkgs;
         modules = [./home/tomas/dragonfly];
+        extraSpecialArgs = {inherit inputs outputs overlays;};
       };
     };
   };

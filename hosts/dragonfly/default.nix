@@ -1,6 +1,7 @@
 {
   imports = [
     ./hardware.nix
+    ../tomas.nix
 
     ../common.nix
 

@@ -27,11 +27,7 @@ in {
         "plugdev"
         "libvirtd"
       ];
-
-    openssh.authorizedKeys.keys = [
-    ];
-    packages = [pkgs.home-manager];
   };
 
-  home-manager.users.tomas = import ./${config.networking.hostName};
+  home-manager.users.tomas = import ../home/tomas/${config.networking.hostName};
 }
