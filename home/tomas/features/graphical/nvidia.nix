@@ -9,9 +9,5 @@
     WLR_RENDERER_ALLOW_SOFTWARE = "1";
     CLUTTER_BACKEND = "wayland";
     #WLR_RENDERER = "vulkan"; # Hyprland does not support vulkan
-
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
   };
 }

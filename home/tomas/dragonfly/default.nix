@@ -6,8 +6,6 @@
 
     ../features/graphical/i3
 
-    ../features/graphical/amd.nix
-
     # ../features/games/geforce-now.nix
     ../features/games/minecraft.nix
   ];
