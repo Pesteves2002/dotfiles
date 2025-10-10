@@ -2,7 +2,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  is_laptop = config.laptop.isLaptop;
+in {
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -144,7 +146,10 @@
         workspace_back_and_forth = true;
       };
 
-      misc = {disable_hyprland_logo = true;};
+      misc = {
+        disable_hyprland_logo = true;
+        vfr = is_laptop; # Reduce number frames on laptop for performance
+      };
 
       monitor = map (
         m: "${m.name},${
@@ -216,13 +221,21 @@
       decoration = {
         rounding = 20;
         inactive_opacity = 0.9;
+
+        blur.enabled = !is_laptop; # Disable blur on laptop for performance
+        shadow.enabled = !is_laptop; # Disable shadow on laptop for performance
       };
 
-      animation = lib.mkDefault [
-        "windows, 1, 1.5, default, slide"
-        "borderangle, 1, 30, linear, loop"
-        "workspaces, 1, 1.5, default, slide"
-      ];
+      animation =
+        [
+          "windows, 1, 1.5, default, slide"
+          "workspaces, 1, 1.5, default, slide"
+        ]
+        ++ (
+          if is_laptop
+          then ["borderangle, 0, 30, linear, loop"] # Disable border animation
+          else ["borderangle, 1, 30, linear, loop"]
+        );
 
       bezier = [
         "linear, 0.0, 0.0, 1.0, 1.0"
@@ -230,6 +243,10 @@
 
       dwindle = {
         "force_split" = 2;
+      };
+
+      gestures = lib.mkIf is_laptop {
+        workspace_swipe = true;
       };
     };
 

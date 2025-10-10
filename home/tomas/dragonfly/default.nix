@@ -3,7 +3,6 @@
     ../common.nix
 
     ../features/graphical/hyprland
-    ../features/graphical/hyprland/laptop.nix
 
     ../features/graphical/i3
 
@@ -30,6 +29,8 @@
     hostname = "dragonfly";
     user = "tomas";
   };
+
+  laptop.isLaptop = true;
 
   home.stateVersion = "24.11";
 }

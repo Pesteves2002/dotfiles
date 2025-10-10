@@ -12,11 +12,12 @@
 in {
   programs.hyprlock = {
     enable = true;
+    package = pkgs.unstable.hyprlock;
 
     settings = {
       general = {
         # disable_loading_bar = true;
-        hide_cursor = true;
+        hide_cursor = false;
         ignore_empty_input = true;
       };
 
@@ -51,6 +52,12 @@ in {
           halign = "center";
           valign = "center";
           position = "-560, 240";
+        }
+
+        {
+          text = "Restart";
+          size = "50, 50";
+          onclick = "reboot";
         }
       ];
     };
