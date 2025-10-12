@@ -19,6 +19,8 @@
     ../features/networking/fail2ban.nix
     # ../features/networking/minecraft.nix
 
+    ../features/system/home-manager.nix
+
     ../features/devices/ios.nix
 
     ../features/drivers/nvidia.nix

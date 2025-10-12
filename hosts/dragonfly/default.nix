@@ -23,6 +23,8 @@
 
     ../features/boot/grub.nix
 
+    ../features/system/home-manager.nix
+
     ../features/virtualisation/virtual-machines.nix
   ];
 

@@ -28,6 +28,4 @@ in {
         "libvirtd"
       ];
   };
-
-  home-manager.users.tomas = import ../home/tomas/${config.networking.hostName};
 }

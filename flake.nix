@@ -15,6 +15,10 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:nix-community/stylix/release-25.05";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -68,6 +72,14 @@
       dragonfly = lib.nixosSystem {
         inherit pkgs;
         modules = [./hosts/dragonfly agenix.nixosModules.default];
+        specialArgs = {
+          inherit inputs outputs;
+        };
+      };
+
+      takumi = lib.nixosSystem {
+        inherit pkgs;
+        modules = [./hosts/takumi agenix.nixosModules.default];
         specialArgs = {
           inherit inputs outputs;
         };

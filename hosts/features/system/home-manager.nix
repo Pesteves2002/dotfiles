@@ -2,6 +2,7 @@
   inputs,
   outputs,
   pkgs,
+  config,
   ...
 }: {
   imports = [
@@ -19,4 +20,6 @@
   environment.systemPackages = with pkgs; [
     home-manager
   ];
+
+  home-manager.users.tomas = import ../../../home/tomas/${config.networking.hostName}; # FIXME
 }
