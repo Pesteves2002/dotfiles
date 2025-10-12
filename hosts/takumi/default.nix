@@ -1,4 +1,10 @@
-{
+let
+  sshKeys = [
+    "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMOPNp+vhM3oHBcsCIWys8t8/pRz7q6Tlt2orblvYmPHXoQ3QhNTI9zlyLhBaF/Ol2ac6LpRJjnTGu41uq8ccso="
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPa8Z24yEquM4MZTbflPvA3LufkHgdWX62OGrjufkfzP tomas@novablast"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0r4o+OjJ18Ue3L0KfNh7dyMQ+MsFLWAraBuUhH0mDM tomas@dragonfly"
+  ];
+in {
   imports = [
     ./hardware.nix
     ../tomas.nix
@@ -16,6 +22,8 @@
     ../features/filesystem/ext4.nix
 
     # ../features/virtualisation/docker.nix
+
+    ../features/system/home-manager.nix
   ];
 
   filesystem.mainDisk = "/dev/sda";
@@ -25,6 +33,8 @@
   networking = {
     hostName = "takumi";
   };
+
+  users.users.root.openssh.authorizedKeys.keys = sshKeys;
 
   system.stateVersion = "24.11";
 }

@@ -1,14 +1,12 @@
 {
   inputs,
   outputs,
-  pkgs,
   ...
 }: {
   imports =
     [
       ./features/shell
       ./features/tools
-      ./stylix.nix
     ]
     ++ [inputs.nixvim.homeManagerModules.nixvim]
     ++ [inputs.stylix.homeModules.stylix]

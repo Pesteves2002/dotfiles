@@ -2,7 +2,7 @@
   stylix = {
     enable = true;
 
-    image = ./features/config/wallpapers/moon.jpg;
+    image = ../config/wallpapers/moon.jpg;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-gray.yaml";
 

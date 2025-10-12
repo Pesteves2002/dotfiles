@@ -99,6 +99,12 @@
         modules = [./home/tomas/dragonfly];
         extraSpecialArgs = {inherit inputs outputs overlays;};
       };
+
+      "tomas@takumi" = lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./home/tomas/takumi];
+        extraSpecialArgs = {inherit inputs outputs overlays;};
+      };
     };
   };
 }

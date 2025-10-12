@@ -6,6 +6,7 @@
     ./fonts.nix
     ./firefox.nix
     ./rnote.nix
+    ./stylix.nix
   ];
 
   home.packages = with pkgs; [

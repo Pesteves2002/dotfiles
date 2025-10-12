@@ -10,7 +10,7 @@ in {
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
+      # PermitRootLogin = "no";
       LoginGraceTime = 0;
     };
     authorizedKeysFiles = lib.mkForce ["/etc/ssh/authorized_keys.d/%u"];
@@ -19,6 +19,7 @@ in {
   users = {
     users = {
       tomas.openssh.authorizedKeys.keys = sshKeys;
+      root.openssh.authorizedKeys.keys = lib.mkDefault [];
     };
   };
 }
