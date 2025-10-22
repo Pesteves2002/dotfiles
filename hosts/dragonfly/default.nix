@@ -28,7 +28,7 @@
     ../features/virtualisation/virtual-machines.nix
   ];
 
-  newtworking = {
+  networking = {
     hostName = "dragonfly"; # Define your hostname.
     hostId = "53c8f223"; # Created with head -c 8 /etc/machine-id
 
