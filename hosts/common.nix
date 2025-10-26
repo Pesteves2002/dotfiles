@@ -1,4 +1,8 @@
-{outputs, ...}: {
+{
+  inputs,
+  outputs,
+  ...
+}: {
   imports =
     [
       ./features/cli
@@ -6,5 +10,6 @@
       ./features/system
       ./features/security
     ]
-    ++ builtins.attrValues outputs.nixosModules;
+    ++ builtins.attrValues outputs.nixosModules
+    ++ [inputs.agenix.nixosModules.default];
 }

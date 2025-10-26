@@ -63,7 +63,7 @@
     nixosConfigurations = {
       novablast = lib.nixosSystem {
         inherit pkgs;
-        modules = [./hosts/novablast agenix.nixosModules.default];
+        modules = [./hosts/novablast];
         specialArgs = {
           inherit inputs outputs;
         };
@@ -71,7 +71,7 @@
 
       dragonfly = lib.nixosSystem {
         inherit pkgs;
-        modules = [./hosts/dragonfly agenix.nixosModules.default];
+        modules = [./hosts/dragonfly];
         specialArgs = {
           inherit inputs outputs;
         };
@@ -79,7 +79,7 @@
 
       takumi = lib.nixosSystem {
         inherit pkgs;
-        modules = [./hosts/takumi agenix.nixosModules.default];
+        modules = [./hosts/takumi];
         specialArgs = {
           inherit inputs outputs;
         };
