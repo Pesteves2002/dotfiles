@@ -65,17 +65,10 @@
 
       tinymist = {
         enable = true;
-        extraOptions = {
-          offset_encoding = "utf-8";
-          # exportPdf = "onType";
-          # formatterMode = "typstyle";
+        settings = {
+          exportPdf = "auto";
+          formatterMode = "typstyle";
         };
-        # settings = {
-
-        #   # Avoid conflicts
-        #   exportPdf = "never";
-        #   experimentalFormatterMode = "on";
-        # };
       };
 
       rust_analyzer = {

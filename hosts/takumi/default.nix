@@ -32,6 +32,7 @@ in {
 
   networking = {
     hostName = "takumi";
+    dnsServers = ["1.1.1.1" "1.0.0.1" "9.9.9.9"];
   };
 
   users.users.root.openssh.authorizedKeys.keys = sshKeys;
