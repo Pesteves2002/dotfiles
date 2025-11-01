@@ -25,7 +25,6 @@
     self,
     nixpkgs,
     home-manager,
-    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -50,6 +49,8 @@
         inherit system overlays;
         config.allowUnfree = true;
       };
+
+    secrets = ./secrets;
   in {
     inherit lib;
 
@@ -65,7 +66,11 @@
         inherit pkgs;
         modules = [./hosts/novablast];
         specialArgs = {
-          inherit inputs outputs;
+          inherit
+            inputs
+            outputs
+            secrets
+            ;
         };
       };
 
@@ -73,7 +78,7 @@
         inherit pkgs;
         modules = [./hosts/dragonfly];
         specialArgs = {
-          inherit inputs outputs;
+          inherit inputs outputs secrets;
         };
       };
 
@@ -81,7 +86,7 @@
         inherit pkgs;
         modules = [./hosts/takumi];
         specialArgs = {
-          inherit inputs outputs;
+          inherit inputs outputs secrets;
         };
       };
     };

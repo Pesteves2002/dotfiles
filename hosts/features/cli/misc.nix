@@ -24,4 +24,6 @@
 
     bat
   ];
+
+  environment.variables.EDITOR = "nvim";
 }
