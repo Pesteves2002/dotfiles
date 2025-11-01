@@ -15,7 +15,8 @@ in {
     ../features/networking/icmp.nix
     ../features/networking/sshd.nix
     ../features/networking/fail2ban.nix
-    # ../features/networking/minecraft.nix
+    ../features/networking/minecraft.nix
+    ../features/networking/nginx.nix
 
     ../features/boot/grub.nix
 
