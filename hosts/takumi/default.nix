@@ -22,6 +22,8 @@ in {
 
     ../features/filesystem/ext4.nix
 
+    ../features/services/nextcloud.nix
+
     # ../features/virtualisation/docker.nix
 
     ../features/system/home-manager.nix
