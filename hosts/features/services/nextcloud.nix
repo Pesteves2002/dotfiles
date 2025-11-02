@@ -21,6 +21,23 @@ in {
 
       database.createLocally = true;
 
+      configureRedis = true;
+
+      https = true;
+
+      autoUpdateApps.enable = true;
+      extraAppsEnable = true;
+      extraApps = with config.services.nextcloud.package.packages.apps; {
+        inherit notes;
+      };
+
+      settings = {
+        defaultPhoneRegion = "PT";
+        overwriteprotocol = "https";
+
+        updatechecker = false;
+      };
+
       config = {
         adminuser = "admin";
         adminpassFile = config.age.secrets.nextcloud.path;
