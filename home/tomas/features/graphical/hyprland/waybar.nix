@@ -23,7 +23,8 @@
 
         clock = {
           format = "{:%H:%M}";
-          format-alt = "{:%Y-%m-%d}";
+          format-alt = "{:%Y-%m-%d - %H:%M:%S}";
+          interval = 1;
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             mode = "year";

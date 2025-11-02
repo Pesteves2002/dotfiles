@@ -7,6 +7,7 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./hyprsunset.nix
     ./packages.nix
 
     ../common.nix
@@ -34,11 +35,5 @@
     enable = true;
     configPackages = with pkgs; [xdg-desktop-portal-hyprland];
     extraPortals = with pkgs; [xdg-desktop-portal-gtk];
-  };
-
-  services.wlsunset = {
-    enable = true;
-    latitude = 38.7;
-    longitude = 9.13;
   };
 }

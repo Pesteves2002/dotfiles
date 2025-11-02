@@ -27,6 +27,8 @@
 
     ../features/boot/systemd-boot.nix
 
+    ../features/services/localsend.nix
+
     # ../features/virtualisation/docker.nix
   ];
 
