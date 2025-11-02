@@ -1,11 +1,14 @@
 {...}: {
   programs.nixvim.plugins = {
     luasnip.enable = true;
-
     cmp = {
       enable = true;
 
+      autoEnableSources = true;
+
       settings = {
+        experimental = {ghost_text = true;};
+
         snippet.expand = ''
           function(args)
             require('luasnip').lsp_expand(args.body)
@@ -15,13 +18,14 @@
         sources = [
           {name = "nvim_lsp";}
           {name = "luasnip";}
-          {name = "path";}
-          {name = "copilot";}
           {
             name = "buffer";
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             keyword_length = 3;
           }
+          {name = "nvim_lua";}
+          {name = "path";}
+          {name = "copilot";}
         ];
 
         mapping = {

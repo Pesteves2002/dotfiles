@@ -17,6 +17,7 @@
 
       extensions = {
         ui-select.enable = true;
+        fzf-native.enable = true;
       };
     };
 

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.nixvim = {
     plugins = {
       treesitter = {
@@ -33,11 +33,10 @@
         };
       };
 
-      treesitter-context.enable = true;
+      treesitter-context = {
+        enable = true;
+        settings = {max_lines = 2;};
+      };
     };
   };
-
-  home.packages = with pkgs; [
-    gcc
-  ];
 }

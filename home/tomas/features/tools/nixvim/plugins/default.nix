@@ -1,6 +1,6 @@
 {
   imports = [
-    ./lsp.nix
+    ./lsp
     ./copilot.nix
     ./telescope.nix
     ./harpoon.nix
@@ -8,7 +8,6 @@
     ./ufo.nix
     ./cmp.nix
     ./lint.nix
-    # ./typst.nix
     ./tree.nix
     ./which-key.nix
     ./indent.nix
@@ -63,7 +62,10 @@
     # Built in git blame
     gitsigns = {
       enable = true;
-      settings.current_line_blame = true;
+      settings = {
+        current_line_blame = true;
+        trouble = true;
+      };
     };
 
     fugitive.enable = true;
@@ -84,5 +86,7 @@
     };
 
     lastplace.enable = true;
+
+    trouble.enable = true;
   };
 }
