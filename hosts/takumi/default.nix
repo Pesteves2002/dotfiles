@@ -17,6 +17,7 @@ in {
     ../features/networking/fail2ban.nix
     ../features/networking/minecraft.nix
     ../features/networking/nginx.nix
+    ../features/networking/headscale.nix
 
     ../features/boot/grub.nix
 

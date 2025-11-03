@@ -3,6 +3,7 @@
     "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMOPNp+vhM3oHBcsCIWys8t8/pRz7q6Tlt2orblvYmPHXoQ3QhNTI9zlyLhBaF/Ol2ac6LpRJjnTGu41uq8ccso="
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPa8Z24yEquM4MZTbflPvA3LufkHgdWX62OGrjufkfzP tomas@novablast"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0r4o+OjJ18Ue3L0KfNh7dyMQ+MsFLWAraBuUhH0mDM tomas@dragonfly"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGmf0dH/XOTZJEc7+D8ds/fAwKJ+YP7ZHVJD0cz4HGT/ tomas@takumi"
   ];
 in {
   services.openssh = {
@@ -19,7 +20,6 @@ in {
   users = {
     users = {
       tomas.openssh.authorizedKeys.keys = sshKeys;
-      root.openssh.authorizedKeys.keys = lib.mkDefault [];
     };
   };
 }
