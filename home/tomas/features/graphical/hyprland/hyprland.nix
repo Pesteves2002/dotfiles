@@ -109,11 +109,6 @@ in {
         # Start xwaylandvideobridge
         "$mod SHIFT, o, exec, pkill .xwaylandvideob; xwaylandvideobridge"
 
-        # Music controls
-        "CTRL, SPACE, exec, playerctl play-pause"
-        "CTRL SHIFT, left, exec, playerctl previous"
-        "CTRL SHIFT, right, exec, playerctl next"
-
         # Clipboard History
         "$mod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
@@ -121,6 +116,11 @@ in {
       ];
 
       bindl = [
+        # Music controls
+        "CTRL, SPACE, exec, playerctl play-pause"
+        "CTRL SHIFT, left, exec, playerctl previous"
+        "CTRL SHIFT, right, exec, playerctl next"
+
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
 
