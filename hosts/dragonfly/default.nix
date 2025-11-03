@@ -14,6 +14,8 @@
     ../features/networking/dns.nix
     ../features/networking/networkmanager.nix
     ../features/networking/bluetooth.nix
+    ../features/networking/sshd.nix
+    ../features/networking/fail2ban.nix
 
     ../features/drivers/amd.nix
 
