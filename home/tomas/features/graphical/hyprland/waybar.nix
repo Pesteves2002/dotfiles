@@ -100,7 +100,12 @@
         };
 
         mpris = {
-          format = "{title} - {artist} - {album}";
+          format = "{title} - {artist} - {album} {status_icon}";
+
+          status-icons = {
+            playing = "";
+            paused = "";
+          };
 
           # Uncomment to ignore specific players
           ignored-players = ["firefox"];
