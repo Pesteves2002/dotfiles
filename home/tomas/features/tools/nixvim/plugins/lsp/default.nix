@@ -15,6 +15,12 @@
   programs.nixvim.plugins.lsp = {
     enable = true;
 
+    capabilities = ''
+      general = {
+        positionEncodings = { "utf-16" };
+      }
+    '';
+
     keymaps = {
       # silent = true;
 

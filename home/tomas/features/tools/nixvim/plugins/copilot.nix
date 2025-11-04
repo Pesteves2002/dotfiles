@@ -7,6 +7,8 @@
         "*" = true;
       };
 
+      server_opts_overrides = {offsetEncoding = "utf-16";};
+
       panel = {
         enabled = false;
       };
