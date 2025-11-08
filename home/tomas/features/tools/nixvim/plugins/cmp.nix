@@ -31,7 +31,7 @@
             }
             {name = "nvim_lua";}
             {name = "path";}
-            {name = "copilot";}
+            # {name = "copilot";}
           ];
 
           mapping = {
@@ -42,7 +42,6 @@
             "<C-Space>" = "cmp.mapping.complete()";
             "<C-e>" = "cmp.mapping.abort()";
             "Esc" = "cmp.mapping.abort()";
-
             "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })";
           };
 
@@ -57,30 +56,28 @@
     };
 
     extraConfigLua = ''
-          local luasnip = require("luasnip")
-          local cmp = require("cmp")
+      local luasnip = require("luasnip")
+      local cmp = require("cmp")
 
-          cmp.setup {
-            mapping = cmp.mapping.preset.insert{
-              ['<Tab>'] = cmp.mapping(function(fallback)
-                if luasnip.expand_or_locally_jumpable() then
-                    luasnip.expand_or_jump()
-                else
-                    fallback()
-                end
-            end, { 'i', 's' }),
+      cmp.setup {
+        mapping = cmp.mapping.preset.insert{
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
 
-              ['<S-Tab>'] = cmp.mapping(function(fallback)
-                if luasnip.locally_jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, { 'i', 's' }),
-            }
-          }
-
-      vim.o.completeopt = "menu,menuone,noinsert,noselect"
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if luasnip.locally_jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        }
+      }
     '';
   };
 }
