@@ -7,8 +7,21 @@
     installRustfmt = false;
 
     settings = {
+      cargo = {
+        features = "all";
+      };
+
       check = {
         command = "clippy";
+      };
+
+      procMacro = {
+        ignored = {
+          leptos_macro = [
+            # component
+            "server"
+          ];
+        };
       };
     };
   };
