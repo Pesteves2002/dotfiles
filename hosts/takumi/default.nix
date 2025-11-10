@@ -24,6 +24,7 @@ in {
     ../features/filesystem/ext4.nix
 
     ../features/services/nextcloud.nix
+    ../features/services/mailserver.nix
 
     # ../features/virtualisation/docker.nix
 

@@ -12,4 +12,8 @@ in {
   "takumi/nextcloud.age".publicKeys = [
     hosts.takumi
   ];
+
+  "takumi/mailTomas.age".publicKeys = [
+    hosts.takumi
+  ];
 }
