@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.nixvim.plugins.lsp.servers.rust_analyzer = {
     enable = true;
+    package = pkgs.unstable.rust-analyzer;
 
     installCargo = false;
     installRustc = false;
