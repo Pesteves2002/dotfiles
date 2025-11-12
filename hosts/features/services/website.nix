@@ -1,10 +1,13 @@
 {inputs, ...}: let
-  domain = "www.tomase.pt";
+  domain = "tomase.pt";
 in {
   services.nginx.virtualHosts = {
     ${domain} = {
       enableACME = true;
       forceSSL = true;
+      serverAliases = [
+        "www.${domain}"
+      ];
       locations."/" = {
         proxyPass = "http://127.0.0.1:3000";
       };
