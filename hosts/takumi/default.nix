@@ -25,6 +25,7 @@ in {
 
     ../features/services/nextcloud.nix
     ../features/services/mailserver.nix
+    ../features/services/website.nix
 
     # ../features/virtualisation/docker.nix
 

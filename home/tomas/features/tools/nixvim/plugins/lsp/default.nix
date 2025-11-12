@@ -15,6 +15,8 @@
   programs.nixvim.plugins.lsp = {
     enable = true;
 
+    inlayHints = true;
+
     capabilities = ''
       general = {
         positionEncodings = { "utf-16" };

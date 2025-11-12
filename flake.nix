@@ -21,6 +21,8 @@
     };
 
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.05";
+
+    tomase_website.url = "github:Pesteves2002/tomase-website";
   };
 
   outputs = {
