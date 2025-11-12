@@ -6,7 +6,7 @@
     ./harpoon.nix
     ./treesitter.nix
     ./ufo.nix
-    ./cmp.nix
+    ./blink-cmp.nix
     ./lint.nix
     ./tree.nix
     ./which-key.nix
@@ -88,5 +88,7 @@
     lastplace.enable = true;
 
     trouble.enable = true;
+
+    guess-indent.enable = true;
   };
 }
