@@ -90,32 +90,32 @@
             spell = {
               name = "Spell";
               module = "blink-cmp-spell";
-              score_offset = -100;
+              score_offset = -99;
             };
 
-            # copilot = {
-            #   async = true;
-            #   module = "blink-cmp-copilot";
-            #   name = "copilot";
-            #   score_offset = -100;
-            #   # Optional configurations
-            #   opts = {
-            #     max_completions = 3;
-            #     max_attempts = 4;
-            #     kind = "Copilot";
-            #     debounce = 750;
-            #     auto_refresh = {
-            #       backward = true;
-            #       forward = true;
-            #     };
-            #   };
-            # };
+            copilot = {
+              async = true;
+              module = "blink-cmp-copilot";
+              name = "copilot";
+              score_offset = -100;
+              # Optional configurations
+              opts = {
+                max_completions = 3;
+                max_attempts = 4;
+                kind = "Copilot";
+                debounce = 750;
+                auto_refresh = {
+                  backward = true;
+                  forward = true;
+                };
+              };
+            };
           };
         };
       };
     };
 
     blink-cmp-spell.enable = true;
-    # blink-cmp-copilot.enable = true;
+    blink-cmp-copilot.enable = true;
   };
 }

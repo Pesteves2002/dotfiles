@@ -26,7 +26,6 @@
       url = "github:Pesteves2002/tomase-website";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = {
