@@ -1,9 +1,10 @@
-let
+{pkgs, ...}: let
   sshKeys = [
     "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMOPNp+vhM3oHBcsCIWys8t8/pRz7q6Tlt2orblvYmPHXoQ3QhNTI9zlyLhBaF/Ol2ac6LpRJjnTGu41uq8ccso="
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPa8Z24yEquM4MZTbflPvA3LufkHgdWX62OGrjufkfzP tomas@novablast"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0r4o+OjJ18Ue3L0KfNh7dyMQ+MsFLWAraBuUhH0mDM tomas@dragonfly"
   ];
+  interface = "ens3";
 in {
   imports = [
     ./hardware.nix
@@ -42,6 +43,17 @@ in {
   };
 
   users.users.root.openssh.authorizedKeys.keys = sshKeys;
+
+  # Todo: change to module
+  services.tailscale = {
+    useRoutingFeatures = "both";
+  };
+
+  system = {
+    activationScripts."tailscale-udp-gro-forwarding".text = ''
+      ${pkgs.ethtool}/bin/ethtool -K ${interface} rx-udp-gro-forwarding on rx-gro-list off
+    '';
+  };
 
   system.stateVersion = "24.11";
 }
