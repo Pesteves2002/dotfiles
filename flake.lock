@@ -864,11 +864,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1763079382,
-        "narHash": "sha256-0syj4qwJyBps2CFv3atn8jwSk18ILAwOtoIdzCLY2bg=",
+        "lastModified": 1763393020,
+        "narHash": "sha256-4hZZXGIJynh1nlvaYBTrrmrZBiSi6QOrAli5n1reVZ4=",
         "owner": "Pesteves2002",
         "repo": "tomase-website",
-        "rev": "bf7d15808288389dffa81e0368750680c56de2bc",
+        "rev": "b57c0d791df28975202ff7ff197e91de86e1b889",
         "type": "github"
       },
       "original": {

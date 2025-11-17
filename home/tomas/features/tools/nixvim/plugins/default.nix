@@ -78,7 +78,7 @@
 
     # RPC presence
     presence-nvim = {
-      enable = true;
+      enable = false;
       editingText = "Martelating %s";
       workspaceText = "Breaking the code of %s";
       mainImage = "file";
