@@ -16,4 +16,8 @@ in {
   "takumi/mailTomas.age".publicKeys = [
     hosts.takumi
   ];
+
+  "takumi/resultsBot.age".publicKeys = [
+    hosts.takumi
+  ];
 }

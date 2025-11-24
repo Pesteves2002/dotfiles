@@ -22,8 +22,13 @@
 
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.05";
 
-    tomase_website = {
+    tomase-website = {
       url = "github:Pesteves2002/tomase-website";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    results-bot = {
+      url = "git+ssh://git@github.com/Pesteves2002/results-bot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

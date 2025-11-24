@@ -14,13 +14,13 @@ in {
     };
   };
 
-  systemd.services.tomase_website = {
+  systemd.services.tomase-website = {
     description = "Tomás Esteves Website";
     after = ["network.target"];
     wantedBy = ["multi-user.target"];
 
     serviceConfig = {
-      ExecStart = "${inputs.tomase_website.packages.x86_64-linux.default}/bin/tomase_website";
+      ExecStart = "${inputs.tomase-website.packages.x86_64-linux.default}/bin/tomase_website";
 
       Type = "simple";
       Restart = "on-failure";
