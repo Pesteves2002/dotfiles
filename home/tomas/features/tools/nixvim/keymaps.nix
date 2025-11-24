@@ -77,12 +77,5 @@
       key = "<C-s>";
       action = "<Esc>:w<CR>a";
     }
-
-    {
-      # Format file
-      mode = "n";
-      key = "<space>fm";
-      action = "<CMD>lua vim.lsp.buf.format()<CR>";
-    }
   ];
 }
