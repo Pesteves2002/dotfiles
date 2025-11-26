@@ -1,33 +1,33 @@
-{
+{pkgs, ...}: {
   programs.nixvim.plugins = {
     lsp.servers = {
-      # rust_analyzer = {
-      #   enable = true;
-      #   package = pkgs.unstable.rust-analyzer;
+      rust_analyzer = {
+        enable = true;
+        package = pkgs.unstable.rust-analyzer;
 
-      #   installCargo = false;
-      #   installRustc = false;
-      #   installRustfmt = false;
+        installCargo = false;
+        installRustc = false;
+        installRustfmt = false;
 
-      #   settings = {
-      #     cargo = {
-      #       features = "all";
-      #     };
+        settings = {
+          cargo = {
+            features = "all";
+          };
 
-      #     check = {
-      #       command = "clippy";
-      #     };
+          check = {
+            command = "clippy";
+          };
 
-      #     procMacro = {
-      #       ignored = {
-      #         leptos_macro = [
-      #           # component
-      #           "server"
-      #         ];
-      #       };
-      #     };
-      #   };
-      # };
+          procMacro = {
+            ignored = {
+              leptos_macro = [
+                # component
+                "server"
+              ];
+            };
+          };
+        };
+      };
 
       # TOML LSP
       taplo = {
@@ -35,31 +35,32 @@
       };
     };
 
-    rustaceanvim = {
-      enable = true;
+    # rustaceanvim = {
+    #   enable = true;
+    #   package = pkgs.unstable.vimPlugins.rustaceanvim;
 
-      settings = {
-        default_settings = {
-          rust-analyzer = {
-            cargo = {
-              features = "all";
-            };
+    #   settings = {
+    #     default_settings = {
+    #       rust-analyzer = {
+    #         cargo = {
+    #           features = "all";
+    #         };
 
-            check = {
-              command = "clippy";
-            };
+    #         check = {
+    #           command = "clippy";
+    #         };
 
-            procMacro = {
-              ignored = {
-                leptos_macro = [
-                  # component
-                  "server"
-                ];
-              };
-            };
-          };
-        };
-      };
-    };
+    #         procMacro = {
+    #           ignored = {
+    #             leptos_macro = [
+    #               # component
+    #               "server"
+    #             ];
+    #           };
+    #         };
+    #       };
+    #     };
+    #   };
+    # };
   };
 }
