@@ -2,7 +2,6 @@
   lib,
   buildNpmPackage,
   fetchFromGitHub,
-  makeWrapper,
   gitUpdater,
   electron_29,
   imagemagick,

@@ -1,4 +1,4 @@
-{config, ...}: let
+let
   domain = "tomase.pt";
   headscale_domain = "headscale.${domain}";
   dns_domain = "devices.${domain}";
