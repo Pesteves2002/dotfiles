@@ -7,9 +7,8 @@
     enable = true;
 
     settings = let
-      user = config.credentials.user;
+      inherit (config.credentials) user hostname;
       flake = ''(builtins.getFlake "/home/${user}/.dotfiles")'';
-      hostname = config.credentials.hostname;
     in {
       formatting.command = ["alejandra"];
 

@@ -34,9 +34,11 @@ in {
     ../features/system/home-manager.nix
   ];
 
-  filesystem.mainDisk = "/dev/sda";
-  filesystem.espSize = "128M";
-  filesystem.useEfi = false; # OVH does not support UEFI
+  filesystem = {
+    mainDisk = "/dev/sda";
+    espSize = "128M";
+    useEfi = false; # OVH does not support UEFI
+  };
 
   networking = {
     hostName = "takumi";

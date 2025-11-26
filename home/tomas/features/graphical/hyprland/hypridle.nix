@@ -7,7 +7,7 @@
   loginctl = lib.getExe' pkgs.systemd "loginctl";
   systemctl = lib.getExe' pkgs.systemd "systemctl";
   hyprctl = lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl";
-  isLaptop = config.laptop.isLaptop;
+  inherit (config.laptop) isLaptop;
 in {
   services.hypridle = {
     enable = true;

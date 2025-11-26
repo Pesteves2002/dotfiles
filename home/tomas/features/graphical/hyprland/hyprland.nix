@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  is_laptop = config.laptop.isLaptop;
+  inherit (config.laptop) isLaptop;
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -148,16 +148,18 @@ in {
 
       misc = {
         disable_hyprland_logo = true;
-        vfr = is_laptop; # Reduce number frames on laptop for performance
+        vfr = isLaptop; # Reduce number frames on laptop for performance
       };
 
-      monitor = map (
-        m: "${m.name},${
-          if m.enabled
-          then "${toString m.width}x${toString m.height}@${toString m.refreshRate},${toString m.x}x${toString m.y},1"
-          else "disable"
-        }"
-      ) (config.monitors);
+      monitor =
+        map (
+          m: "${m.name},${
+            if m.enabled
+            then "${toString m.width}x${toString m.height}@${toString m.refreshRate},${toString m.x}x${toString m.y},1"
+            else "disable"
+          }"
+        )
+        config.monitors;
 
       workspace = [
         "1, monitor:DP-3, default:true"
@@ -222,8 +224,8 @@ in {
         rounding = 20;
         inactive_opacity = 0.9;
 
-        blur.enabled = !is_laptop; # Disable blur on laptop for performance
-        shadow.enabled = !is_laptop; # Disable shadow on laptop for performance
+        blur.enabled = !isLaptop; # Disable blur on laptop for performance
+        shadow.enabled = !isLaptop; # Disable shadow on laptop for performance
       };
 
       animation =
@@ -232,7 +234,7 @@ in {
           "workspaces, 1, 1.5, default, slide"
         ]
         ++ (
-          if is_laptop
+          if isLaptop
           then ["borderangle, 0, 30, linear, loop"] # Disable border animation
           else ["borderangle, 1, 30, linear, loop"]
         );
@@ -245,7 +247,7 @@ in {
         "force_split" = 2;
       };
 
-      gestures = lib.mkIf is_laptop {
+      gestures = lib.mkIf isLaptop {
         workspace_swipe = true;
       };
     };

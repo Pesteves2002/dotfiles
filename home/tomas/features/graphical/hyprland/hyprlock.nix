@@ -11,7 +11,7 @@
     hash = "sha256-fHOdO+8KmnjLiyBsPfiW3QRS1PsVfTJOyrifYD0Gr20=";
   };
 
-  isLaptop = config.laptop.isLaptop;
+  inherit (config.laptop) isLaptop;
   mainMonitor = (lib.findFirst (m: m.primary) null config.monitors).name or "";
 in {
   programs.hyprlock = {

@@ -59,9 +59,9 @@
 
     overlays = [
       (
-        final: prev: {
+        prev: {
           unstable = import inputs.unstable {
-            system = prev.system;
+            inherit (prev) system;
             config.allowUnfree = true;
           };
         }
@@ -90,6 +90,10 @@
         hooks = {
           alejandra.enable = true;
           deadnix.enable = true;
+          statix = {
+            enable = true;
+            settings.ignore = [".direnv" "hardware.nix"];
+          };
 
           shellcheck.enable = true;
           shfmt.enable = true;
