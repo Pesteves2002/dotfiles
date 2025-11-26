@@ -8,6 +8,7 @@
     ./python.nix
     ./rust.nix
     ./typst.nix
+    ./yaml.nix
 
     ./fidget.nix
   ];
