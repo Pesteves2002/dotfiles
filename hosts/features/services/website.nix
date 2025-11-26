@@ -1,5 +1,7 @@
 {inputs, ...}: let
   domain = "tomase.pt";
+  cv = "cv.${domain}";
+  cv_redirect = "github.com/Pesteves2002/cv/releases/download/compiled-pdf/cv.pdf";
 in {
   services.nginx.virtualHosts = {
     ${domain} = {
@@ -11,6 +13,16 @@ in {
       locations."/" = {
         proxyPass = "http://127.0.0.1:3000";
       };
+    };
+
+    ${cv} = {
+      enableACME = true;
+      forceSSL = true;
+      serverAliases = [
+        "www.${domain}"
+      ];
+
+      globalRedirect = cv_redirect;
     };
   };
 

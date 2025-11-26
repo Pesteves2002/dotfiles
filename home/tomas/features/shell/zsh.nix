@@ -56,22 +56,24 @@
     # eza (modern ls replacement)
     eza.enable = true;
 
-    # starship (shell theme)
-    starship.enable = true;
-
     # zoxide (jump to directories)
     zoxide.enable = true;
-    home.sessionVariables._ZO_ECHO = "1";
 
-    starship.settings = {
-      scan_timeout = 1;
-      add_newline = true;
+    # starship (shell theme)
+    starship = {
+      enable = true;
+      settings = {
+        scan_timeout = 1;
+        add_newline = true;
 
-      username.format = "[$user]($style) in ";
-      hostname = {
-        ssh_only = true;
-        format = "[$hostname]($style) ";
+        username.format = "[$user]($style) in ";
+        hostname = {
+          ssh_only = true;
+          format = "[$hostname]($style) ";
+        };
       };
     };
   };
+
+  home.sessionVariables._ZO_ECHO = "1";
 }

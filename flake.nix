@@ -59,7 +59,7 @@
 
     overlays = [
       (
-        prev: {
+        _: prev: {
           unstable = import inputs.unstable {
             inherit (prev) system;
             config.allowUnfree = true;
