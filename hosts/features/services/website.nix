@@ -19,7 +19,7 @@ in {
       enableACME = true;
       forceSSL = true;
       serverAliases = [
-        "www.${domain}"
+        "www.${cv}"
       ];
 
       globalRedirect = cv_redirect;
