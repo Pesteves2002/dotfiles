@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.nixvim = {
     plugins = {
       nvim-ufo = {
@@ -53,9 +53,6 @@
             };
           };
         };
-
-        # Fix folding not working in stable
-        package = pkgs.unstable.vimPlugins.nvim-ufo;
       };
     };
 

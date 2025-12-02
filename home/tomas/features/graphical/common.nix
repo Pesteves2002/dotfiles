@@ -10,6 +10,6 @@
   ];
 
   home.packages = with pkgs; [
-    unstable.cider-2
+    cider-2
   ];
 }

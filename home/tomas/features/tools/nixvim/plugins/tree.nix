@@ -3,30 +3,32 @@
     plugins.nvim-tree = {
       enable = true;
 
-      # Disable netrw
-      disableNetrw = true;
-      hijackNetrw = true;
+      settings = {
+        # Disable netrw
+        disableNetrw = true;
+        hijackNetrw = true;
 
-      # Keeps cursor at first letter of filename
-      hijackCursor = true;
+        # Keeps cursor at first letter of filename
+        hijackCursor = true;
 
-      # Open the tree when opening a new empty buffer
-      hijackUnnamedBufferWhenOpening = true;
+        # Open the tree when opening a new empty buffer
+        hijackUnnamedBufferWhenOpening = true;
 
-      # Open on Setup if buffer is empty or a directory
-      openOnSetup = true;
+        # Open on Setup if buffer is empty or a directory
+        openOnSetup = true;
 
-      actions = {
-        openFile = {
-          quitOnOpen = true;
+        actions = {
+          openFile = {
+            quitOnOpen = true;
+          };
         };
+
+        # Enable diagnostics on preview
+        diagnostics.enable = true;
+
+        # Start centered
+        view.centralizeSelection = true;
       };
-
-      # Enable diagnostics on preview
-      diagnostics.enable = true;
-
-      # Start centered
-      view.centralizeSelection = true;
     };
 
     keymaps = [

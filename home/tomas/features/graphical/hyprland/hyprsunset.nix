@@ -1,19 +1,15 @@
 {
   services.hyprsunset = {
     enable = true;
-    transitions = {
+    settings = {
       sunrise = {
         calendar = "*-*-* 06:00:00";
-        requests = [
-          ["identity" "true"]
-        ];
+        identity = true;
       };
 
       sunset = {
         calendar = "*-*-* 18:00:00";
-        requests = [
-          ["temperature" "4000"]
-        ];
+        temperature = 4000;
       };
     };
   };

@@ -1,17 +1,13 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   services.flameshot = {
     enable = true;
-    package = pkgs.flameshot.overrideAttrs (oldAttrs: {
-      buildInputs = oldAttrs.buildInputs ++ [pkgs.libsForQt5.kguiaddons];
-      cmakeFlags = [
-        "-DUSE_WAYLAND_CLIPBOARD=true"
-        "-DUSE_WAYLAND_GRIM=true"
-      ];
-    });
+    # package = pkgs.flameshot.overrideAttrs (oldAttrs: {
+    #   buildInputs = oldAttrs.buildInputs ++ [pkgs.libsForQt5.kguiaddons];
+    #   cmakeFlags = [
+    #     "-DUSE_WAYLAND_CLIPBOARD=true"
+    #     "-DUSE_WAYLAND_GRIM=true"
+    #   ];
+    # });
 
     settings = {
       General = {

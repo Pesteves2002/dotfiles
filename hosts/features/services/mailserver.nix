@@ -15,6 +15,9 @@ in {
 
   mailserver = {
     enable = true;
+
+    stateVersion = 3;
+
     fqdn = mail_domain;
     domains = [domain];
 
