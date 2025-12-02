@@ -7,6 +7,7 @@
         layer = "top";
         position = "top";
         margin = "10 10 10 10";
+        start_hidden = true;
         # height = 24;
         modules-left = ["hyprland/workspaces" "mpris"];
         modules-center = ["clock"];
