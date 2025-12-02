@@ -8,7 +8,7 @@
       ./features/shell
       ./features/tools
     ]
-    ++ [inputs.nixvim.homeManagerModules.nixvim]
+    ++ [inputs.nixvim.homeModules.nixvim]
     ++ [inputs.stylix.homeModules.stylix]
     ++ (builtins.attrValues outputs.homeManagerModules);
 

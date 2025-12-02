@@ -1,4 +1,5 @@
 {
+  self,
   inputs,
   outputs,
   pkgs,
@@ -11,6 +12,8 @@
 
   home-manager = {
     useGlobalPkgs = true;
+    useUserPackages = true;
+
     backupFileExtension = "backup";
     extraSpecialArgs = {
       inherit inputs outputs;
@@ -21,5 +24,5 @@
     home-manager
   ];
 
-  home-manager.users.tomas = import ../../../home/tomas/${config.networking.hostName}; # FIXME
+  home-manager.users.tomas = import "${self}/home/tomas/${config.networking.hostName}";
 }

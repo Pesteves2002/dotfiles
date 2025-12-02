@@ -73,16 +73,20 @@
     # Help with commands
     wilder = {
       enable = true;
-      modes = [":" "/" "?"];
+      settings = {
+        modes = [":" "/" "?"];
+      };
     };
 
     # RPC presence
-    presence-nvim = {
+    presence = {
       enable = false;
-      editingText = "Martelating %s";
-      workspaceText = "Breaking the code of %s";
-      mainImage = "file";
-      neovimImageText = "Powered by Nixvim";
+      settings = {
+        editingText = "Martelating %s";
+        workspaceText = "Breaking the code of %s";
+        mainImage = "file";
+        neovimImageText = "Powered by Nixvim";
+      };
     };
 
     lastplace.enable = true;

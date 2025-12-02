@@ -1,4 +1,4 @@
-let
+{config, ...}: let
   domain = "tomase.pt";
   headscale_domain = "headscale.${domain}";
   dns_domain = "devices.${domain}";
@@ -13,7 +13,11 @@ in {
       settings = {
         server_url = "https://${headscale_domain}";
 
-        dns = {base_domain = dns_domain;};
+        dns = {
+          base_domain = dns_domain;
+
+          override_local_dns = false;
+        };
 
         logtail.enabled = false;
       };
@@ -23,7 +27,7 @@ in {
       forceSSL = true;
       enableACME = true;
       locations."/" = {
-        proxyPass = "http://localhost:${toString port}";
+        proxyPass = "http://${config.services.headscale.settings.listen_addr}";
         proxyWebsockets = true;
       };
     };

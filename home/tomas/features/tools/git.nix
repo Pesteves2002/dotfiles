@@ -1,7 +1,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "Tomás Esteves";
+
+    settings = {
+      user.name = "Tomás Esteves";
+    };
+
     ignores = [".envrc" ".direnv"];
   };
 }
