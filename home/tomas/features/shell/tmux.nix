@@ -54,6 +54,9 @@
       bind -n M-k select-pane -U
       bind -n M-j select-pane -D
 
+      # Make double prefix go to the previous window
+      bind C-a last-window
+
       # Enable osc-52
       set -g set-clipboard on
 

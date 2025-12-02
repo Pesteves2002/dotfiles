@@ -151,11 +151,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764350888,
-        "narHash": "sha256-6Rp18zavTlnlZzcoLoBTJMBahL2FycVkw2rAEs3cQvo=",
+        "lastModified": 1764627417,
+        "narHash": "sha256-D6xc3Rl8Ab6wucJWdvjNsGYGSxNjQHzRc2EZ6eeQ6l4=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "2055a08fd0e2fd41318279a5355eb8a161accf26",
+        "rev": "5a88a6eceb8fd732b983e72b732f6f4b8269bef3",
         "type": "github"
       },
       "original": {
@@ -649,11 +649,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1764612063,
-        "narHash": "sha256-FTQSjBQgFE7Af2DGmm2Pf00Bkc/Uy+BwmHrl+8LcYo4=",
+        "lastModified": 1764664109,
+        "narHash": "sha256-ZJJXHob2kGkEs9u8pnIXibVY0jLiiFe1h226YjnH304=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "28058b3e09d4866e7c8b410cb25a3d05a540d7be",
+        "rev": "48e4df646d1e2b21524680011b3f569a0e892af1",
         "type": "github"
       },
       "original": {
@@ -743,6 +743,7 @@
         "results-bot": "results-bot",
         "simple-nixos-mailserver": "simple-nixos-mailserver",
         "stylix": "stylix",
+        "systems": "systems_5",
         "tomase-website": "tomase-website",
         "unstable": "unstable"
       }
@@ -899,6 +900,21 @@
     },
     "systems_5": {
       "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "systems_6": {
+      "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
         "owner": "nix-systems",
@@ -1001,7 +1017,7 @@
           "nixpkgs"
         ],
         "rust-overlay": "rust-overlay",
-        "systems": "systems_5",
+        "systems": "systems_6",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
