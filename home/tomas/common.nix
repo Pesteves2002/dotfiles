@@ -12,6 +12,16 @@
     ++ [inputs.stylix.homeModules.stylix]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
+  nixpkgs = {
+    overlays = [
+      inputs.self.overlays.unstable-packages
+    ];
+
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   home = {
     username = "tomas";
     homeDirectory = "/home/tomas";

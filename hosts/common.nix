@@ -13,4 +13,14 @@
     ]
     ++ builtins.attrValues outputs.nixosModules
     ++ [inputs.agenix.nixosModules.default];
+
+  nixpkgs = {
+    overlays = [
+      inputs.self.overlays.unstable-packages
+    ];
+
+    config = {
+      allowUnfree = true;
+    };
+  };
 }

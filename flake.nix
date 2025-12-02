@@ -55,64 +55,68 @@
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
 
-    system = "x86_64-linux";
-
-    overlays = [
-      (
-        _: prev: {
-          unstable = import inputs.unstable {
-            inherit (prev) system;
-            config.allowUnfree = true;
-          };
-        }
-      )
+    systems = [
+      "x86_64-linux"
     ];
 
-    pkgs =
-      import nixpkgs
-      {
-        inherit system overlays;
-        config.allowUnfree = true;
-      };
+    # This is a function that generates an attribute by calling a function you
+    # pass to it, with each system as an argument
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+
+    pkgsFor = lib.genAttrs (import systems) (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+    );
 
     secrets = ./secrets;
   in {
     inherit lib;
 
+    checks = forAllSystems (
+      system: let
+        hooksLib = inputs.git-hooks.lib.${system};
+      in {
+        pre-commit-check = hooksLib.run {
+          src = ./.;
+          hooks = {
+            alejandra.enable = true;
+            deadnix.enable = true;
+            statix = {
+              enable = true;
+              settings.ignore = [".direnv" "hardware.nix"];
+            };
+
+            shellcheck.enable = true;
+            shfmt.enable = true;
+          };
+        };
+      }
+    );
+
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+        preCommit = self.checks.${system}.pre-commit-check;
+      in {
+        default = pkgs.mkShell {
+          inherit (preCommit) shellHook;
+          buildInputs = preCommit.enabledPackages;
+        };
+      }
+    );
+
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    overlays = import ./overlays {inherit inputs outputs;};
+
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
-    # overlays = import ./overlays {inherit inputs outputs;};
-
-    checks = {
-      "x86_64-linux".pre-commit-check = inputs.git-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          alejandra.enable = true;
-          deadnix.enable = true;
-          statix = {
-            enable = true;
-            settings.ignore = [".direnv" "hardware.nix"];
-          };
-
-          shellcheck.enable = true;
-          shfmt.enable = true;
-        };
-      };
-    };
-
-    devShells = {
-      "x86_64-linux".default = nixpkgs.legacyPackages.${system}.mkShell {
-        inherit (self.checks.${system}.pre-commit-check) shellHook;
-        buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
-      };
-    };
-
-    formatter.${system} = pkgs.alejandra;
-
     nixosConfigurations = {
       novablast = lib.nixosSystem {
-        inherit pkgs;
         modules = [./hosts/novablast];
         specialArgs = {
           inherit self inputs outputs secrets;
@@ -120,7 +124,6 @@
       };
 
       dragonfly = lib.nixosSystem {
-        inherit pkgs;
         modules = [./hosts/dragonfly];
         specialArgs = {
           inherit self inputs outputs secrets;
@@ -128,7 +131,6 @@
       };
 
       takumi = lib.nixosSystem {
-        inherit pkgs;
         modules = [./hosts/takumi];
         specialArgs = {
           inherit self inputs outputs secrets;
@@ -138,21 +140,21 @@
 
     homeConfigurations = {
       "tomas@novablast" = lib.homeManagerConfiguration {
-        inherit pkgs;
         modules = [./home/tomas/novablast];
-        extraSpecialArgs = {inherit self inputs outputs overlays;};
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = {inherit self inputs outputs;};
       };
 
       "tomas@dragonfly" = lib.homeManagerConfiguration {
-        inherit pkgs;
         modules = [./home/tomas/dragonfly];
-        extraSpecialArgs = {inherit self inputs outputs overlays;};
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = {inherit self inputs outputs;};
       };
 
       "tomas@takumi" = lib.homeManagerConfiguration {
-        inherit pkgs;
         modules = [./home/tomas/takumi];
-        extraSpecialArgs = {inherit self inputs outputs overlays;};
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = {inherit self inputs outputs;};
       };
     };
   };
