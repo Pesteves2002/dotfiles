@@ -10,6 +10,7 @@
       ./features/system
       ./features/security
       ./features/networking/tailscale.nix
+      ./features/networking/resolved.nix
     ]
     ++ builtins.attrValues outputs.nixosModules
     ++ [inputs.agenix.nixosModules.default];
