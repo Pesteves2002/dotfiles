@@ -2,9 +2,19 @@
   config,
   inputs,
   secrets,
+  lib,
   ...
-}: {
+}: let
+  dbUsername = "kerneloeiras";
+  dbName = "kerneloeiras";
+in {
   age.secrets.resultsBot.file = "${secrets}/takumi/resultsBot.age";
+
+  services.postgresql = {
+    enable = lib.mkDefault true;
+    ensureUsers = [{name = dbUsername;}];
+    ensureDatabases = [dbName];
+  };
 
   systemd.services.results-bot = {
     description = "Results Discord bot";
