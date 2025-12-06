@@ -14,7 +14,7 @@ in {
     nameservers = c.dnsServers;
 
     dhcpcd.extraConfig = "nohook resolv.conf";
-    networkmanager.dns = "none";
+    # networkmanager.dns = "none";
   };
 
   services.dnsproxy = {
