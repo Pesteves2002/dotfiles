@@ -1,34 +1,26 @@
 {
   imports = [
     ./hardware.nix
-    ../tomas.nix
 
     ../common.nix
 
-    ../features/display/sddm.nix
-    ../features/display/hyprland.nix
-    ../features/display/i3.nix
+    ../tomas.nix
 
     ../features/audio
 
-    ../features/networking
-    ../features/networking/static.nix
-    ../features/networking/dns.nix
-    ../features/networking/icmp.nix
-    ../features/networking/sshd.nix
-    ../features/networking/fail2ban.nix
-    # ../features/networking/minecraft.nix
-
-    ../features/system/home-manager.nix
-
-    ../features/services/debug.nix
+    ../features/boot/systemd-boot.nix
 
     ../features/devices/ios.nix
 
     ../features/drivers/nvidia.nix
 
-    ../features/boot/systemd-boot.nix
+    ../features/display/hyprland.nix
+    # ../features/display/i3.nix
+    ../features/display/sddm.nix
 
+    ../features/networking/static.nix
+
+    ../features/services/debug.nix
     ../features/services/localsend.nix
 
     # ../features/virtualisation/docker.nix

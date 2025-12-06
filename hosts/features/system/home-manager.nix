@@ -1,9 +1,7 @@
 {
-  self,
   inputs,
   outputs,
   pkgs,
-  config,
   ...
 }: {
   imports = [
@@ -23,6 +21,4 @@
   environment.systemPackages = with pkgs; [
     home-manager
   ];
-
-  home-manager.users.tomas = import "${self}/home/tomas/${config.networking.hostName}";
 }

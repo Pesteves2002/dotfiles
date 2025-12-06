@@ -6,6 +6,10 @@
     # Takumi must not ssh to other machines for security reasons
   ];
 in {
+  imports = [
+    ./fail2ban.nix
+  ];
+
   services.openssh = {
     enable = true;
     settings = {
@@ -22,4 +26,6 @@ in {
       tomas.openssh.authorizedKeys.keys = sshKeys;
     };
   };
+
+  networking.firewall.allowPing = false;
 }

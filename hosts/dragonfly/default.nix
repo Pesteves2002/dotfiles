@@ -1,35 +1,27 @@
 {
   imports = [
     ./hardware.nix
-    ../tomas.nix
 
     ../common.nix
 
-    ../features/display/greetd.nix
-    ../features/display/hyprland.nix
+    ../tomas.nix
 
     ../features/audio
 
-    ../features/networking
-    ../features/networking/dns.nix
-    ../features/networking/networkmanager.nix
-    ../features/networking/bluetooth.nix
-    ../features/networking/sshd.nix
-    ../features/networking/fail2ban.nix
+    ../features/boot/grub.nix
+
+    ../features/devices/ios.nix
+    ../features/display/greetd.nix
+    ../features/display/hyprland.nix
 
     ../features/drivers/amd.nix
 
     ../features/laptop
 
-    ../features/devices/ios.nix
-
-    ../features/boot/grub.nix
+    ../features/networking/bluetooth.nix
+    ../features/networking/networkmanager.nix
 
     ../features/services/localsend.nix
-
-    ../features/system/home-manager.nix
-
-    ../features/virtualisation/virtual-machines.nix
   ];
 
   networking = {

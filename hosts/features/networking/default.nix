@@ -1,5 +1,7 @@
 {
   imports = [
-    ./syncthing.nix
+    ./dns.nix
+    ./sshd.nix
+    ./tailscale.nix
   ];
 }

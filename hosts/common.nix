@@ -7,10 +7,9 @@
     [
       ./features/cli
       ./features/locale/pt-pt.nix
-      ./features/system
+      ./features/networking
       ./features/security
-      ./features/networking/tailscale.nix
-      ./features/networking/resolved.nix
+      ./features/system
     ]
     ++ builtins.attrValues outputs.nixosModules
     ++ [inputs.agenix.nixosModules.default];

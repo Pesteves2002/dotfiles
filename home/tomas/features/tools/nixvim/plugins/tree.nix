@@ -72,5 +72,10 @@
         action = "<CMD>Neotree reveal toggle<CR>";
       }
     ];
+
+    globals = {
+      loaded_netrwPlugin = 1;
+      loaded_netrw = 1;
+    };
   };
 }

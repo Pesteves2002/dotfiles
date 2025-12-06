@@ -1,7 +1,7 @@
 {
   imports = [
-    ./tlp.nix
     ./light.nix
     ./logind.nix
+    ./tlp.nix
   ];
 }

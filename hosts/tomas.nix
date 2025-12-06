@@ -1,5 +1,5 @@
 {
-  pkgs,
+  self,
   config,
   ...
 }: let
@@ -9,7 +9,6 @@ in {
   users.users.tomas = {
     description = "Tomás Esteves";
     isNormalUser = true;
-    shell = pkgs.zsh;
     extraGroups =
       [
         "wheel" # Permission to use 'sudo'
@@ -28,4 +27,6 @@ in {
         "libvirtd"
       ];
   };
+
+  home-manager.users.tomas = import "${self}/home/tomas/${config.networking.hostName}";
 }
