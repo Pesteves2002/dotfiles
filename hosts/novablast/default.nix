@@ -21,6 +21,8 @@
 
     ../features/system/home-manager.nix
 
+    ../features/services/debug.nix
+
     ../features/devices/ios.nix
 
     ../features/drivers/nvidia.nix
