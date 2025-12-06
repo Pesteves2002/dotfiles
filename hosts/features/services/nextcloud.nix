@@ -48,6 +48,10 @@ in {
     nginx.virtualHosts.${domain} = {
       forceSSL = true;
       enableACME = true;
+      extraConfig = ''
+        allow 100.64.0.0/24;
+        deny all;
+      '';
     };
   };
 }
