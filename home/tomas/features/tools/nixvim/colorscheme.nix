@@ -1,13 +1,5 @@
-{pkgs, ...}: {
-  programs.nixvim.colorschemes.onedark = {
+{
+  programs.nixvim.colorschemes.ayu = {
     enable = true;
-
-    settings = {
-      "style" = "warmer";
-    };
-
-    # use the nvim variant instead of the vim variant
-    # The nvim variant is also treesitter enabled
-    package = pkgs.vimPlugins.onedark-nvim;
   };
 }

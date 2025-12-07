@@ -1,17 +1,16 @@
 {pkgs, ...}: {
   imports = [
-    ./wofi.nix
-    ./waybar.nix
-    ./wlogout.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
     ./hyprsunset.nix
     ./packages.nix
+    ./waybar.nix
+    ./wlogout.nix
+    ./wofi.nix
 
     ../common.nix
-
     ../flameshot.nix
   ];
 

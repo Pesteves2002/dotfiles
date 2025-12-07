@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   imports = [
-    ./qt.nix
+    ./firefox.nix
+    ./fonts.nix
     ./gtk.nix
     ./mako.nix
-    ./fonts.nix
-    ./firefox.nix
+    ./qt.nix
     ./rnote.nix
     ./stylix.nix
   ];

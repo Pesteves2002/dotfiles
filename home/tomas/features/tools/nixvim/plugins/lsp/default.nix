@@ -2,6 +2,7 @@
   imports = [
     ./bash.nix
     ./clang.nix
+    ./fidget.nix
     ./latex.nix
     ./matlab.nix
     ./nix.nix
@@ -9,8 +10,6 @@
     ./rust.nix
     ./typst.nix
     ./yaml.nix
-
-    ./fidget.nix
   ];
 
   programs.nixvim.plugins.lsp = {

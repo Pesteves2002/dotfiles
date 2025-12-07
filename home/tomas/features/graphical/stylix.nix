@@ -4,7 +4,7 @@
 
     image = ../config/wallpapers/moon.jpg;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-gray.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
 
     cursor = {
       package = pkgs.bibata-cursors;
@@ -48,7 +48,4 @@
       wofi.enable = true;
     };
   };
-
-  # https://www.reddit.com/r/NixOS/comments/1ivo70f/comment/mebnssf/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-  stylix.targets.gnome-text-editor.enable = false;
 }

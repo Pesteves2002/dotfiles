@@ -4,7 +4,7 @@
 
     ../features/graphical/hyprland
 
-    ../features/graphical/i3
+    # ../features/graphical/i3
 
     # ../features/games/geforce-now.nix
     ../features/games/minecraft.nix

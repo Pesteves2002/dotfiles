@@ -1,12 +1,12 @@
 {
   imports = [
+    ./direnv-nix.nix
+    ./foot.nix
+    ./ghostty.nix
+    ./kitty.nix
+    ./tmux.nix
     ./yazi.nix
     ./zsh.nix
-    ./ghostty.nix
-    ./tmux.nix
-    ./kitty.nix
     ./wezterm.nix
-    ./foot.nix
-    ./direnv-nix.nix
   ];
 }

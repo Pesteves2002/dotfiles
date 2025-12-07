@@ -1,10 +1,10 @@
 {
   imports = [
+    ./droidcam.nix
     ./git.nix
     ./nixvim
-    ./zathura.nix
-    ./thunderbird.nix
-    ./droidcam.nix
     ./signal.nix
+    ./thunderbird.nix
+    ./zathura.nix
   ];
 }

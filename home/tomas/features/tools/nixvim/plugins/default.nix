@@ -1,16 +1,17 @@
 {
   imports = [
-    ./lsp
+    ./blink-cmp.nix
     ./copilot.nix
-    ./telescope.nix
     ./harpoon.nix
+    ./indent.nix
+    ./lint.nix
+    ./lsp
+    ./neogen.nix
+    ./telescope.nix
+    ./tree.nix
     ./treesitter.nix
     ./ufo.nix
-    ./blink-cmp.nix
-    ./lint.nix
-    ./tree.nix
     ./which-key.nix
-    ./indent.nix
   ];
 
   programs.nixvim.plugins = {
@@ -94,5 +95,7 @@
     trouble.enable = true;
 
     guess-indent.enable = true;
+
+    colorizer.enable = true;
   };
 }
