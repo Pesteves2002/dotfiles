@@ -18,7 +18,7 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>a";
+        key = "<leader>q";
         action.__raw = "function() require'harpoon':list():add() end";
       }
       {

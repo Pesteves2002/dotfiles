@@ -62,9 +62,11 @@
     # starship (shell theme)
     starship = {
       enable = true;
+      enableZshIntegration = true;
+
       settings = {
-        scan_timeout = 1;
         add_newline = true;
+        scan_timeout = 10;
 
         username.format = "[$user]($style) in ";
         hostname = {

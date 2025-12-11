@@ -7,6 +7,7 @@
     settings = {
       mgr = {
         ratio = [1 2 3];
+        show_hidden = true;
         show_symlink = true;
       };
 
