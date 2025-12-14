@@ -14,26 +14,27 @@ in {
 
     authentication = ''
       #type database  DBuser  auth-method
-      local all      all     trust
+      local sameuser  all     peer        map=superuser_map
     '';
 
     identMap = ''
       # ArbitraryMapName systemUser DBUser
          superuser_map      root      postgres
          superuser_map      postgres  postgres
+         superuser_map      tomas       kerneloeiras
          # Let other names login as themselves
          superuser_map      /^(.*)$   \1
     '';
   };
 
   users = {
-    users.kerneloeiras = {
+    users.${dbName} = {
       isSystemUser = true;
-      group = "kerneloeiras";
+      group = "${dbName}";
     };
 
     groups = {
-      kerneloeiras = {};
+      ${dbName} = {};
     };
   };
 }
