@@ -11,7 +11,7 @@
     man-pages
     tldr
 
-    neofetch
+    fastfetch
 
     fzf
     ripgrep

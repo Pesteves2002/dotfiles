@@ -22,6 +22,7 @@
     ../features/networking/networkmanager.nix
 
     ../features/services/localsend.nix
+    ../features/services/syncthing.nix
   ];
 
   networking = {

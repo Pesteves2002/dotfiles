@@ -22,6 +22,7 @@
 
     ../features/services/debug.nix
     ../features/services/localsend.nix
+    ../features/services/syncthing.nix
 
     # ../features/virtualisation/docker.nix
   ];
