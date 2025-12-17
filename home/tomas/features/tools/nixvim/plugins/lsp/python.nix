@@ -1,6 +1,6 @@
 {
   programs.nixvim.plugins.lsp.servers = {
-    basedpyright.enable = true;
+    ty.enable = true;
     ruff.enable = true;
   };
 }
