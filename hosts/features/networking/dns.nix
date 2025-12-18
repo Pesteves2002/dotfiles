@@ -13,9 +13,12 @@ in {
   networking = {
     nameservers = c.dnsServers;
 
-    dhcpcd.extraConfig = "nohook resolv.conf";
+    dhcpcd.extraConfig = "nohook resolv.conf noarp";
+    dhcpcd.wait = "background";
     # networkmanager.dns = "none";
   };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   services.dnsproxy = {
     enable = true;
