@@ -1,11 +1,50 @@
-{lib, ...}: {
-  imports = [
-    ./resolved.nix
-  ];
-
+{
+  pkgs,
+  config,
+  ...
+}: let
+  interface = config.networking.wiredInterface;
+  isMachineStatic = interface != null;
+in {
   services.tailscale = {
     enable = true;
-    openFirewall = true;
-    useRoutingFeatures = lib.mkDefault "client";
+    useRoutingFeatures =
+      if isMachineStatic
+      then "both"
+      else "client";
   };
+
+  networking = {
+    nftables.enable = true;
+    firewall = {
+      enable = true;
+      # Always allow traffic from your Tailscale network
+      trustedInterfaces = ["tailscale0"];
+      # Allow the Tailscale UDP port through the firewall
+      allowedUDPPorts = [config.services.tailscale.port];
+    };
+  };
+
+  # 2. Force tailscaled to use nftables (Critical for clean nftables-only systems)
+  # This avoids the "iptables-compat" translation layer issues.
+  systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
+
+  # 3. Optimization: Prevent systemd from waiting for network online
+  # (Optional but recommended for faster boot with VPNs)
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+
+  services.networkd-dispatcher = {
+    enable = isMachineStatic;
+    rules."50-tailscale-optimizations" = {
+      onState = ["routable"];
+      script = ''
+        ${pkgs.ethtool}/bin/ethtool -K ${interface} rx-udp-gro-forwarding on rx-gro-list off
+      '';
+    };
+  };
+
+  environment.systemPackages = with pkgs; [ethtool];
 }
