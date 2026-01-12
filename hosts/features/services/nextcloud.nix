@@ -28,7 +28,10 @@ in {
       autoUpdateApps.enable = true;
       extraAppsEnable = true;
       extraApps = with config.services.nextcloud.package.packages.apps; {
-        inherit notes;
+        inherit
+          notes
+          cospend
+          ;
       };
 
       settings = {
@@ -48,10 +51,10 @@ in {
     nginx.virtualHosts.${domain} = {
       forceSSL = true;
       enableACME = true;
-      extraConfig = ''
-        allow 100.64.0.0/24;
-        deny all;
-      '';
+      # extraConfig = ''
+      #   allow 100.64.0.0/24;
+      #   deny all;
+      # '';
     };
   };
 }
