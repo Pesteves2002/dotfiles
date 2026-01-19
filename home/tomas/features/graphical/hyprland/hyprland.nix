@@ -177,6 +177,7 @@ in {
         "workspace 3 silent, class:^(vesktop)$"
         "workspace 4       , class:^.*zathura$"
         "workspace 5 silent, class:^((C|c)ider)$"
+        "workspace 6 silent, class:^((T|t)hunderbird)$"
 
         # Fix flameshot not working on multiple monitors
         "suppressevent fullscreen, class:flameshot"
@@ -203,6 +204,8 @@ in {
         "wl-paste --type image --watch cliphist store"
 
         "cider-2"
+
+        "thunderbird"
 
         "[workspace special silent; fullscreen] rnote"
       ];
