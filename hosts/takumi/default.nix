@@ -21,6 +21,7 @@ in {
 
     ../features/services/mailserver.nix
     ../features/services/minecraft.nix
+    ../features/services/monitoring.nix
     ../features/services/nextcloud.nix
     ../features/services/results-bot.nix
     ../features/services/website.nix
