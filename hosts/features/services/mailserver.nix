@@ -21,6 +21,8 @@ in {
     fqdn = mail_domain;
     domains = [domain];
 
+    dmarcReporting.enable = true;
+
     loginAccounts = {
       "tomas@tomase.pt" = {
         hashedPasswordFile = config.age.secrets.mailTomas.path;
