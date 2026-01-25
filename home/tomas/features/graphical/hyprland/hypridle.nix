@@ -8,6 +8,11 @@
   systemctl = lib.getExe' pkgs.systemd "systemctl";
   hyprctl = lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl";
   inherit (config.laptop) isLaptop;
+
+  lockTimeout =
+    if isLaptop
+    then 300 # 5 minutes
+    else 900; # 15 minutes
 in {
   services.hypridle = {
     enable = true;
@@ -32,18 +37,18 @@ in {
             on-resume = "brightnessctl -rd rgb:kbd_backlight";
           }
           {
-            timeout = 300;
+            timeout = lockTimeout;
             on-timeout = "${loginctl} lock-session";
           }
           {
-            timeout = 310;
+            timeout = lockTimeout + 10;
             on-timeout = "${hyprctl} dispatch dpms off";
             on-resume = "${hyprctl} dispatch dpms on";
           }
         ]
         ++ lib.optionals isLaptop [
           {
-            timeout = 330;
+            timeout = lockTimeout + 30;
             on-timeout = "${systemctl} suspend";
           }
         ];
