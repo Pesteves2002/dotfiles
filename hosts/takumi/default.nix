@@ -16,12 +16,13 @@ in {
 
     ../features/filesystem/ext4.nix
 
+    ../features/infra/grafana.nix
+
     ../features/networking/nginx.nix
     ../features/networking/headscale.nix
 
     ../features/services/mailserver.nix
     ../features/services/minecraft.nix
-    ../features/services/grafana.nix
     ../features/services/nextcloud.nix
     ../features/services/results-bot.nix
     ../features/services/website.nix

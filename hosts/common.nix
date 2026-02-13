@@ -10,7 +10,8 @@
       ./features/networking
       ./features/security
       ./features/system
-      ./features/services/prometheus.nix
+      ./features/infra/prometheus.nix
+      ./features/infra/loki.nix
     ]
     ++ builtins.attrValues outputs.nixosModules
     ++ [inputs.agenix.nixosModules.default];
