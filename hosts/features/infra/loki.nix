@@ -10,6 +10,8 @@ in {
       server.http_listen_port = loki_port;
       auth_enabled = false;
 
+      analytics.reporting_enabled = false;
+
       common = {
         ring = {
           instance_addr = "127.0.0.1";

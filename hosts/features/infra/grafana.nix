@@ -13,6 +13,11 @@ in {
           enable_gzip = true;
           inherit domain;
         };
+
+        analytics = {
+          reporting_enabled = false;
+          feedback_links_enabled = false;
+        };
       };
     };
 

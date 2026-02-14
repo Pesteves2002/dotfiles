@@ -19,12 +19,15 @@
       ];
 
       scrape_configs = [
+        # For systemd logs
         {
           job_name = "journal";
           journal = {
             max_age = "12h";
             labels = {
               job = "systemd-journal";
+              host = "your_hostname";
+              instance = "127.0.0.1";
             };
           };
 
@@ -35,7 +38,37 @@
             }
           ];
         }
+
+        {
+          job_name = "nginx";
+          static_configs = [
+            {
+              targets = ["127.0.0.1"];
+              labels = {
+                job = "nginx";
+                __path__ = "/var/log/nginx/*.log";
+                host = "your_hostname";
+                instance = "127.0.0.1";
+              };
+            }
+          ];
+        }
       ];
+    };
+  };
+
+  # https://oblivion.keyruu.de/Homelab/Monitoring
+  # Give nginx read permissions to promtail
+  users = {
+    users.promtail = {
+      isSystemUser = true;
+      group = "promtail";
+      extraGroups = ["nginx"];
+    };
+
+    groups = {
+      promtail = {};
+      nginx = {};
     };
   };
 }

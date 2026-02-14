@@ -18,7 +18,7 @@ in {
 
       scrapeConfigs = [
         {
-          job_name = "nodes";
+          job_name = "node_exporter";
           static_configs = [
             {
               targets = ["127.0.0.1:${toString config.services.prometheus.exporters.node.port}"];
