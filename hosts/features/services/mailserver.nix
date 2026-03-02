@@ -35,4 +35,10 @@ in {
     # down nginx and opens port 80.
     certificateScheme = "acme-nginx";
   };
+
+  security.acme.certs.${mail_domain} = {
+    # keep a stable private key for TLSA records (DANE)
+    # https://community.letsencrypt.org/t/please-avoid-3-0-1-and-3-0-2-dane-tlsa-records-with-le-certificates/7022/14
+    extraLegoRenewFlags = ["--reuse-key"];
+  };
 }
