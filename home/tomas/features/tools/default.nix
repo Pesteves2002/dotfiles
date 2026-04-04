@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./droidcam.nix
     ./git.nix
@@ -6,5 +6,9 @@
     ./signal.nix
     ./thunderbird.nix
     ./zathura.nix
+  ];
+
+  home.packages = with pkgs; [
+    python3
   ];
 }
