@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   c = config.networking;
 in {
   # Network Manager
@@ -21,6 +25,10 @@ in {
     defaultGateway = {
       address = c.ipv4Gateway;
       interface = c.wiredInterface;
+    };
+
+    firewall = {
+      allowedUDPPorts = lib.mkIf c.wakeOnLan [9];
     };
   };
 }
