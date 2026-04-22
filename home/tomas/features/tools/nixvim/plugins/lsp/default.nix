@@ -2,7 +2,6 @@
   imports = [
     ./bash.nix
     ./clang.nix
-    ./csharp.nix
     ./fidget.nix
     ./latex.nix
     ./matlab.nix
