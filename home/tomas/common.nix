@@ -12,6 +12,13 @@
     ++ [inputs.stylix.homeModules.stylix]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
+  nix.gc = {
+    automatic = true;
+
+    dates = "03:15";
+    options = "--delete-older-than 30d";
+  };
+
   nixpkgs = {
     overlays = [
       inputs.self.overlays.unstable-packages
