@@ -7,6 +7,9 @@
   domain = "tomase.pt";
   cv = "cv.${domain}";
   cv_redirect = "github.com/Pesteves2002/cv/releases/download/compiled-pdf/cv.pdf";
+
+  user = "website";
+  group = "website";
 in {
   services.nginx.virtualHosts = {
     ${domain} = {
@@ -31,7 +34,11 @@ in {
     };
   };
 
-  age.secrets."website.env".file = "${secrets}/takumi/website.age";
+  age.secrets."website.env" = {
+    file = "${secrets}/takumi/website.age";
+    owner = user;
+    mode = "0400";
+  };
 
   systemd.services.tomase-website = {
     description = "Tomás Esteves Website";
@@ -70,5 +77,16 @@ in {
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
     };
+  };
+
+  users = {
+    users = {
+      ${user} = {
+        isSystemUser = true;
+        inherit group;
+      };
+    };
+
+    groups = {${group} = {};};
   };
 }

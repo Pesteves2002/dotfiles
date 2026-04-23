@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = [
     pkgs.prismlauncher
-    pkgs.unstable.superTux
+    pkgs.unstable.supertux
   ];
 }
