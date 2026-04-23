@@ -20,4 +20,8 @@ in {
   "takumi/resultsBot.age".publicKeys = [
     hosts.takumi
   ];
+
+  "takumi/website.age".publicKeys = [
+    hosts.takumi
+  ];
 }

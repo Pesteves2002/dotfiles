@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.nixvim.plugins = {
     lsp.servers = {
       # rust_analyzer = {
@@ -38,7 +38,7 @@
 
     rustaceanvim = {
       enable = true;
-      package = pkgs.unstable.vimPlugins.rustaceanvim;
+      # package = pkgs.unstable.vimPlugins.rustaceanvim;
 
       settings = {
         server = {

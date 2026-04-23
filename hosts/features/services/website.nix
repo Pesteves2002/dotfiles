@@ -1,4 +1,9 @@
-{inputs, ...}: let
+{
+  config,
+  inputs,
+  secrets,
+  ...
+}: let
   domain = "tomase.pt";
   cv = "cv.${domain}";
   cv_redirect = "github.com/Pesteves2002/cv/releases/download/compiled-pdf/cv.pdf";
@@ -26,6 +31,8 @@ in {
     };
   };
 
+  age.secrets."website.env".file = "${secrets}/takumi/website.age";
+
   systemd.services.tomase-website = {
     description = "Tomás Esteves Website";
     after = ["network.target"];
@@ -38,6 +45,8 @@ in {
       Restart = "on-failure";
       RestartSec = 3;
       DynamicUser = true;
+
+      EnvironmentFile = [config.age.secrets."website.env".path];
 
       #Hardening
       CapabilityBoundingSet = "";
