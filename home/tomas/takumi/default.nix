@@ -1,6 +1,10 @@
 {
   imports = [
     ../common.nix
+
+    ../features/shell
+
+    ../features/tools
   ];
 
   credentials = {

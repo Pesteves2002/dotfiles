@@ -146,7 +146,10 @@
 
       "tomas@dragonfly" = lib.homeManagerConfiguration {
         modules = [./home/tomas/dragonfly];
-        pkgs = pkgsFor.x86_64-linux;
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          config.allowUnfree = true;
+        };
         extraSpecialArgs = {inherit self inputs outputs;};
       };
 

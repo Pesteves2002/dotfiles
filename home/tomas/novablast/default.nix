@@ -6,6 +6,10 @@
     # ../features/graphical/i3
 
     ../features/graphical/nvidia.nix
+
+    ../features/shell
+
+    ../features/tools
   ];
 
   monitors = [

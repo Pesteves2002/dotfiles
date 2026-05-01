@@ -4,18 +4,13 @@
   ...
 }: {
   imports =
-    [
-      ./features/shell
-      ./features/tools
-    ]
-    ++ [inputs.nixvim.homeModules.nixvim]
+    [inputs.nixvim.homeModules.nixvim]
     ++ [inputs.stylix.homeModules.stylix]
     ++ (builtins.attrValues outputs.homeManagerModules);
-
   nix.gc = {
     automatic = true;
 
-    dates = "03:15";
+    # dates = "03:15";
     options = "--delete-older-than 30d";
   };
 
