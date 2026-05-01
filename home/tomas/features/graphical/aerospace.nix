@@ -1,10 +1,12 @@
-let
+{pkgs,...}:let
   focus = dir: "focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors ${dir}";
   move = dir: "move --boundaries all-monitors-outer-frame --boundaries-action create-implicit-container ${dir}";
-  move-workspace = id: "move-node-to-workspace --focus-follows-windows ${id}";
+  move-workspace = id: "move-node-to-workspace --focus-follows-window ${id}";
 in {
   programs.aerospace = {
     enable = true;
+
+	package = pkgs.unstable.aerospace;
 
     launchd.enable = true;
 
@@ -64,7 +66,7 @@ in {
       gaps = {
         inner = {
           horizontal = 0;
-          inner.vertical = 0;
+          vertical = 0;
         };
 
         outer = {
@@ -170,15 +172,6 @@ in {
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
 
         alt-shift-semicolon = "mode service";
-
-        alt-enter = ''
-          '''exec-and-forget osascript -e '
-                      tell application "Terminal"
-                          do script
-                          activate
-                      end tell'
-          '''
-        '';
       };
 
       mode.service.binding = {

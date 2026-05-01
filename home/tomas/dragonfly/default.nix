@@ -3,6 +3,8 @@
     ../common.nix
 
     ../features/graphical/aerospace.nix
+	../features/shell/kitty.nix
+
 
     # ../features/graphical/hyprland
 
