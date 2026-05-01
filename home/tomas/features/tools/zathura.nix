@@ -1,4 +1,8 @@
 {
+  lib,
+  pkgs,
+  ...
+}: {
   programs.zathura = {
     enable = true;
 
@@ -16,7 +20,7 @@
     };
   };
 
-  xdg.mimeApps = {
+  xdg.mimeApps = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
     defaultApplications = {
       # Use Zathura as default PDF viewer

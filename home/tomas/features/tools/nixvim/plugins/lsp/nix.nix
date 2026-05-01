@@ -1,6 +1,7 @@
 {
-  pkgs,
   config,
+  lib,
+  pkgs,
   ...
 }: {
   programs.nixvim.plugins.lsp.servers.nixd = {
@@ -8,13 +9,16 @@
 
     settings = let
       inherit (config.credentials) user hostname;
-      flake = ''(builtins.getFlake "/home/${user}/.dotfiles")'';
+      flake = ''(builtins.getFlake "/home/tomas/.dotfiles")'';
     in {
       formatting.command = ["alejandra"];
 
-      nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
+      nixpkgs.expr =
+        if pkgs.stdenv.hostPlatform.isLinux
+        then "import ${flake}.inputs.nixpkgs { }"
+        else "";
 
-      options = {
+      options = lib.mkIf pkgs.stdenv.isLinux {
         nixos.expr = "${flake}.nixosConfigurations.${hostname}.options";
         home-manager.expr = "${flake}.homeConfigurations.\"${user}@${hostname}\".options";
         nixvim.expr = "${flake}.homeConfigurations.\"${user}@${hostname}\".options.programs.nixvim.type.getSubOptions []";

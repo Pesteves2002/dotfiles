@@ -1,17 +1,12 @@
 {
   imports = [
+./spotlight.nix
+
     ../common.nix
 
     ../features/graphical/aerospace.nix
-	../features/shell/kitty.nix
-
-
-    # ../features/graphical/hyprland
-
-    # ../features/graphical/i3
-
-    # ../features/games/geforce-now.nix
-    # ../features/games/minecraft.nix
+	   ../features/shell
+	   ../features/tools
   ];
 
   # monitors = [
