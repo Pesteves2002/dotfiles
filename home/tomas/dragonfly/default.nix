@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.mac-app-util.homeManagerModules.default
 
@@ -7,6 +11,32 @@
     ../features/graphical/aerospace.nix
     ../features/shell
     ../features/tools
+  ];
+
+  home.systemPackages = with pkgs; [
+    atool
+    zip
+    unzip
+
+    tmux
+
+    htop-vim
+
+    man-pages
+    tldr
+
+    fastfetch
+
+    fzf
+    ripgrep
+    fd
+
+    curl
+    wget
+
+    neovim
+
+    bat
   ];
 
   # monitors = [
