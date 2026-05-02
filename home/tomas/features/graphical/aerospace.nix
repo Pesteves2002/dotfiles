@@ -62,7 +62,7 @@ in {
       on-mode-changed = [];
 
       after-startup-command = [
-        "exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0"
+        "exec-and-forget ${pkgs.jankyborders}/bin/borders active_color=0xffd79921 inactive_color=0xff282828 width=5.0"
       ];
 
       key-mapping.preset = "qwerty";
