@@ -9,11 +9,12 @@
     ../common.nix
 
     ../features/graphical/aerospace.nix
+    ../features/graphical/stylix.nix
     ../features/shell
     ../features/tools
   ];
 
-  home.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     atool
     zip
     unzip
@@ -33,8 +34,6 @@
 
     curl
     wget
-
-    neovim
 
     bat
   ];
