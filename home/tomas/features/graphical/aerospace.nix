@@ -61,6 +61,10 @@ in {
 
       on-mode-changed = [];
 
+      after-startup-command = [
+        "exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0"
+      ];
+
       key-mapping.preset = "qwerty";
 
       gaps = {
@@ -187,4 +191,8 @@ in {
       };
     };
   };
+
+  home.packages = with pkgs; [
+    jankyborders
+  ];
 }

@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./blink-cmp.nix
     ./copilot.nix
@@ -74,6 +74,7 @@
     # Help with commands
     wilder = {
       enable = true;
+      package = pkgs.unstable.vimPlugins.wilder-nvim;
       settings = {
         modes = [":" "/" "?"];
       };
