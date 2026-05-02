@@ -1,17 +1,15 @@
 {
   inputs,
-  lib,
   outputs,
-pkgs,
+  pkgs,
   ...
-}: let 
+}: let
   username = "tomas";
   homeDirectory =
-if pkgs.stdenv.hostPlatform.isDarwin
+    if pkgs.stdenv.hostPlatform.isDarwin
     then "/Users/${username}"
     else "/home/${username}";
-  in
-{
+in {
   imports =
     [inputs.nixvim.homeModules.nixvim]
     ++ [inputs.stylix.homeModules.stylix]
@@ -34,7 +32,7 @@ if pkgs.stdenv.hostPlatform.isDarwin
   };
 
   home = {
-      inherit homeDirectory username;
+    inherit homeDirectory username;
   };
 
   # Enable home-manager

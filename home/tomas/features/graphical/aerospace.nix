@@ -1,4 +1,4 @@
-{pkgs,...}:let
+{pkgs, ...}: let
   focus = dir: "focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors ${dir}";
   move = dir: "move --boundaries all-monitors-outer-frame --boundaries-action create-implicit-container ${dir}";
   move-workspace = id: "move-node-to-workspace --focus-follows-window ${id}";
@@ -6,7 +6,7 @@ in {
   programs.aerospace = {
     enable = true;
 
-	package = pkgs.unstable.aerospace;
+    package = pkgs.unstable.aerospace;
 
     launchd.enable = true;
 

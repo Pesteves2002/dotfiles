@@ -1,12 +1,12 @@
-{
+{inputs, ...}: {
   imports = [
-./spotlight.nix
+    inputs.mac-app-util.homeManagerModules.default
 
     ../common.nix
 
     ../features/graphical/aerospace.nix
-	   ../features/shell
-	   ../features/tools
+    ../features/shell
+    ../features/tools
   ];
 
   # monitors = [

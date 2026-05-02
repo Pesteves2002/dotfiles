@@ -1,5 +1,9 @@
-{lib, pkgs, ...}: {
-  programs.direnv = lib.mkIf pkgs.stdenv.isLinux{
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  programs.direnv = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
 
     enableZshIntegration = true;

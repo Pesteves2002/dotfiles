@@ -37,6 +37,8 @@
 
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
 
+    mac-app-util.url = "github:hraban/mac-app-util";
+
     tomase-website = {
       url = "github:Pesteves2002/tomase-website";
       inputs.nixpkgs.follows = "nixpkgs";
