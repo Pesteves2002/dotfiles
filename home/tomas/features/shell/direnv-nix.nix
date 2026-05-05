@@ -1,10 +1,8 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  programs.direnv = lib.mkIf pkgs.stdenv.isLinux {
+{pkgs, ...}: {
+  programs.direnv = {
     enable = true;
+
+    package = pkgs.unstable.direnv;
 
     enableZshIntegration = true;
 
