@@ -6,6 +6,7 @@
         update = "nix fmt * -- -q && sudo nixos-rebuild switch --flake .#$(hostname -s)";
         ff = "firefox";
         idea = "idea-ultimate > /dev/null 2>&1 &";
+        vi = "nvim";
       };
       oh-my-zsh = {
         enable = true;
