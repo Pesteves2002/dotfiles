@@ -35,28 +35,6 @@ in {
         "7"
         "8"
         "9"
-        "A"
-        "B"
-        "C"
-        "D"
-        "E"
-        "F"
-        "G"
-        "I"
-        "M"
-        "N"
-        "O"
-        "P"
-        "Q"
-        "R"
-        "S"
-        "T"
-        "U"
-        "V"
-        "W"
-        "X"
-        "Y"
-        "Z"
       ];
 
       on-mode-changed = [];
@@ -117,28 +95,6 @@ in {
         alt-7 = "workspace 7";
         alt-8 = "workspace 8";
         alt-9 = "workspace 9";
-        alt-a = "workspace A";
-        alt-b = "workspace B";
-        alt-c = "workspace C";
-        alt-d = "workspace D";
-        alt-e = "workspace E";
-        alt-f = "workspace F";
-        alt-g = "workspace G";
-        alt-i = "workspace I";
-        alt-m = "workspace M";
-        alt-n = "workspace N";
-        alt-o = "workspace O";
-        alt-p = "workspace P";
-        alt-q = "workspace Q";
-        alt-r = "workspace R";
-        alt-s = "workspace S";
-        alt-t = "workspace T";
-        alt-u = "workspace U";
-        alt-v = "workspace V";
-        alt-w = "workspace W";
-        alt-x = "workspace X";
-        alt-y = "workspace Y";
-        alt-z = "workspace Z";
 
         alt-shift-1 = move-workspace "1";
         alt-shift-2 = move-workspace "2";
@@ -149,28 +105,6 @@ in {
         alt-shift-7 = move-workspace "7";
         alt-shift-8 = move-workspace "8";
         alt-shift-9 = move-workspace "9";
-        alt-shift-a = move-workspace "A";
-        alt-shift-b = move-workspace "B";
-        alt-shift-c = move-workspace "C";
-        alt-shift-d = move-workspace "D";
-        alt-shift-e = move-workspace "E";
-        alt-shift-f = move-workspace "F";
-        alt-shift-g = move-workspace "G";
-        alt-shift-i = move-workspace "I";
-        alt-shift-m = move-workspace "M";
-        alt-shift-n = move-workspace "N";
-        alt-shift-o = move-workspace "O";
-        alt-shift-p = move-workspace "P";
-        alt-shift-q = move-workspace "Q";
-        alt-shift-r = move-workspace "R";
-        alt-shift-s = move-workspace "S";
-        alt-shift-t = move-workspace "T";
-        alt-shift-u = move-workspace "U";
-        alt-shift-v = move-workspace "V";
-        alt-shift-w = move-workspace "W";
-        alt-shift-x = move-workspace "X";
-        alt-shift-y = move-workspace "Y";
-        alt-shift-z = move-workspace "Z";
 
         alt-tab = "workspace-back-and-forth";
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";

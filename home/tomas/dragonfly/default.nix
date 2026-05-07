@@ -36,6 +36,8 @@
     wget
 
     bat
+
+    obsidian
   ];
 
   # monitors = [
