@@ -14,8 +14,8 @@
 
     fonts = {
       monospace = {
-        package = pkgs.iosevka;
-        name = "IosevkaTerm";
+        package = pkgs.nerd-fonts.recursive-mono;
+        name = "Recursive Mono";
       };
 
       sansSerif = {

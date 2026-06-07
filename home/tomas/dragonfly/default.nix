@@ -38,6 +38,8 @@
     bat
 
     obsidian
+
+    vscode
   ];
 
   # monitors = [

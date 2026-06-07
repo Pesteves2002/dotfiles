@@ -4,7 +4,8 @@
   ...
 }: {
   programs.zathura = {
-    enable = true;
+    enable =
+      pkgs.stdenv.hostPlatform.isLinux;
 
     options = {
       scroll-page-aware = "true";

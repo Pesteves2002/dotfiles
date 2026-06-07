@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs = {
     zsh = {
       enable = true;
@@ -52,6 +56,11 @@
           };
         }
       ];
+
+      initContent = lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
+        source "$HOME/.sdkman/bin/sdkman-init.sh"
+        export PATH="$HOME/.local/bin:$PATH"
+      '';
     };
 
     # eza (modern ls replacement)
