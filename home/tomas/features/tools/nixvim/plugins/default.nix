@@ -74,7 +74,7 @@
     # Help with commands
     wilder = {
       enable = true;
-      # package = pkgs.unstable.vimPlugins.wilder-nvim;
+      options = {use_python_remote_plugin = 1;};
       settings = {
         modes = [":" "/" "?"];
       };
