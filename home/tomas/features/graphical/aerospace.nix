@@ -6,8 +6,6 @@ in {
   programs.aerospace = {
     enable = true;
 
-    package = pkgs.unstable.aerospace;
-
     launchd.enable = true;
 
     userSettings = {

@@ -82,7 +82,6 @@
             "snippets"
             "buffer"
 
-            "spell"
             # "copilot"
           ];
 
@@ -115,7 +114,6 @@
       };
     };
 
-    blink-cmp-spell.enable = true;
     blink-cmp-copilot.enable = true;
   };
 }

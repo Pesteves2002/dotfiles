@@ -6,7 +6,7 @@
 
     waypipe # wayland remote desktop
 
-    unstable.vesktop # discord client
+    vesktop # discord client
 
     grim
     slurp

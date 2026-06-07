@@ -8,6 +8,8 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
 
+    configType = "hyprlang";
+
     settings = {
       "$mod" = "SUPER";
       input = {
@@ -148,7 +150,7 @@ in {
 
       misc = {
         disable_hyprland_logo = true;
-        vfr = isLaptop; # Reduce number frames on laptop for performance
+        # vfr = isLaptop; # Reduce number frames on laptop for performance
       };
 
       monitor =
@@ -172,18 +174,17 @@ in {
       ];
 
       windowrule = [
-        "workspace 1       , class:^(kitty)$"
-        "workspace 2       , class:^(firefox)$"
-        "workspace 3 silent, class:^(vesktop)$"
-        "workspace 4       , class:^.*zathura$"
-        "workspace 5 silent, class:^((C|c)ider)$"
-        "workspace 6 silent, class:^((T|t)hunderbird)$"
+        "match:class ^(kitty)$, workspace 1"
+        "match:class ^(firefox)$, workspace 2"
+        "match:class ^(vesktop)$, workspace 3 silent"
+        "match:class ^.*zathura$, workspace 4"
+        "match:class ^((C|c)ider)$, workspace 5 silent"
+        "match:class ^((T|t)hunderbird)$, workspace 6 silent"
 
         # Fix flameshot not working on multiple monitors
-        "suppressevent fullscreen, class:flameshot"
-        "float, class:flameshot"
-        "monitor 1, class:flameshot"
-        "move 0 0, class:flameshot"
+        "match:class flameshot, suppress_event fullscreen"
+        "match:class flameshot, float true"
+        "match:class flameshot, move 0 0"
 
         # "bordersize 0, floating:0, onworkspace:w[tv1]"
         # "rounding 0, floating:0, onworkspace:w[tv1]"

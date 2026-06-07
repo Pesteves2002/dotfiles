@@ -4,6 +4,8 @@
 
     enableZshIntegration = true;
 
+    shellWrapperName = "y";
+
     settings = {
       mgr = {
         ratio = [1 2 3];

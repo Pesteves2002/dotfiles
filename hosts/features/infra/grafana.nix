@@ -14,6 +14,10 @@ in {
           inherit domain;
         };
 
+        security = {
+          secret_key = "SW2YcwTIb9zpOOhoPsMm";
+        };
+
         analytics = {
           reporting_enabled = false;
           feedback_links_enabled = false;

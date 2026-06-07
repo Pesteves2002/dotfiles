@@ -16,6 +16,8 @@ in {
   mailserver = {
     enable = true;
 
+    x509.useACMEHost = config.mailserver.fqdn;
+
     stateVersion = 3;
 
     fqdn = mail_domain;
@@ -23,17 +25,18 @@ in {
 
     dmarcReporting.enable = true;
 
-    loginAccounts = {
+    accounts = {
       "tomas@tomase.pt" = {
         hashedPasswordFile = config.age.secrets.mailTomas.path;
 
         aliases = ["@tomase.pt"];
       };
     };
+  };
 
-    # Use Let's Encrypt certificates. Note that this needs to set up a stripped
-    # down nginx and opens port 80.
-    certificateScheme = "acme-nginx";
+  services.nginx = {
+    enable = true;
+    virtualHosts.${config.mailserver.fqdn}.enableACME = true;
   };
 
   security.acme.certs.${mail_domain} = {
