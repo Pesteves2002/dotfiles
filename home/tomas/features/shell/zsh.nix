@@ -61,7 +61,7 @@
         [[ ! $(command -v nix) && -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]] && source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
         source "$HOME/.sdkman/bin/sdkman-init.sh"
         export PATH="$HOME/.local/bin:$PATH"
-        ssh-add --apple-use-keychain ~/.ssh-id_rsa
+        ssh-add --apple-use-keychain ~/.ssh/id_rsa
       '';
     };
 
