@@ -13,6 +13,9 @@
         "<leader>ps" = {
           action = "live_grep";
         };
+        "<leader>pb" = {
+          action = "buffers";
+        };
       };
 
       extensions = {

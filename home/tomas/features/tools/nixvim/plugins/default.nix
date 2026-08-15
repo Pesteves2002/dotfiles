@@ -27,7 +27,7 @@
     };
 
     # Add open files at the top
-    # bufferline.enable = true;
+    bufferline.enable = true;
 
     # Undo tree
     undotree = {
@@ -74,7 +74,6 @@
     # Help with commands
     wilder = {
       enable = true;
-      options = {use_python_remote_plugin = 1;};
       settings = {
         modes = [":" "/" "?"];
       };

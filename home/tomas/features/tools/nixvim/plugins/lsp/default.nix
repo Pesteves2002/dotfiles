@@ -50,7 +50,8 @@
         }
 
         {
-          key = "<c-p>";
+          # was <c-p>: freed up for other use
+          key = "[d";
           action = config.lib.nixvim.mkRaw ''
             function()
               vim.diagnostic.goto_prev({ wrap = false })
@@ -59,7 +60,8 @@
         }
 
         {
-          key = "<c-m>";
+          # was <c-m>: clashed with harpoon's select(4) and with <CR> (same keycode in terminal)
+          key = "]d";
           action = config.lib.nixvim.mkRaw ''
             function()
               vim.diagnostic.goto_next({ wrap = false })
@@ -78,4 +80,18 @@
       ];
     };
   };
+
+  # Format on save using whatever LSP client supports formatting for the buffer.
+  # Wrapped in pcall so it's a silent no-op on filetypes with no formatting-capable client.
+  programs.nixvim.autoCmd = [
+    {
+      event = ["BufWritePre"];
+      pattern = ["*"];
+      callback = config.lib.nixvim.mkRaw ''
+        function()
+          pcall(vim.lsp.buf.format, { async = false, timeout_ms = 2000 })
+        end
+      '';
+    }
+  ];
 }

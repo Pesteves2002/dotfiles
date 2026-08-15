@@ -5,11 +5,61 @@
 
       settings = {
         close_if_last_window = true;
+
+        window = {
+          width = 30;
+          position = "left";
+        };
+
+        source_selector = {
+          winbar = true;
+          statusline = false;
+          sources = [
+            {
+              source = "filesystem";
+              display_name = " 󰉓 Files";
+            }
+            {
+              source = "buffers";
+              display_name = " 󰈚 Buffers";
+            }
+            {
+              source = "git_status";
+              display_name = " 󰊢 Git";
+            }
+          ];
+        };
+
         filesystem = {
           bind_to_cwd = true;
           follow_current_file = {
             enabled = true;
           };
+
+          filtered_items = {
+            visible = false;
+            hide_dotfiles = false;
+            hide_gitignored = true;
+            hide_by_name = [
+              ".git"
+              "node_modules"
+            ];
+          };
+
+          window = {
+            fuzzy_finder_mappings = {
+              "<C-j>" = "move_cursor_down";
+              "<C-k>" = "move_cursor_up";
+            };
+          };
+        };
+
+        buffers = {
+          follow_current_file = {
+            enabled = true;
+          };
+          group_empty_dirs = true;
+          show_unloaded = true;
         };
 
         enable_git_status = true;
@@ -70,6 +120,20 @@
         mode = "n";
         key = "<leader>pv";
         action = "<CMD>Neotree reveal toggle<CR>";
+      }
+
+      {
+        # Toggle open-buffers panel
+        mode = "n";
+        key = "<leader>be";
+        action = "<CMD>Neotree toggle buffers<CR>";
+      }
+
+      {
+        # Toggle git status panel (note: <leader>gs is taken by fugitive's :Git)
+        mode = "n";
+        key = "<leader>gt";
+        action = "<CMD>Neotree toggle git_status<CR>";
       }
     ];
 
