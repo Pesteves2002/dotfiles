@@ -25,8 +25,6 @@ in {
       default-root-container-layout = "tiles";
       default-root-container-orientation = "auto";
 
-      focus-follows-mouse = true;
-
       on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
 
       automatically-unhide-macos-hidden-apps = true;
