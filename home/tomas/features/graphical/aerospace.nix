@@ -25,7 +25,7 @@ in {
       default-root-container-layout = "tiles";
       default-root-container-orientation = "auto";
 
-      focus-follows-mouse.enabled = true;
+      focus-follows-mouse = true;
 
       on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
 
