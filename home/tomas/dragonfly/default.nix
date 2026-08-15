@@ -9,7 +9,9 @@
     ../common.nix
 
     ../features/graphical/aerospace.nix
+    ../features/graphical/flameshot.nix
     ../features/graphical/stylix.nix
+
     ../features/shell
     ../features/tools
   ];

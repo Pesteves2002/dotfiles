@@ -25,6 +25,8 @@ in {
       default-root-container-layout = "tiles";
       default-root-container-orientation = "auto";
 
+      focus-follows-mouse.enabled = true;
+
       on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
 
       automatically-unhide-macos-hidden-apps = true;
@@ -39,6 +41,7 @@ in {
         "7"
         "8"
         "9"
+        "10"
       ];
 
       on-window-detected = [
@@ -46,6 +49,7 @@ in {
         (windowDetected "com.tinyspeck.slackmacgap" "3")
         (windowDetected "com.todesktop.230313mzl4w4u92" "7")
         (windowDetected "com.microsoft.VSCode" "7")
+        (windowDetected "com.docker.docker" "8")
       ];
 
       on-mode-changed = [];
@@ -106,6 +110,7 @@ in {
         alt-7 = workspace 7;
         alt-8 = workspace 8;
         alt-9 = workspace 9;
+        alt-0 = workspace 10;
 
         alt-shift-1 = move-workspace "1";
         alt-shift-2 = move-workspace "2";
@@ -116,11 +121,14 @@ in {
         alt-shift-7 = move-workspace "7";
         alt-shift-8 = move-workspace "8";
         alt-shift-9 = move-workspace "9";
+        alt-shift-10 = move-workspace "10";
 
         alt-tab = "workspace-back-and-forth";
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
 
         alt-shift-semicolon = "mode service";
+
+        alt-shift-s = "exec-and-forget open -a Flameshot --args gui";
       };
 
       mode.service.binding = {
