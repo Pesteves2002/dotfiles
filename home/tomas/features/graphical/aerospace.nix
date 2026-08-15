@@ -3,7 +3,7 @@
   move = dir: "move-workspace-to-monitor ${dir}";
   move-workspace = id: "move-node-to-workspace --focus-follows-window ${id}";
   # https://github.com/nikitabobko/AeroSpace/issues/101
-  workspace = id: ["workspace ${id}" "workspace ${id}" "workspace ${id}"];
+  workspace = id: ["workspace ${toString id}" "workspace ${toString id}" "workspace ${toString id}"];
   windowDetected = appId: workspaceId: {
     "if".app-id = appId;
     run = "move-node-to-workspace ${workspaceId}";
