@@ -2,6 +2,12 @@
   focus = dir: "focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors ${dir}";
   move = dir: "move-workspace-to-monitor ${dir}";
   move-workspace = id: "move-node-to-workspace --focus-follows-window ${id}";
+  # https://github.com/nikitabobko/AeroSpace/issues/101
+  workspace = id: ["workspace ${id}" "workspace ${id}" "workspace ${id}"];
+  windowDetected = appId: workspaceId: {
+    "if".app-id = appId;
+    run = "move-node-to-workspace ${workspaceId}";
+  };
 in {
   programs.aerospace = {
     enable = true;
@@ -33,6 +39,13 @@ in {
         "7"
         "8"
         "9"
+      ];
+
+      on-window-detected = [
+        (windowDetected "net.kovidgoyal.kitty" "1")
+        (windowDetected "com.tinyspeck.slackmacgap" "3")
+        (windowDetected "com.todesktop.230313mzl4w4u92" "7")
+        (windowDetected "com.microsoft.VSCode" "7")
       ];
 
       on-mode-changed = [];
@@ -84,15 +97,15 @@ in {
         alt-minus = "resize smart -50";
         alt-equal = "resize smart +50";
 
-        alt-1 = "workspace 1";
-        alt-2 = "workspace 2";
-        alt-3 = "workspace 3";
-        alt-4 = "workspace 4";
-        alt-5 = "workspace 5";
-        alt-6 = "workspace 6";
-        alt-7 = "workspace 7";
-        alt-8 = "workspace 8";
-        alt-9 = "workspace 9";
+        alt-1 = workspace 1;
+        alt-2 = workspace 2;
+        alt-3 = workspace 3;
+        alt-4 = workspace 4;
+        alt-5 = workspace 5;
+        alt-6 = workspace 6;
+        alt-7 = workspace 7;
+        alt-8 = workspace 8;
+        alt-9 = workspace 9;
 
         alt-shift-1 = move-workspace "1";
         alt-shift-2 = move-workspace "2";
