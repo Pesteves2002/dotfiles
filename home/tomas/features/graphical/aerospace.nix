@@ -121,7 +121,7 @@ in {
         alt-shift-7 = move-workspace "7";
         alt-shift-8 = move-workspace "8";
         alt-shift-9 = move-workspace "9";
-        alt-shift-10 = move-workspace "10";
+        alt-shift-0 = move-workspace "10";
 
         alt-tab = "workspace-back-and-forth";
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
