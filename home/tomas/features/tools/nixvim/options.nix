@@ -31,15 +31,7 @@
       spelllang = ["en" "pt"];
 
       undofile = true;
-      # was "/tmp//": /tmp doesn't survive reboots (often tmpfs), so undo
-      # history was silently thrown away. Persist it under XDG state instead.
-      undodir = "~/.local/state/nvim/undo//";
     };
-
-    # Make sure the undodir actually exists; nvim won't create it for you.
-    extraConfigLua = ''
-      vim.fn.mkdir(vim.fn.expand("~/.local/state/nvim/undo"), "p")
-    '';
 
     autoCmd = [
       {
